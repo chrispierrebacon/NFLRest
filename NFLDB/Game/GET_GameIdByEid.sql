@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE [dbo].[GET_GameIdByEid]
+	@Eid INT
+AS
+BEGIN
+	SELECT TOP 1 GameId FROM Games
+	WHERE Eid = @Eid
+END

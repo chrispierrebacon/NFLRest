@@ -1,0 +1,14 @@
+C:\Projects\NFLRESTAPI\NFLDAL\obj\Debug\NFLDAL.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\NFLDAL.dll.config
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\NFLDAL.dll
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\NFLDAL.pdb
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\Autofac.dll
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\EntityFramework.dll
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\NFLObjects.dll
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\NFLObjects.pdb
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\Autofac.xml
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\EntityFramework.xml
+C:\Projects\NFLRESTAPI\NFLDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NFLRESTAPI\NFLDAL\obj\Debug\NFLDAL.dll
+C:\Projects\NFLRESTAPI\NFLDAL\obj\Debug\NFLDAL.pdb

@@ -1,0 +1,11 @@
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLBLL.dll
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLBLL.pdb
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\Autofac.dll
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLDAL.dll
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLObjects.dll
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLDAL.pdb
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\NFLObjects.pdb
+C:\Projects\NFLRESTAPI\NFLBLL\bin\Debug\Autofac.xml
+C:\Projects\NFLRESTAPI\NFLBLL\obj\Debug\NFLBLL.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRESTAPI\NFLBLL\obj\Debug\NFLBLL.dll
+C:\Projects\NFLRESTAPI\NFLBLL\obj\Debug\NFLBLL.pdb

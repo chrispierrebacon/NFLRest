@@ -1,0 +1,5 @@
+C:\Projects\NFLRESTAPI\NFLObjects\bin\Debug\NFLObjects.dll
+C:\Projects\NFLRESTAPI\NFLObjects\bin\Debug\NFLObjects.pdb
+C:\Projects\NFLRESTAPI\NFLObjects\obj\Debug\NFLObjects.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRESTAPI\NFLObjects\obj\Debug\NFLObjects.dll
+C:\Projects\NFLRESTAPI\NFLObjects\obj\Debug\NFLObjects.pdb

@@ -1,0 +1,16 @@
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\ParseJsonData.exe.config
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\ParseJsonData.exe
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\ParseJsonData.pdb
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\NFLObjects.dll
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\RestSharp.dll
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\NFLObjects.pdb
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\NFLRESTAPI\ParseJsonData\bin\Debug\RestSharp.xml
+C:\Projects\NFLRESTAPI\ParseJsonData\obj\Debug\ParseJsonData.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRESTAPI\ParseJsonData\obj\Debug\ParseJsonData.exe
+C:\Projects\NFLRESTAPI\ParseJsonData\obj\Debug\ParseJsonData.pdb
