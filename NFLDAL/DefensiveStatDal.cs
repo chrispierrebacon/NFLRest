@@ -1,4 +1,4 @@
-﻿using NFLObjects.Objects;
+﻿using NFLEF;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +10,8 @@ namespace NFLDAL
 {
     public class DefensiveStatDal : IDefensiveStatDal
     {
+        NFLDBEntities entities = new NFLDBEntities();
+
         private readonly IDatabaseAccess _databaseAccess;
 
         public DefensiveStatDal(IDatabaseAccess databaseAccess)
@@ -42,7 +44,12 @@ namespace NFLDAL
 
         public DefensiveStat Get(Guid Id)
         {
-            throw new NotImplementedException();
+            return entities.DefensiveStats.Where(i => i.DefensiveStatsId == Id).Single();
+        }
+
+        public IEnumerable<DefensiveStat> GetAll()
+        {
+            return entities.DefensiveStats;
         }
 
         public int Update(DefensiveStat obj)
@@ -65,5 +72,7 @@ namespace NFLDAL
             var returnDictionary = _databaseAccess.NonQuery("DELETE_DefensiveStat", parameters, outputParameters);
             return returnDictionary.ContainsKey("ReturnVal") ? (int)returnDictionary["ReturnVal"] : 0;
         }
+
+        
     }
 }

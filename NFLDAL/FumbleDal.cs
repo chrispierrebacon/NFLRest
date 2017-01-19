@@ -1,4 +1,4 @@
-﻿using NFLObjects.Objects;
+﻿using NFLEF;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +10,7 @@ namespace NFLDAL
 {
     public class FumbleDal : IFumbleDal
     {
+        NFLDBEntities entities = new NFLDBEntities();
         private readonly IDatabaseAccess _databaseAccess;
 
         public FumbleDal(IDatabaseAccess databaseAccess)
@@ -45,6 +46,11 @@ namespace NFLDAL
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Fumble> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Update(Fumble obj)
         {
             throw new NotImplementedException();
@@ -54,5 +60,7 @@ namespace NFLDAL
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

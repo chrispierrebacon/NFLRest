@@ -1,5 +1,5 @@
-﻿using NFLObjects;
-using NFLObjects.Objects;
+﻿using NFLEF;
+using NFLEF;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,7 +27,7 @@ namespace NFLDAL
                 { "Team", player.Team },
                 { "Birthdate", player.Birthdate },
                 { "College", player.College },
-                { "FullName", player.Fullname },
+                { "FullName", player.FullName },
                 { "GsisId", player.GsisId },
                 { "GsisName", player.GsisName },
                 { "Height", player.Height },
@@ -59,21 +59,21 @@ namespace NFLDAL
 
             Player player = new Player();
 
-            player.Id = reader.ContainsKey("PlayerId") ? Guid.Parse(reader["PlayerId"].ToString()) : Guid.Empty;
+            player.PlayerId = reader.ContainsKey("PlayerId") ? Guid.Parse(reader["PlayerId"].ToString()) : Guid.Empty;
             player.FirstName = reader.ContainsKey("FirstName") ? reader["FirstName"].ToString() : string.Empty;
             player.LastName = reader.ContainsKey("LastName") ? reader["LastName"].ToString() : string.Empty;
-            player.Position = reader.ContainsKey("Position") ? (Position)reader["Position"] : Position.NONE;
+            player.Position = reader.ContainsKey("Position") ? reader["Position"].ToString() : "NONE";
             player.Team = reader.ContainsKey("Team") ? reader["Team"].ToString() : string.Empty;
             player.Birthdate = reader.ContainsKey("Birthdate") ? (DateTime)reader["Birthdate"] : new DateTime(1753, 1, 1);
             player.College = reader.ContainsKey("College") ? reader["College"].ToString() : string.Empty;
-            player.Fullname = reader.ContainsKey("FullName") ? reader["FullName"].ToString() : string.Empty;
+            player.FullName = reader.ContainsKey("FullName") ? reader["FullName"].ToString() : string.Empty;
             player.GsisId = reader.ContainsKey("GsisId") ? reader["GsisId"].ToString() : string.Empty;
             player.GsisName = reader.ContainsKey("GsisName") ? reader["GsisName"].ToString() : string.Empty;
             player.Height = reader.ContainsKey("Height") ? (int)reader["Height"] : -1;
             player.Number = reader.ContainsKey("Number") ? (int)reader["Number"] : -1;
             player.ProfileId = reader.ContainsKey("ProfileId") ? (int)reader["ProfileId"] : -1;
             player.ProfileUrl = reader.ContainsKey("ProfileUrl") ? reader["ProfileUrl"].ToString() : string.Empty;
-            player.Status = reader.ContainsKey("Status") ? (Status)reader["Status"] : Status.RET;
+            player.Status = reader.ContainsKey("Status") ? reader["Status"].ToString() : "RET";
             player.ProfileId = reader.ContainsKey("ProfileId") ? (int)reader["ProfileId"] : -1;
             player.Weight = reader.ContainsKey("Weight") ? (int)reader["Weight"] : -1;
             player.YearsPro = reader.ContainsKey("YearsPro") ? (int)reader["YearsPro"] : -1;
@@ -92,7 +92,7 @@ namespace NFLDAL
                 { "Team", player.Team },
                 { "Birthdate", player.Birthdate },
                 { "College", player.College },
-                { "FullName", player.Fullname },
+                { "FullName", player.FullName },
                 { "GsisId", player.GsisId },
                 { "GsisName", player.GsisName },
                 { "Height", player.Height },

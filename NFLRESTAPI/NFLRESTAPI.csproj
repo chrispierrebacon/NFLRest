@@ -323,9 +323,9 @@
       <Project>{0f761925-f7ec-4012-a793-bd4f6282f722}</Project>
       <Name>NFLDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NFLObjects\NFLObjects.csproj">
-      <Project>{38f0687a-502c-41f8-8b75-b50b4277b87d}</Project>
-      <Name>NFLObjects</Name>
+    <ProjectReference Include="..\NFLEF\NFLEF.csproj">
+      <Project>{e0715143-fca2-4311-97fe-e169efc79564}</Project>
+      <Name>NFLEF</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

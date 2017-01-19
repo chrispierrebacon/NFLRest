@@ -1,5 +1,4 @@
-﻿using NFLObjects.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +8,9 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
-using NFLObjects;
-using NFLRequests;
 using System.Globalization;
 using System.Collections.Concurrent;
+using NFLEF;
 
 namespace ParseJsonData
 {
@@ -36,7 +34,7 @@ namespace ParseJsonData
 
             foreach (var stat in parseStats())
             {
-                RestRequest<StatsRequest> restRequest = new RestRequest<StatsRequest>();
+                RestRequest<GameStats> restRequest = new RestRequest<GameStats>();
                 restRequest.MakeRequest("http://localhost:49786", "api/stats", stat, Method.POST, headers);
             }
         }
@@ -363,7 +361,7 @@ namespace ParseJsonData
                 }
 
                 game.DateTime = new DateTime(Convert.ToInt32(g.Last.year), Convert.ToInt32(g.Last.month), Convert.ToInt32(g.Last.day), hour, Convert.ToInt32(matches[1].ToString()), 0);
-                game.SeasonType = (SeasonType)g.Last.season_type;
+                game.SeasonType = g.Last.season_type;
                 game.Eid = g.Last.eid;
                 game.GameKey = g.Last.gamekey;
                 game.Week = g.Last.week;
@@ -390,7 +388,7 @@ namespace ParseJsonData
                 player.Birthdate = shit.birthdate != null ? shit.birthdate : new DateTime(1753, 1, 1);
                 player.College = shit.college;
                 player.FirstName = shit.first_name;
-                player.Fullname = shit.full_name;
+                player.FullName = shit.full_name;
                 player.GsisId = shit.gsis_id;
                 player.GsisName = shit.gsis_name != null ? shit.gsis_name : "";
                 player.Height = shit.height != null ? shit.height : -1;
@@ -399,9 +397,9 @@ namespace ParseJsonData
                 player.ProfileUrl = shit.profile_url;
                 player.Weight = shit.weight != null ? shit.weight : -1;
                 player.YearsPro = shit.years_pro != null ? shit.years_pro : -1;
-                player.Position = shit.position != null ? shit.position : Position.NONE;
+                player.Position = shit.position != null ? shit.position : "NONE";
                 player.Number = shit.number != null ? shit.number : -1;
-                player.Status = shit.status != null ? shit.status : Status.RET;
+                player.Status = shit.status != null ? shit.status : "RET";
                 player.Team = shit.team != null ? shit.team : "NONE";
                 players.Add(player);
             }
@@ -409,9 +407,9 @@ namespace ParseJsonData
             return players;
         }
 
-        private static List<StatsRequest> parseStats()
+        private static List<GameStats> parseStats()
         {
-            List<StatsRequest> requests = new List<StatsRequest>();
+            List<GameStats> requests = new List<GameStats>();
 
             List<Task> tasks = new List<Task>();
 
@@ -421,7 +419,7 @@ namespace ParseJsonData
                 {
                     string jsonString = File.ReadAllText(file);
 
-                    var statsRequest = new StatsRequest();
+                    var statsRequest = new GameStats();
                     dynamic bitches = JsonConvert.DeserializeObject(jsonString);
                     JEnumerable<JToken> children = bitches.Children();
                     dynamic game = children.First().First();
@@ -443,7 +441,7 @@ namespace ParseJsonData
             return requests;
         }
 
-        private static void buildGame(dynamic g, StatsRequest request)
+        private static void buildGame(dynamic g, GameStats request)
         {
             Game game = new Game();
 
@@ -472,7 +470,7 @@ namespace ParseJsonData
             request.Game = game;
         } 
 
-        private static void buildStatsRequest(dynamic stats, StatsRequest request)
+        private static void buildStatsRequest(dynamic stats, GameStats request)
         {
             request.PassingStats.AddRange(buildPassingStats(stats));
             request.RushingStats.AddRange(buildRushingStats(stats));

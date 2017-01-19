@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[SeasonType]
+(
+	[Name] NVARCHAR(4) NOT NULL PRIMARY KEY UNIQUE
+)

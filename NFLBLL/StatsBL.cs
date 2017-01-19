@@ -1,7 +1,6 @@
 ﻿using NFLDAL;
-using NFLRequests;
+using NFLEF;
 using System;
-using NFLObjects.Objects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +9,7 @@ namespace NFLBLL
 {
     public class StatsBL
     {
+        NFLDBEntities entities = new NFLDBEntities();
         private readonly IGameDal _gameDal;
         private readonly IFumbleDal _fumbleDal;
         private readonly IKickingStatDal _kickingStatDal;
@@ -39,7 +39,7 @@ namespace NFLBLL
             _playerDal = playerDal;
         }
 
-        public int Create(StatsRequest request)
+        public int Create(GameStats request)
         {
             // Fetch GameId
             Guid gameId = _gameDal.GetGameIdByEid(request.Game.Eid);
@@ -164,6 +164,63 @@ namespace NFLBLL
 
             return 0;
         }
+
+        public double GetFantasyPointsForPlayerByDateRange(Guid playerId, DateTime startDate, DateTime endDate, bool PPR)
+        {
+            string[] seasonTypes = { "REG", "POST" };
+            var gameIds = entities.Games.Where(i => i.DateTime >= startDate && i.DateTime <= endDate && seasonTypes.Contains(i.SeasonType)).Select(j => j.GameId).ToList();
+
+            return GetFantasyPointsByPlayerIdAndGameIds(playerId, gameIds, PPR);
+        }
+
+        public double GetFantasyPointsByPlayerIdAndGameIds(Guid playerId, List<Guid> gameIds, bool PPR)
+        {
+            double points = 0;
+            
+            var fumbles = entities.Fumbles.Where(i => gameIds.Contains(i.GameId) && i.PlayerId == playerId);
+            if (fumbles.Any())
+            {
+                points += fumbles.Sum(i => i.Lost) * -2;
+            }
+
+            var kickingStats = entities.KickingStats.Where(i => gameIds.Contains(i.GameId) && i.PlayerId == playerId);
+            if (kickingStats.Any())
+            {
+                points +=
+                         (kickingStats.Sum(i => i.FieldGoalsMade) * 3) + (kickingStats.Sum(i => i.FieldGoalsAttempted - i.FieldGoalsMade) * -1)
+                       + (kickingStats.Sum(i => i.ExtraPointsMade) * 1) + (kickingStats.Sum(i => i.ExtraPointsTotal - i.ExtraPointsMade) * -1);
+            }
+
+            var passingStats = entities.PassingStats.Where(i => gameIds.Contains(i.GameId) && i.PlayerId == playerId);
+            if (passingStats.Any())
+            {
+                points += passingStats.Sum(i => i.Yards) * .04;
+                points += passingStats.Sum(i => i.Touchdowns) * 4;
+                points += passingStats.Sum(i => i.Interceptions) * -2;
+                points += passingStats.Sum(i => i.TwoPointMakes) * 2;
+            }
+
+            var receivingStats = entities.ReceivingStats.Where(i => gameIds.Contains(i.GameId) && i.PlayerId == playerId);
+            if (receivingStats.Any())
+            {
+                points +=
+                         (receivingStats.Sum(i => i.Yards) * .1) + (receivingStats.Sum(i => i.Touchdowns) * 6) + receivingStats.Sum(i => i.TwoPointsMade) * 2;
+
+                if (PPR)
+                {
+                    points += receivingStats.Sum(i => i.Receptions);
+                }
+            }
+
+            var rushingStats = entities.RushingStats.Where(i => gameIds.Contains(i.GameId) && i.PlayerId == playerId);
+            if (rushingStats.Any())
+            {
+                points +=
+                         (rushingStats.Sum(i => i.Yards) * .1) + (rushingStats.Sum(i => i.Touchdowns) * 6) + (rushingStats.Sum(i => i.TwoPointsMade) * 2);
+            }
+            return points;
+        }
+
 
         //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)
         //{

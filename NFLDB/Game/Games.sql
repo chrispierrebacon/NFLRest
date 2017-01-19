@@ -4,7 +4,7 @@
     [HomeTeam]         NVARCHAR (10)    NOT NULL,
     [AwayTeam]         NVARCHAR (10)    NOT NULL,
     [DateTime]         DATETIME         NOT NULL,
-    [SeasonType]       NVARCHAR(10)     NOT NULL,
+    [SeasonType]       NVARCHAR(4)     NOT NULL,
     [Eid]              BIGINT              NOT NULL,
     [GameKey]          BIGINT              NOT NULL,
     [Week]             INT              NOT NULL,
@@ -25,9 +25,6 @@
     [NeutralField]     BIT              NOT NULL,
     PRIMARY KEY CLUSTERED ([GameId] ASC),
     FOREIGN KEY ([AwayTeam]) REFERENCES [dbo].[Teams] ([Prefix]),
-    FOREIGN KEY ([HomeTeam]) REFERENCES [dbo].[Teams] ([Prefix])
+    FOREIGN KEY ([HomeTeam]) REFERENCES [dbo].[Teams] ([Prefix]),
+	FOREIGN KEY ([SeasonType]) REFERENCES [dbo].[SeasonType] (Name)
 );
-
-
-
-

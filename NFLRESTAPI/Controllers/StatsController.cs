@@ -1,5 +1,4 @@
 ﻿using NFLBLL;
-using NFLRequests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using NFLEF;
 
 namespace NFLRESTAPI.Controllers
 {
@@ -32,7 +32,7 @@ namespace NFLRESTAPI.Controllers
             return "value";
         }
 
-        public HttpResponseMessage Post([FromBody]StatsRequest value)
+        public HttpResponseMessage Post([FromBody]GameStats value)
         {
             int resp = _statsBL.Create(value);
             HttpResponseMessage response = new HttpResponseMessage();
@@ -41,7 +41,7 @@ namespace NFLRESTAPI.Controllers
             return response;
         }
 
-        public void Put(int id, [FromBody]StatsRequest value)
+        public void Put(int id, [FromBody]GameStats value)
         {
         }
 

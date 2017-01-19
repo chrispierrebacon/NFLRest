@@ -1,5 +1,4 @@
-﻿using NFLObjects;
-using NFLObjects.Objects;
+﻿using NFLEF;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -27,7 +26,7 @@ namespace NFLDAL
                 { "HomeTeam", game.HomeTeam },
                 { "AwayTeam", game.AwayTeam },
                 { "DateTime", game.DateTime },
-                { "SeasonType", game.SeasonType.ToString() },
+                { "SeasonType", game.SeasonType },
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },
@@ -71,7 +70,7 @@ namespace NFLDAL
             game.HomeTeam = reader.ContainsKey("HomeTeam") ? reader["HomeTeam"].ToString() : string.Empty;
             game.AwayTeam = reader.ContainsKey("AwayTeam") ? reader["AwayTeam"].ToString() : string.Empty;
             game.DateTime = reader.ContainsKey("DateTime") ? (DateTime)reader["DateTime"] : new DateTime(1753, 1, 1);
-            game.SeasonType = reader.ContainsKey("SeasonType") ? (SeasonType)reader["SeasonType"] : SeasonType.PRE;
+            game.SeasonType = reader.ContainsKey("SeasonType") ? reader["SeasonType"].ToString() : "NONE";
             game.Eid = reader.ContainsKey("Eid") ? (int)reader["Eid"] : -1;
             game.GameKey = reader.ContainsKey("GameKey") ? (int)reader["GameKey"] : -1;
             game.Week = reader.ContainsKey("Week") ? (int)reader["Week"] : -1;
@@ -113,7 +112,7 @@ namespace NFLDAL
                 { "HomeTeam", game.HomeTeam },
                 { "AwayTeam", game.AwayTeam },
                 { "DateTime", game.DateTime },
-                { "SeasonType", game.SeasonType.ToString() },
+                { "SeasonType", game.SeasonType },
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },

@@ -103,6 +103,7 @@
     <Build Include="RushingStats\CREATE_RushingStat.sql" />
     <Build Include="Game\GET_GameIdByEid.sql" />
     <Build Include="Players\GET_PlayerIdByGsisId.sql" />
+    <Build Include="Game\SeasonType.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />

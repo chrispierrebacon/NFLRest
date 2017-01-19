@@ -93,9 +93,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NFLObjects\NFLObjects.csproj">
-      <Project>{38f0687a-502c-41f8-8b75-b50b4277b87d}</Project>
-      <Name>NFLObjects</Name>
+    <ProjectReference Include="..\NFLEF\NFLEF.csproj">
+      <Project>{e0715143-fca2-4311-97fe-e169efc79564}</Project>
+      <Name>NFLEF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

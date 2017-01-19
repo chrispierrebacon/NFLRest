@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NFLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conferences">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DefensiveStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefensiveStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Tackles" Type="int" Nullable="false" />
+    <Property Name="Assists" Type="int" Nullable="false" />
+    <Property Name="Sacks" Type="int" Nullable="false" />
+    <Property Name="Interceptions" Type="int" Nullable="false" />
+    <Property Name="ForcedFumbles" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Divisions">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fumbles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FumblesId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Recovered" Type="int" Nullable="false" />
+    <Property Name="TeamRecovered" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="Lost" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HomeTeam" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="AwayTeam" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="SeasonType" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Eid" Type="bigint" Nullable="false" />
+    <Property Name="GameKey" Type="bigint" Nullable="false" />
+    <Property Name="Week" Type="int" Nullable="false" />
+    <Property Name="WT" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="LT" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WTScoreFirstQtr" Type="int" Nullable="false" />
+    <Property Name="WTScoreSecondQtr" Type="int" Nullable="false" />
+    <Property Name="WTScoreThirdQtr" Type="int" Nullable="false" />
+    <Property Name="WTScoreFourthQtr" Type="int" Nullable="false" />
+    <Property Name="WTScoreOT" Type="int" Nullable="false" />
+    <Property Name="WTScoreFinal" Type="int" Nullable="false" />
+    <Property Name="LTScoreFirstQtr" Type="int" Nullable="false" />
+    <Property Name="LTScoreSecondQtr" Type="int" Nullable="false" />
+    <Property Name="LTScoreThirdQtr" Type="int" Nullable="false" />
+    <Property Name="LTScoreFourthQtr" Type="int" Nullable="false" />
+    <Property Name="LTScoreOT" Type="int" Nullable="false" />
+    <Property Name="LTScoreFinal" Type="int" Nullable="false" />
+    <Property Name="NeutralField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KickingStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KickingStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FieldGoalsMade" Type="int" Nullable="false" />
+    <Property Name="FieldGoalsAttempted" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="TotalPoints" Type="int" Nullable="false" />
+    <Property Name="ExtraPointsMade" Type="int" Nullable="false" />
+    <Property Name="ExtraPointsMissed" Type="int" Nullable="false" />
+    <Property Name="ExtraPointsAttempted" Type="int" Nullable="false" />
+    <Property Name="ExtraPointsBlocked" Type="int" Nullable="false" />
+    <Property Name="ExtraPointsTotal" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KickReturnStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KickReturnStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Returns" Type="int" Nullable="false" />
+    <Property Name="Average" Type="int" Nullable="false" />
+    <Property Name="Touchdowns" Type="int" Nullable="false" />
+    <Property Name="Long" Type="int" Nullable="false" />
+    <Property Name="LongTouchdown" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PassingStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassingStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Attempts" Type="int" Nullable="false" />
+    <Property Name="Completions" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="Touchdowns" Type="int" Nullable="false" />
+    <Property Name="Interceptions" Type="int" Nullable="false" />
+    <Property Name="TwoPointAttempts" Type="int" Nullable="false" />
+    <Property Name="TwoPointMakes" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+    <Property Name="College" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GsisName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Height" Type="int" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="ProfileId" Type="int" Nullable="false" />
+    <Property Name="ProfileUrl" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="YearsPro" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PuntingStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PuntingStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Punts" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="Average" Type="int" Nullable="false" />
+    <Property Name="InsideTwenty" Type="int" Nullable="false" />
+    <Property Name="Long" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PuntReturnStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PuntReturnStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Returns" Type="int" Nullable="false" />
+    <Property Name="Average" Type="int" Nullable="false" />
+    <Property Name="Touchdowns" Type="int" Nullable="false" />
+    <Property Name="Long" Type="int" Nullable="false" />
+    <Property Name="LongTouchdown" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReceivingStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceivingStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Receptions" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="Touchdowns" Type="int" Nullable="false" />
+    <Property Name="Long" Type="int" Nullable="false" />
+    <Property Name="TwoPointAttempts" Type="int" Nullable="false" />
+    <Property Name="TwoPointsMade" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RushingStats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RushingStatsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Attempts" Type="int" Nullable="false" />
+    <Property Name="Yards" Type="int" Nullable="false" />
+    <Property Name="Touchdowns" Type="int" Nullable="false" />
+    <Property Name="Long" Type="int" Nullable="false" />
+    <Property Name="TwoPointAttempts" Type="int" Nullable="false" />
+    <Property Name="TwoPointsMade" Type="int" Nullable="false" />
+    <Property Name="GsisId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SeasonType">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Prefix" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Conference" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Defensive__GameI__0F624AF8">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="DefensiveStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Defensive__Playe__236943A5">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="DefensiveStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fumbles__GameId__114A936A">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="Fumbles">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fumbles__PlayerI__245D67DE">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="Fumbles">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__AwayTeamI__0B91BA14">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="AwayTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__HomeTeamI__0A9D95DB">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="HomeTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__SeasonTyp__2967A37E">
+    <End Role="SeasonType" Type="Self.SeasonType" Multiplicity="1" />
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeasonType">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="SeasonType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KickingSt__GameI__14DBF883">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="KickingStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KickingSt__Playe__15D01CBC">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="KickingStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KickRetur__GameI__151B244E">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="KickReturnStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KickRetur__Playe__2645B050">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="KickReturnStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PassingSt__GameI__17036CC0">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="PassingStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PassingSt__Playe__2739D489">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PassingStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Players__Positio__2BFE89A6">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Players__TeamPre__2CF2ADDF">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntingSt__GameI__18EBB532">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="PuntingStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntingSt__Playe__282DF8C2">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PuntingStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntRetur__GameI__1AD3FDA4">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="PuntReturnStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntRetur__Playe__29221CFB">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PuntReturnStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receiving__GameI__1CBC4616">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="ReceivingStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receiving__Playe__2A164134">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="ReceivingStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RushingSt__GameI__1EA48E88">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="RushingStats">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RushingSt__Playe__2B0A656D">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="RushingStats">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teams__Conferenc__2DE6D218">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Teams">
+        <PropertyRef Name="Conference" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teams__Division__2EDAF651">
+    <End Role="Divisions" Type="Self.Divisions" Multiplicity="1" />
+    <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Divisions">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Teams">
+        <PropertyRef Name="Division" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CREATE_DefensiveStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Tackles" Type="int" Mode="In" />
+    <Parameter Name="Assists" Type="int" Mode="In" />
+    <Parameter Name="Sacks" Type="int" Mode="In" />
+    <Parameter Name="Interceptions" Type="int" Mode="In" />
+    <Parameter Name="ForcedFumbles" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_Fumble" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+    <Parameter Name="Recovered" Type="int" Mode="In" />
+    <Parameter Name="TeamRecovered" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="Lost" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_Game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HomeTeam" Type="nvarchar" Mode="In" />
+    <Parameter Name="AwayTeam" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateTime" Type="datetime" Mode="In" />
+    <Parameter Name="SeasonType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Eid" Type="int" Mode="In" />
+    <Parameter Name="GameKey" Type="int" Mode="In" />
+    <Parameter Name="Week" Type="int" Mode="In" />
+    <Parameter Name="WT" Type="nvarchar" Mode="In" />
+    <Parameter Name="LT" Type="nvarchar" Mode="In" />
+    <Parameter Name="WTScoreFirstQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreSecondQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreThirdQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreFourthQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreOT" Type="int" Mode="In" />
+    <Parameter Name="WTScoreFinal" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFirstQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreSecondQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreThirdQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFourthQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreOT" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFinal" Type="int" Mode="In" />
+    <Parameter Name="NeutralField" Type="bit" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_KickingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FieldGoalsMade" Type="int" Mode="In" />
+    <Parameter Name="FieldGoalsAttempted" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="TotalPoints" Type="int" Mode="In" />
+    <Parameter Name="ExtraPointsMade" Type="int" Mode="In" />
+    <Parameter Name="ExtraPointsMissed" Type="int" Mode="In" />
+    <Parameter Name="ExtraPointsAttempted" Type="int" Mode="In" />
+    <Parameter Name="ExtraPointsBlocked" Type="int" Mode="In" />
+    <Parameter Name="ExtraPointsTotal" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_KickReturnStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Returns" Type="int" Mode="In" />
+    <Parameter Name="Average" Type="int" Mode="In" />
+    <Parameter Name="Touchdowns" Type="int" Mode="In" />
+    <Parameter Name="Long" Type="int" Mode="In" />
+    <Parameter Name="LongTouchdown" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_PassingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Attempts" Type="int" Mode="In" />
+    <Parameter Name="Completions" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="Touchdowns" Type="int" Mode="In" />
+    <Parameter Name="Interceptions" Type="int" Mode="In" />
+    <Parameter Name="TwoPointAttempts" Type="int" Mode="In" />
+    <Parameter Name="TwoPointMakes" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_Player" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Position" Type="nvarchar" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
+    <Parameter Name="Birthdate" Type="datetime" Mode="In" />
+    <Parameter Name="College" Type="nvarchar" Mode="In" />
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="GsisName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Height" Type="int" Mode="In" />
+    <Parameter Name="Number" Type="int" Mode="In" />
+    <Parameter Name="ProfileId" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProfileUrl" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="Weight" Type="int" Mode="In" />
+    <Parameter Name="YearsPro" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_PuntingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Punts" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="Average" Type="int" Mode="In" />
+    <Parameter Name="InsideTwenty" Type="int" Mode="In" />
+    <Parameter Name="Long" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_PuntReturnStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Returns" Type="int" Mode="In" />
+    <Parameter Name="Average" Type="int" Mode="In" />
+    <Parameter Name="Touchdowns" Type="int" Mode="In" />
+    <Parameter Name="Long" Type="int" Mode="In" />
+    <Parameter Name="LongTouchdown" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_ReceivingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Receptions" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="Touchdowns" Type="int" Mode="In" />
+    <Parameter Name="Long" Type="int" Mode="In" />
+    <Parameter Name="TwoPointAttempts" Type="int" Mode="In" />
+    <Parameter Name="TwoPointsMade" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_RushingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Attempts" Type="int" Mode="In" />
+    <Parameter Name="Yards" Type="int" Mode="In" />
+    <Parameter Name="Touchdowns" Type="int" Mode="In" />
+    <Parameter Name="Long" Type="int" Mode="In" />
+    <Parameter Name="TwoPointAttempts" Type="int" Mode="In" />
+    <Parameter Name="TwoPointsMade" Type="int" Mode="In" />
+    <Parameter Name="GsisId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="CREATE_Team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Prefix" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="NickName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Conference" Type="nvarchar" Mode="In" />
+    <Parameter Name="Division" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="InOut" />
+  </Function>
+  <Function Name="GET_GameIdByEid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Eid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GET_PlayerIdByGsisId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Gsid" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_Game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="HomeTeam" Type="nvarchar" Mode="In" />
+    <Parameter Name="AwayTeam" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateTime" Type="datetime" Mode="In" />
+    <Parameter Name="SeasonType" Type="varchar" Mode="In" />
+    <Parameter Name="Eid" Type="int" Mode="In" />
+    <Parameter Name="GameKey" Type="int" Mode="In" />
+    <Parameter Name="Week" Type="int" Mode="In" />
+    <Parameter Name="WT" Type="nvarchar" Mode="In" />
+    <Parameter Name="LT" Type="nvarchar" Mode="In" />
+    <Parameter Name="WTScoreFirstQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreSecondQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreThirdQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreFourthQtr" Type="int" Mode="In" />
+    <Parameter Name="WTScoreOT" Type="int" Mode="In" />
+    <Parameter Name="WTScoreFinal" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFirstQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreSecondQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreThirdQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFourthQtr" Type="int" Mode="In" />
+    <Parameter Name="LTScoreOT" Type="int" Mode="In" />
+    <Parameter Name="LTScoreFinal" Type="int" Mode="In" />
+    <Parameter Name="NeutralField" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="NFLDBModelStoreContainer">
+    <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conferences" EntityType="Self.Conferences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DefensiveStats" EntityType="Self.DefensiveStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Divisions" EntityType="Self.Divisions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fumbles" EntityType="Self.Fumbles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KickingStats" EntityType="Self.KickingStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KickReturnStats" EntityType="Self.KickReturnStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassingStats" EntityType="Self.PassingStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PuntingStats" EntityType="Self.PuntingStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PuntReturnStats" EntityType="Self.PuntReturnStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceivingStats" EntityType="Self.ReceivingStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RushingStats" EntityType="Self.RushingStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SeasonType" EntityType="Self.SeasonType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Defensive__GameI__0F624AF8" Association="Self.FK__Defensive__GameI__0F624AF8">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="DefensiveStats" EntitySet="DefensiveStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Defensive__Playe__236943A5" Association="Self.FK__Defensive__Playe__236943A5">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="DefensiveStats" EntitySet="DefensiveStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fumbles__GameId__114A936A" Association="Self.FK__Fumbles__GameId__114A936A">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="Fumbles" EntitySet="Fumbles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fumbles__PlayerI__245D67DE" Association="Self.FK__Fumbles__PlayerI__245D67DE">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Fumbles" EntitySet="Fumbles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__AwayTeamI__0B91BA14" Association="Self.FK__Games__AwayTeamI__0B91BA14">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__HomeTeamI__0A9D95DB" Association="Self.FK__Games__HomeTeamI__0A9D95DB">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__SeasonTyp__2967A37E" Association="Self.FK__Games__SeasonTyp__2967A37E">
+      <End Role="SeasonType" EntitySet="SeasonType" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KickingSt__GameI__14DBF883" Association="Self.FK__KickingSt__GameI__14DBF883">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="KickingStats" EntitySet="KickingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KickingSt__Playe__15D01CBC" Association="Self.FK__KickingSt__Playe__15D01CBC">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="KickingStats" EntitySet="KickingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KickRetur__GameI__151B244E" Association="Self.FK__KickRetur__GameI__151B244E">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="KickReturnStats" EntitySet="KickReturnStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KickRetur__Playe__2645B050" Association="Self.FK__KickRetur__Playe__2645B050">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="KickReturnStats" EntitySet="KickReturnStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PassingSt__GameI__17036CC0" Association="Self.FK__PassingSt__GameI__17036CC0">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="PassingStats" EntitySet="PassingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PassingSt__Playe__2739D489" Association="Self.FK__PassingSt__Playe__2739D489">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="PassingStats" EntitySet="PassingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__Positio__2BFE89A6" Association="Self.FK__Players__Positio__2BFE89A6">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__TeamPre__2CF2ADDF" Association="Self.FK__Players__TeamPre__2CF2ADDF">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntingSt__GameI__18EBB532" Association="Self.FK__PuntingSt__GameI__18EBB532">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="PuntingStats" EntitySet="PuntingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntingSt__Playe__282DF8C2" Association="Self.FK__PuntingSt__Playe__282DF8C2">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="PuntingStats" EntitySet="PuntingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntRetur__GameI__1AD3FDA4" Association="Self.FK__PuntRetur__GameI__1AD3FDA4">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntRetur__Playe__29221CFB" Association="Self.FK__PuntRetur__Playe__29221CFB">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receiving__GameI__1CBC4616" Association="Self.FK__Receiving__GameI__1CBC4616">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="ReceivingStats" EntitySet="ReceivingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receiving__Playe__2A164134" Association="Self.FK__Receiving__Playe__2A164134">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="ReceivingStats" EntitySet="ReceivingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RushingSt__GameI__1EA48E88" Association="Self.FK__RushingSt__GameI__1EA48E88">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="RushingStats" EntitySet="RushingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RushingSt__Playe__2B0A656D" Association="Self.FK__RushingSt__Playe__2B0A656D">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="RushingStats" EntitySet="RushingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teams__Conferenc__2DE6D218" Association="Self.FK__Teams__Conferenc__2DE6D218">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="Teams" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teams__Division__2EDAF651" Association="Self.FK__Teams__Division__2EDAF651">
+      <End Role="Divisions" EntitySet="Divisions" />
+      <End Role="Teams" EntitySet="Teams" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

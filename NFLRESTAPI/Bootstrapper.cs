@@ -8,7 +8,7 @@ using NFLDAL;
 using Autofac.Integration.WebApi;
 using System.Reflection;
 using Autofac.Integration.Mvc;
-using NFLObjects.Objects;
+using NFLEF;
 
 namespace NFLRESTAPI
 {

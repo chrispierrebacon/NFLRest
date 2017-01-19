@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b727322c6c6049c2964b1d5b6605889d" Name="Diagram1">
+        <EntityTypeShape EntityType="NFLDBModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Conference" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.DefensiveStat" Width="1.5" PointX="10.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Division" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Fumble" Width="1.5" PointX="13.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Game" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.KickingStat" Width="1.5" PointX="10.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.KickReturnStat" Width="1.5" PointX="10.5" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.PassingStat" Width="1.5" PointX="13.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Player" Width="1.5" PointX="8.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Position" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.PuntingStat" Width="1.5" PointX="13.5" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.PuntReturnStat" Width="1.5" PointX="16.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.ReceivingStat" Width="1.5" PointX="16.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.RushingStat" Width="1.5" PointX="16.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.SeasonType" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NFLDBModel.Team" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <AssociationConnector Association="NFLDBModel.FK__Teams__Conferenc__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Defensive__GameI__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Defensive__Playe__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Teams__Division__2EDAF651" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Fumbles__GameId__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Fumbles__PlayerI__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Games__AwayTeamI__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Games__HomeTeamI__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Games__SeasonTyp__2967A37E" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__KickingSt__GameI__14DBF883" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__KickRetur__GameI__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PassingSt__GameI__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PuntingSt__GameI__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PuntRetur__GameI__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Receiving__GameI__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__RushingSt__GameI__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__KickingSt__Playe__15D01CBC" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__KickRetur__Playe__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PassingSt__Playe__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Players__Positio__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Players__TeamPre__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PuntingSt__Playe__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__PuntRetur__Playe__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__Receiving__Playe__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="NFLDBModel.FK__RushingSt__Playe__2B0A656D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
