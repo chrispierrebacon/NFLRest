@@ -16,7 +16,7 @@ namespace NFLBLL
         {
             var games = _dalCrud.GetAll();
             games = games.OrderByDescending(i => i.DateTime);
-
+            //somecomment whatever
             return games.ToList();
         }
     }
