@@ -9,9 +9,10 @@ using NFLCommon.DALInterfaces;
 
 namespace NFLBLL
 {
+    // TODO: Make this abstract once there are concretes
     public class SingleStatBL<T> : IBLCrud<T>
     {
-        private readonly IDalCrud<T> _dalCrud;
+        internal readonly IDalCrud<T> _dalCrud;
 
         public SingleStatBL(IDalCrud<T> dalCrud)
         {
@@ -23,7 +24,7 @@ namespace NFLBLL
             return _dalCrud.Create(obj);
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _dalCrud.GetAll();
         }

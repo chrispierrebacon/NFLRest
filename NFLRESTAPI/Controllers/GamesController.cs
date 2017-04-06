@@ -24,13 +24,6 @@ namespace NFLRESTAPI.Controllers
             base.Initialize(controllerContext);
         }
 
-        // GET: api/values
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Game game)
         {
@@ -45,7 +38,7 @@ namespace NFLRESTAPI.Controllers
         public HttpResponseMessage Get(string id = "")
         {
             string content = (string.IsNullOrEmpty(id))
-                ? JsonConvert.SerializeObject(_gameBL.GetAll().ToList()) 
+                ? JsonConvert.SerializeObject(_gameBL.GetAll()) 
                 : JsonConvert.SerializeObject(_gameBL.Get(Guid.Parse(id)));
             HttpResponseMessage response = new HttpResponseMessage();
             response.Headers.Add("Id", id.ToString());

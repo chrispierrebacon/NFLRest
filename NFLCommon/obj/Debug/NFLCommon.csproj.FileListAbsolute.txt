@@ -7,3 +7,4 @@ C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.xml
 C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.SqlServer.xml
 C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.dll
 C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.pdb
+C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.csprojResolveAssemblyReference.cache

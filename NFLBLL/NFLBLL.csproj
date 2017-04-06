@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GamesBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleStatBL.cs" />
     <Compile Include="StatsBL.cs" />
