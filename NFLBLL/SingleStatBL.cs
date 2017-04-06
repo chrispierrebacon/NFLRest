@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NFLCommon.BLLInterfaces;
 using NFLCommon.DALInterfaces;
+using Newtonsoft.Json;
 
 namespace NFLBLL
 {
     // TODO: Make this abstract once there are concretes
-    public class SingleStatBL<T> : IBLCrud<T>
+    public class SingleStatBL<T>
     {
         internal readonly IDalCrud<T> _dalCrud;
 
@@ -23,15 +23,14 @@ namespace NFLBLL
         {
             return _dalCrud.Create(obj);
         }
+              
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> Get(string filterJson = "")
         {
-            return _dalCrud.GetAll();
-        }
-
-        public T Get(Guid Id)
-        {
-            return _dalCrud.Get(Id);
+            Filter filter = JsonConvert.DeserializeObject<Filter>(filterJson);
+            var list = new List<T>();
+            list.Add(_dalCrud.Get(filter.Id));
+            return list;
         }
 
         public int Update(T obj)
@@ -43,5 +42,10 @@ namespace NFLBLL
         {
             return _dalCrud.Delete(Id);
         }
+    }
+
+    public class Filter
+    {
+        public Guid Id { get; set; } = Guid.Empty;
     }
 }

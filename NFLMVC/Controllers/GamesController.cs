@@ -21,7 +21,12 @@ namespace NFLMVC.Controllers
                 { "Content-Type", "application/json; charset=utf-8" }
             };
 
-            var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", null, Method.GET, headers);
+            GamesFilter filter = new GamesFilter
+            {
+                Season = 2016
+            };
+
+            var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", null, Method.GET, headers, filter);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string responseJson = response.Content;
@@ -33,7 +38,6 @@ namespace NFLMVC.Controllers
                 // TODO: Make an error page or try again?
                 return View();
             }
-
         }
 
         // GET: Games/Details/5
@@ -62,7 +66,7 @@ namespace NFLMVC.Controllers
                     { "Content-Type", "application/json; charset=utf-8" }
                 };
 
-                var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
+                var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers, null);
 
                 if(response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
@@ -101,7 +105,7 @@ namespace NFLMVC.Controllers
                     { "Content-Type", "application/json; charset=utf-8" }
                 };
 
-                var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", game, Method.PUT, headers);
+                var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", game, Method.PUT, headers, null);
                 if(response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     // TODO: Go back go the details page???
@@ -143,5 +147,17 @@ namespace NFLMVC.Controllers
                 return View();
             }
         }
+    }
+
+    public class GamesFilter : NFLFilter
+    {
+        public bool PreSeasonOn { get; set; } = false;
+        public bool PostSeasonOn { get; set; } = true;
+        public bool RegSeasonOn { get; set; } = true;
+        public int Season { get; set; }
+        // When the nfl was founded. It would be cool to have all this data
+        public DateTime StartDate { get; set; } = new DateTime(1920, 8, 20);
+        // Some time far in the future
+        public DateTime EndDate { get; set; } = new DateTime(2100, 1, 1);
     }
 }

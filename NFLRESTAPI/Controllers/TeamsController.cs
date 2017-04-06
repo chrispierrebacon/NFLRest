@@ -8,27 +8,19 @@ using NFLBLL;
 using Newtonsoft.Json;
 using System.Web.Http.Controllers;
 using NFLCommon;
-using NFLCommon.BLLInterfaces;
+
 
 namespace NFLRESTAPI.Controllers
 {
     public class TeamsController : ApiController
     {
-        private IBLCrud<Team> _teamBL;
+        private SingleStatBL<Team> _teamBL;
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             var container = controllerContext.Configuration.DependencyResolver.BeginScope();
-            _teamBL = (IBLCrud<Team>)container.GetService(typeof(IBLCrud<Team>));
+            _teamBL = (SingleStatBL<Team>)container.GetService(typeof(SingleStatBL<Team>));
             base.Initialize(controllerContext);
-        }
-
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            // Get a list of teams
-            return new string[] { "value1", "value2" };
         }
 
         [HttpPost]
@@ -42,12 +34,10 @@ namespace NFLRESTAPI.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(Guid id)
+        public HttpResponseMessage Get(string filterJson)
         {
-            Team team = _teamBL.Get(id);
-            string content = JsonConvert.SerializeObject(team);
+            string content = JsonConvert.SerializeObject(_teamBL.Get(filterJson));
             HttpResponseMessage response = new HttpResponseMessage();
-            response.Headers.Add("Id", id.ToString());
             response.StatusCode = HttpStatusCode.OK;
             response.Content = new StringContent(content);
             return response;

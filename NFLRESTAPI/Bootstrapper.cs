@@ -9,7 +9,6 @@ using Autofac.Integration.WebApi;
 using System.Reflection;
 using Autofac.Integration.Mvc;
 using NFLCommon;
-using NFLCommon.BLLInterfaces;
 using NFLCommon.DALInterfaces;
 
 namespace NFLRESTAPI
@@ -61,9 +60,9 @@ namespace NFLRESTAPI
 
             StatsBL statsBL = new StatsBL(gameDal, fumbleDal, kickingStatDal, kickReturnStatDal, passingStatDal, puntingStatDal, puntReturnStatDal, receivingStatDal, rushingStatDal, defensiveStatDal, playerDal);
 
-            builder.RegisterInstance(gameBL).As<IBLCrud<Game>>();
-            builder.RegisterInstance(playerBL).As<IBLCrud<Player>>();
-            builder.RegisterInstance(teamBL).As<IBLCrud<Team>>();
+            builder.RegisterInstance(gameBL).As<SingleStatBL<Game>>();
+            builder.RegisterInstance(playerBL).As<SingleStatBL<Player>>();
+            builder.RegisterInstance(teamBL).As<SingleStatBL<Team>>();
             builder.RegisterInstance(statsBL);
 
             return builder.Build();

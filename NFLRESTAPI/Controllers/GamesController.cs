@@ -8,19 +8,19 @@ using System.Web.Http.Controllers;
 using Autofac;
 using System;
 using NFLCommon;
-using NFLCommon.BLLInterfaces;
+
 using System.Linq;
 
 namespace NFLRESTAPI.Controllers
 {
     public class GamesController : ApiController
     {
-        private IBLCrud<Game> _gameBL;
+        private SingleStatBL<Game> _gameBL;
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             var container = controllerContext.Configuration.DependencyResolver.BeginScope();
-            _gameBL = (IBLCrud<Game>)container.GetService(typeof(IBLCrud<Game>));
+            _gameBL = (SingleStatBL<Game>)container.GetService(typeof(SingleStatBL<Game>));
             base.Initialize(controllerContext);
         }
 
@@ -35,13 +35,10 @@ namespace NFLRESTAPI.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(string id = "")
+        public HttpResponseMessage Get([FromUri] string filterJson = "")
         {
-            string content = (string.IsNullOrEmpty(id))
-                ? JsonConvert.SerializeObject(_gameBL.GetAll()) 
-                : JsonConvert.SerializeObject(_gameBL.Get(Guid.Parse(id)));
+            string content = JsonConvert.SerializeObject(_gameBL.Get(filterJson));
             HttpResponseMessage response = new HttpResponseMessage();
-            response.Headers.Add("Id", id.ToString());
             response.StatusCode = HttpStatusCode.OK;
             response.Content = new StringContent(content);
             return response;

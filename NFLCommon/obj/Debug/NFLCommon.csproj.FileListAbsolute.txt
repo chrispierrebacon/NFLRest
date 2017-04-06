@@ -3,8 +3,9 @@ C:\Projects\NFLRest\NFLCommon\bin\Debug\NFLCommon.dll
 C:\Projects\NFLRest\NFLCommon\bin\Debug\NFLCommon.pdb
 C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.dll
 C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\NFLRest\NFLCommon\bin\Debug\Newtonsoft.Json.dll
 C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.xml
 C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NFLRest\NFLCommon\bin\Debug\Newtonsoft.Json.xml
 C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.dll
 C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.pdb
-C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.csprojResolveAssemblyReference.cache

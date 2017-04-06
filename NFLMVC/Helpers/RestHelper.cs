@@ -4,20 +4,26 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using RestSharp;
+using Newtonsoft.Json;
 
 namespace NFLMVC.Helpers
 {
     public class RestHelper<T>
     {
-        public static IRestResponse MakeRequest(string endpoint, string path, T body, Method method, Dictionary<string, string> headers)
+        public static IRestResponse MakeRequest(string endpoint, string path, T body, Method method, Dictionary<string, string> headers, NFLFilter filterParams)
         {
             var client = new RestClient(endpoint);
             var request = new RestRequest(path, method);
 
-            foreach (string key in headers.Keys)
+            if (headers != null)
             {
-                request.AddHeader(key, headers[key]);
+                foreach (string key in headers.Keys)
+                {
+                    request.AddHeader(key, headers[key]);
+                } 
             }
+
+            request.AddQueryParameter("filterJson", JsonConvert.SerializeObject(filterParams));
 
             if (body != null)
             {
@@ -26,7 +32,11 @@ namespace NFLMVC.Helpers
             }
 
             return client.Execute(request);
-            
         }
+    }
+
+    public class NFLFilter
+    {
+        public Guid Id { get; set; }
     }
 }

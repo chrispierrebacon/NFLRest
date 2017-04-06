@@ -15,8 +15,10 @@ C:\Projects\NFLRESTAPI\NFLDAL\obj\Debug\NFLDAL.pdb
 C:\Projects\NFLRest\NFLDAL\bin\Debug\NFLDAL.dll.config
 C:\Projects\NFLRest\NFLDAL\bin\Debug\NFLDAL.dll
 C:\Projects\NFLRest\NFLDAL\bin\Debug\NFLDAL.pdb
+C:\Projects\NFLRest\NFLDAL\bin\Debug\Newtonsoft.Json.dll
 C:\Projects\NFLRest\NFLDAL\bin\Debug\NFLCommon.dll
 C:\Projects\NFLRest\NFLDAL\bin\Debug\NFLCommon.pdb
+C:\Projects\NFLRest\NFLDAL\bin\Debug\Newtonsoft.Json.xml
 C:\Projects\NFLRest\NFLDAL\obj\Debug\NFLDAL.csprojResolveAssemblyReference.cache
 C:\Projects\NFLRest\NFLDAL\obj\Debug\NFLDAL.dll
 C:\Projects\NFLRest\NFLDAL\obj\Debug\NFLDAL.pdb

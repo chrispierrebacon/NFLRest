@@ -81,4 +81,3 @@ C:\Projects\NFLRest\NFLMVC\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projects\NFLRest\NFLMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\NFLRest\NFLMVC\obj\Debug\NFLMVC.dll
 C:\Projects\NFLRest\NFLMVC\obj\Debug\NFLMVC.pdb
-C:\Projects\NFLRest\NFLMVC\obj\Debug\NFLMVC.csprojResolveAssemblyReference.cache
