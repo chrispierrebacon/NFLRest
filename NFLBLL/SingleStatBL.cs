@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NFLCommon.BLLInterfaces;
+using NFLCommon.DALInterfaces;
 
 namespace NFLBLL
 {
@@ -19,6 +21,11 @@ namespace NFLBLL
         public Guid Create(T obj)
         {
             return _dalCrud.Create(obj);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _dalCrud.GetAll();
         }
 
         public T Get(Guid Id)

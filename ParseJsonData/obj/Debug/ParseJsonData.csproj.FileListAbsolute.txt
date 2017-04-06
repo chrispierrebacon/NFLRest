@@ -20,10 +20,10 @@ C:\Projects\NFLRest\ParseJsonData\bin\Debug\ParseJsonData.pdb
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Newtonsoft.Json.dll
-C:\Projects\NFLRest\ParseJsonData\bin\Debug\NFLEF.dll
+C:\Projects\NFLRest\ParseJsonData\bin\Debug\NFLCommon.dll
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\RestSharp.dll
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\EntityFramework.dll
-C:\Projects\NFLRest\ParseJsonData\bin\Debug\NFLEF.pdb
+C:\Projects\NFLRest\ParseJsonData\bin\Debug\NFLCommon.pdb
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.xml
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Projects\NFLRest\ParseJsonData\bin\Debug\Newtonsoft.Json.xml

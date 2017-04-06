@@ -3,6 +3,7 @@
 	@AwayTeam NVARCHAR(10),
 	@DateTime DATETIME,
 	@SeasonType NVARCHAR(5),
+	@Season INT,
 	@Eid INT,
 	@GameKey INT,
 	@Week INT,
@@ -21,18 +22,22 @@
 	@LTScoreOT INT = -1,
 	@LTScoreFinal INT = -1, 
 	@NeutralField BIT = 0,
-	@Id UNIQUEIDENTIFIER OUTPUT
+	@Id UNIQUEIDENTIFIER OUTPUT,
+	@ErrorMessage NVARCHAR(256) OUTPUT,
+	@ErrorNumber INT OUTPUT
 
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
+		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
 								   WTScoreOT, WTScoreFinal, LTScoreFirstQtr, LTScoreSecondQtr, LTScoreThirdQtr, LTScoreFourthQtr, LTScoreOT, LTScoreFinal, NeutralField)
-		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
+		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
 				@WTScoreOT, @WTScoreFinal, @LTScoreFirstQtr, @LTScoreSecondQtr, @LTScoreThirdQtr, @LTScoreFourthQtr, @LTScoreOT, @LTScoreFinal, @NeutralField)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH
 

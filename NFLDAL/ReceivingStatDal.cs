@@ -1,10 +1,8 @@
-﻿using NFLEF;
+﻿using NFLCommon;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLDAL
 {
@@ -52,6 +50,11 @@ namespace NFLDAL
         }
 
         public int Delete(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ReceivingStat> GetAll()
         {
             throw new NotImplementedException();
         }

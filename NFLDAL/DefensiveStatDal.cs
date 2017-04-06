@@ -1,17 +1,15 @@
-﻿using NFLEF;
+﻿using NFLCommon;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLDAL
 {
     public class DefensiveStatDal : IDefensiveStatDal
     {
         NFLDBEntities entities = new NFLDBEntities();
-
         private readonly IDatabaseAccess _databaseAccess;
 
         public DefensiveStatDal(IDatabaseAccess databaseAccess)

@@ -1,9 +1,11 @@
 ﻿using NFLDAL;
-using NFLEF;
+using NFLCommon;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLBLL
 {
@@ -47,8 +49,6 @@ namespace NFLBLL
             // Update Game
             request.Game.GameId = gameId;
             int gameResp = _gameDal.Update(request.Game);
-
-            //InsertStats(request.Fumbles, _fumbleDal, gameId, request.Fumbles.First());
 
             List<Task> tasks = new List<Task>();
 
@@ -165,15 +165,15 @@ namespace NFLBLL
             return 0;
         }
 
-        public double GetFantasyPointsForPlayerByDateRange(Guid playerId, DateTime startDate, DateTime endDate, bool PPR)
+        public double getOffensiveFantasyPointsForPlayerByDateRange(Guid playerId, DateTime startDate, DateTime endDate, bool PPR)
         {
             string[] seasonTypes = { "REG", "POST" };
             var gameIds = entities.Games.Where(i => i.DateTime >= startDate && i.DateTime <= endDate && seasonTypes.Contains(i.SeasonType)).Select(j => j.GameId).ToList();
 
-            return GetFantasyPointsByPlayerIdAndGameIds(playerId, gameIds, PPR);
+            return getOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, gameIds, PPR);
         }
 
-        public double GetFantasyPointsByPlayerIdAndGameIds(Guid playerId, List<Guid> gameIds, bool PPR)
+        public double getOffensiveFantasyPointsByPlayerIdAndGameIds(Guid playerId, List<Guid> gameIds, bool PPR)
         {
             double points = 0;
             
@@ -221,6 +221,98 @@ namespace NFLBLL
             return points;
         }
 
+        public int getDefensiveFantasyPointsByDateRange(string teamName, DateTime startDate, DateTime endDate)
+        {
+            string[] seasonTypes = { "REG", "POST" };
+            var gameIds = entities.Games.Where(i => i.DateTime >= startDate && i.DateTime <= endDate && seasonTypes.Contains(i.SeasonType)).Select(j => j.GameId).ToList();
+
+            return getDefensiveFantasyPointsByTeamNameAndGameId(teamName, gameIds);
+        }
+
+        public int getDefensiveFantasyPointsByTeamNameAndGameId(string teamName, List<Guid> gameIds)
+        {
+            int fantasyPoints = 0;
+
+            foreach(var gameId in gameIds)
+            {
+                Game game = entities.Games.Where(i => i.GameId == gameId).FirstOrDefault();
+                bool isWT = game.WT.Equals(teamName);
+                GameStats teamGameStats = getGameStatsByIdsAndTeamName(teamName, gameId);
+                string oppTeam = isWT ? game.LT : game.WT;
+                GameStats oppGameStats = getGameStatsByIdsAndTeamName(oppTeam, gameId);
+
+                // Sack points
+                fantasyPoints += teamGameStats.DefensiveStats.Sum(i => i.Sacks) * 1;
+                // Int points
+                fantasyPoints += teamGameStats.DefensiveStats.Sum(i => i.Interceptions) * 2;
+
+                // D/STPoints = TotalPoints - (OffensivePoints + Kicking points)
+                // This includes safeties
+                fantasyPoints += isWT ? teamGameStats.Game.WTScoreFinal : teamGameStats.Game.LTScoreFinal;
+                fantasyPoints -= getOffensivePoints(teamGameStats);
+                fantasyPoints += getPointsAllowedFantasyPoints(isWT ? game.WTScoreFinal : game.LTScoreFinal);
+            }
+
+            return fantasyPoints;
+        }
+
+        public GameStats getGameStatsByIdsAndTeamName(string teamName, Guid gameId)
+        {
+            GameStats gameStats = new GameStats();
+            gameStats.Game = entities.Games.Where(i => i.GameId.Equals(gameId)).FirstOrDefault();
+            gameStats.DefensiveStats = entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.Fumbles = entities.Fumbles.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.KickingStats = entities.KickingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.KickReturnStats = entities.KickReturnStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.PassingStats = entities.PassingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.PuntingStats = entities.PuntingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.PuntReturnStats = entities.PuntReturnStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.ReceivingStats = entities.ReceivingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            gameStats.RushingStats = entities.RushingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+            return gameStats;
+        }
+
+        public int getOffensivePoints(GameStats gameStats)
+        {
+            return gameStats.ReceivingStats.Sum(i => i.Touchdowns) * 6
+                 + gameStats.RushingStats.Sum(i => i.Touchdowns) * 6
+                 + gameStats.KickingStats.Sum(i => i.ExtraPointsMade) * 1
+                 + gameStats.KickingStats.Sum(i => i.FieldGoalsMade) * 3;
+        }
+
+        // TODO: This should disregard defensive scores, but we will need to get them first.
+        public int getPointsAllowedFantasyPoints(int pointsAllowed)
+        {
+            int fantasyPointsAllowed = 10;
+            int y = (pointsAllowed - ((pointsAllowed / 6) + 1)) / 6;
+            y += pointsAllowed / 6 == pointsAllowed % 6 ? 1 : 0;
+
+            if (pointsAllowed != 0)
+            {
+                switch (y)
+                {
+                    case 0:
+                        fantasyPointsAllowed = 7;
+                        break;
+                    case 1:
+                        fantasyPointsAllowed = 4;
+                        break;
+                    case 2:
+                        fantasyPointsAllowed = 1;
+                        break;
+                    case 3:
+                        fantasyPointsAllowed = 0;
+                        break;
+                    case 4:
+                        fantasyPointsAllowed = -1;
+                        break;
+                    default:
+                        fantasyPointsAllowed = -4;
+                        break;
+                }
+            }
+            return fantasyPointsAllowed;
+        }
 
         //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)
         //{

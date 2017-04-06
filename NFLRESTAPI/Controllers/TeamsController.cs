@@ -7,7 +7,8 @@ using System.Web.Http;
 using NFLBLL;
 using Newtonsoft.Json;
 using System.Web.Http.Controllers;
-using NFLEF;
+using NFLCommon;
+using NFLCommon.BLLInterfaces;
 
 namespace NFLRESTAPI.Controllers
 {

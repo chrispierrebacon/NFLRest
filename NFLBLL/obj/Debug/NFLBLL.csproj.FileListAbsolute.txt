@@ -11,10 +11,10 @@ C:\Projects\NFLRESTAPI\NFLBLL\obj\Debug\NFLBLL.dll
 C:\Projects\NFLRESTAPI\NFLBLL\obj\Debug\NFLBLL.pdb
 C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLBLL.dll
 C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLBLL.pdb
+C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLCommon.dll
 C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLDAL.dll
-C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLEF.dll
+C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLCommon.pdb
 C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLDAL.pdb
-C:\Projects\NFLRest\NFLBLL\bin\Debug\NFLEF.pdb
 C:\Projects\NFLRest\NFLBLL\obj\Debug\NFLBLL.csprojResolveAssemblyReference.cache
 C:\Projects\NFLRest\NFLBLL\obj\Debug\NFLBLL.dll
 C:\Projects\NFLRest\NFLBLL\obj\Debug\NFLBLL.pdb

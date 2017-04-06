@@ -8,7 +8,8 @@ using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 using System.Web.Http.Controllers;
-using NFLEF;
+using NFLCommon;
+using NFLCommon.BLLInterfaces;
 
 namespace NFLRESTAPI.Controllers
 {

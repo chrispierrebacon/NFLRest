@@ -7,7 +7,9 @@ using System.Net;
 using System.Web.Http.Controllers;
 using Autofac;
 using System;
-using NFLEF;
+using NFLCommon;
+using NFLCommon.BLLInterfaces;
+using System.Linq;
 
 namespace NFLRESTAPI.Controllers
 {
@@ -23,11 +25,11 @@ namespace NFLRESTAPI.Controllers
         }
 
         // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Game game)
@@ -40,10 +42,11 @@ namespace NFLRESTAPI.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(Guid id)
+        public HttpResponseMessage Get(string id = "")
         {
-            Game game = _gameBL.Get(id);
-            string content = JsonConvert.SerializeObject(game);
+            string content = (string.IsNullOrEmpty(id))
+                ? JsonConvert.SerializeObject(_gameBL.GetAll().ToList()) 
+                : JsonConvert.SerializeObject(_gameBL.Get(Guid.Parse(id)));
             HttpResponseMessage response = new HttpResponseMessage();
             response.Headers.Add("Id", id.ToString());
             response.StatusCode = HttpStatusCode.OK;

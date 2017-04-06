@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NFLDBModelStoreContainer" CdmEntityContainer="NFLDBEntities">
+    <EntitySetMapping Name="C__RefactorLog">
+      <EntityTypeMapping TypeName="NFLDBModel.C__RefactorLog">
+        <MappingFragment StoreEntitySet="__RefactorLog">
+          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="NFLDBModel.Conference">
+        <MappingFragment StoreEntitySet="Conferences">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefensiveStats">
+      <EntityTypeMapping TypeName="NFLDBModel.DefensiveStat">
+        <MappingFragment StoreEntitySet="DefensiveStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefensiveStatsId" ColumnName="DefensiveStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Tackles" ColumnName="Tackles" />
+          <ScalarProperty Name="Assists" ColumnName="Assists" />
+          <ScalarProperty Name="Sacks" ColumnName="Sacks" />
+          <ScalarProperty Name="Interceptions" ColumnName="Interceptions" />
+          <ScalarProperty Name="ForcedFumbles" ColumnName="ForcedFumbles" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="NFLDBModel.Division">
+        <MappingFragment StoreEntitySet="Divisions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fumbles">
+      <EntityTypeMapping TypeName="NFLDBModel.Fumble">
+        <MappingFragment StoreEntitySet="Fumbles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FumblesId" ColumnName="FumblesId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Recovered" ColumnName="Recovered" />
+          <ScalarProperty Name="TeamRecovered" ColumnName="TeamRecovered" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="Lost" ColumnName="Lost" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="NFLDBModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+          <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="SeasonType" ColumnName="SeasonType" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Eid" ColumnName="Eid" />
+          <ScalarProperty Name="GameKey" ColumnName="GameKey" />
+          <ScalarProperty Name="Week" ColumnName="Week" />
+          <ScalarProperty Name="WT" ColumnName="WT" />
+          <ScalarProperty Name="LT" ColumnName="LT" />
+          <ScalarProperty Name="WTScoreFirstQtr" ColumnName="WTScoreFirstQtr" />
+          <ScalarProperty Name="WTScoreSecondQtr" ColumnName="WTScoreSecondQtr" />
+          <ScalarProperty Name="WTScoreThirdQtr" ColumnName="WTScoreThirdQtr" />
+          <ScalarProperty Name="WTScoreFourthQtr" ColumnName="WTScoreFourthQtr" />
+          <ScalarProperty Name="WTScoreOT" ColumnName="WTScoreOT" />
+          <ScalarProperty Name="WTScoreFinal" ColumnName="WTScoreFinal" />
+          <ScalarProperty Name="LTScoreFirstQtr" ColumnName="LTScoreFirstQtr" />
+          <ScalarProperty Name="LTScoreSecondQtr" ColumnName="LTScoreSecondQtr" />
+          <ScalarProperty Name="LTScoreThirdQtr" ColumnName="LTScoreThirdQtr" />
+          <ScalarProperty Name="LTScoreFourthQtr" ColumnName="LTScoreFourthQtr" />
+          <ScalarProperty Name="LTScoreOT" ColumnName="LTScoreOT" />
+          <ScalarProperty Name="LTScoreFinal" ColumnName="LTScoreFinal" />
+          <ScalarProperty Name="NeutralField" ColumnName="NeutralField" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KickingStats">
+      <EntityTypeMapping TypeName="NFLDBModel.KickingStat">
+        <MappingFragment StoreEntitySet="KickingStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KickingStatsId" ColumnName="KickingStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="FieldGoalsMade" ColumnName="FieldGoalsMade" />
+          <ScalarProperty Name="FieldGoalsAttempted" ColumnName="FieldGoalsAttempted" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+          <ScalarProperty Name="ExtraPointsMade" ColumnName="ExtraPointsMade" />
+          <ScalarProperty Name="ExtraPointsMissed" ColumnName="ExtraPointsMissed" />
+          <ScalarProperty Name="ExtraPointsAttempted" ColumnName="ExtraPointsAttempted" />
+          <ScalarProperty Name="ExtraPointsBlocked" ColumnName="ExtraPointsBlocked" />
+          <ScalarProperty Name="ExtraPointsTotal" ColumnName="ExtraPointsTotal" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KickReturnStats">
+      <EntityTypeMapping TypeName="NFLDBModel.KickReturnStat">
+        <MappingFragment StoreEntitySet="KickReturnStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KickReturnStatsId" ColumnName="KickReturnStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Returns" ColumnName="Returns" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="LongTouchdown" ColumnName="LongTouchdown" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassingStats">
+      <EntityTypeMapping TypeName="NFLDBModel.PassingStat">
+        <MappingFragment StoreEntitySet="PassingStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassingStatsId" ColumnName="PassingStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+          <ScalarProperty Name="Completions" ColumnName="Completions" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
+          <ScalarProperty Name="Interceptions" ColumnName="Interceptions" />
+          <ScalarProperty Name="TwoPointAttempts" ColumnName="TwoPointAttempts" />
+          <ScalarProperty Name="TwoPointMakes" ColumnName="TwoPointMakes" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="NFLDBModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="College" ColumnName="College" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+          <ScalarProperty Name="GsisName" ColumnName="GsisName" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="ProfileUrl" ColumnName="ProfileUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="YearsPro" ColumnName="YearsPro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="NFLDBModel.Position">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PuntingStats">
+      <EntityTypeMapping TypeName="NFLDBModel.PuntingStat">
+        <MappingFragment StoreEntitySet="PuntingStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PuntingStatsId" ColumnName="PuntingStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Punts" ColumnName="Punts" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="InsideTwenty" ColumnName="InsideTwenty" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PuntReturnStats">
+      <EntityTypeMapping TypeName="NFLDBModel.PuntReturnStat">
+        <MappingFragment StoreEntitySet="PuntReturnStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PuntReturnStatsId" ColumnName="PuntReturnStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Returns" ColumnName="Returns" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="LongTouchdown" ColumnName="LongTouchdown" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceivingStats">
+      <EntityTypeMapping TypeName="NFLDBModel.ReceivingStat">
+        <MappingFragment StoreEntitySet="ReceivingStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReceivingStatsId" ColumnName="ReceivingStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Receptions" ColumnName="Receptions" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="TwoPointAttempts" ColumnName="TwoPointAttempts" />
+          <ScalarProperty Name="TwoPointsMade" ColumnName="TwoPointsMade" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RushingStats">
+      <EntityTypeMapping TypeName="NFLDBModel.RushingStat">
+        <MappingFragment StoreEntitySet="RushingStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RushingStatsId" ColumnName="RushingStatsId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+          <ScalarProperty Name="Yards" ColumnName="Yards" />
+          <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="TwoPointAttempts" ColumnName="TwoPointAttempts" />
+          <ScalarProperty Name="TwoPointsMade" ColumnName="TwoPointsMade" />
+          <ScalarProperty Name="GsisId" ColumnName="GsisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeasonTypes">
+      <EntityTypeMapping TypeName="NFLDBModel.SeasonType">
+        <MappingFragment StoreEntitySet="SeasonType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="NFLDBModel.Team">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Conference" ColumnName="Conference" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CREATE_DefensiveStat" FunctionName="NFLDBModel.Store.CREATE_DefensiveStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_Fumble" FunctionName="NFLDBModel.Store.CREATE_Fumble" />
+    <FunctionImportMapping FunctionImportName="CREATE_Game" FunctionName="NFLDBModel.Store.CREATE_Game" />
+    <FunctionImportMapping FunctionImportName="CREATE_KickingStat" FunctionName="NFLDBModel.Store.CREATE_KickingStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_KickReturnStat" FunctionName="NFLDBModel.Store.CREATE_KickReturnStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_PassingStat" FunctionName="NFLDBModel.Store.CREATE_PassingStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_Player" FunctionName="NFLDBModel.Store.CREATE_Player" />
+    <FunctionImportMapping FunctionImportName="CREATE_PuntingStat" FunctionName="NFLDBModel.Store.CREATE_PuntingStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_PuntReturnStat" FunctionName="NFLDBModel.Store.CREATE_PuntReturnStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_ReceivingStat" FunctionName="NFLDBModel.Store.CREATE_ReceivingStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_RushingStat" FunctionName="NFLDBModel.Store.CREATE_RushingStat" />
+    <FunctionImportMapping FunctionImportName="CREATE_Team" FunctionName="NFLDBModel.Store.CREATE_Team" />
+    <FunctionImportMapping FunctionImportName="GET_GameIdByEid" FunctionName="NFLDBModel.Store.GET_GameIdByEid" />
+    <FunctionImportMapping FunctionImportName="GET_PlayerIdByGsisId" FunctionName="NFLDBModel.Store.GET_PlayerIdByGsisId" />
+    <FunctionImportMapping FunctionImportName="UPDATE_Game" FunctionName="NFLDBModel.Store.UPDATE_Game" />
+  </EntityContainerMapping>
+</Mapping>

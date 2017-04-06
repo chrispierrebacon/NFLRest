@@ -1,0 +1,9 @@
+C:\Projects\NFLRest\NFLCommon\bin\Debug\NFLCommon.dll.config
+C:\Projects\NFLRest\NFLCommon\bin\Debug\NFLCommon.dll
+C:\Projects\NFLRest\NFLCommon\bin\Debug\NFLCommon.pdb
+C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.dll
+C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.xml
+C:\Projects\NFLRest\NFLCommon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.dll
+C:\Projects\NFLRest\NFLCommon\obj\Debug\NFLCommon.pdb

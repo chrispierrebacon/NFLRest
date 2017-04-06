@@ -55,101 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conference.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__RefactorLog.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DefensiveStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Division.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FantasyPoints.cs" />
-    <Compile Include="Fumble.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Game.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KickingStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KickReturnStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NFLEF.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NFLEF.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NFLEF.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NFLEF.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NFLEF.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PassingStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Player.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Position.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuntingStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PuntReturnStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ReceivingStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StatsRequest.cs" />
-    <Compile Include="RushingStat.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SeasonType.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Team.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="NFLEF.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NFLEF.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="NFLEF.edmx.diagram">
-      <DependentUpon>NFLEF.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="NFLEF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NFLEF.edmx</DependentUpon>
-      <LastGenOutput>NFLEF.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="NFLEF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NFLEF.edmx</DependentUpon>
-      <LastGenOutput>NFLEF.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

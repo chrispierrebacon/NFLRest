@@ -7,7 +7,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using NFLEF;
+using NFLCommon;
+using NFLCommon.BLLInterfaces;
 
 namespace NFLRESTAPI.Controllers
 {

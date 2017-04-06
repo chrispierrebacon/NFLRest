@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NFLCommon;
 
 namespace NFLDAL
-{    
+{
     public class DatabaseAccess : IDatabaseAccess
     {
         public Dictionary<string, object> Query(string storedProcedure, Dictionary<string, object> parameters)
@@ -67,6 +63,9 @@ namespace NFLDAL
                             command.Parameters.Add(key, outputParameters[key]).Direction = ParameterDirection.Output;
                         }
                     }
+
+                    command.Parameters.Add("ErrorMessage", SqlDbType.NVarChar, 256).Direction = ParameterDirection.Output;
+                    command.Parameters.Add("ErrorNumber", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     conn.Open();
 

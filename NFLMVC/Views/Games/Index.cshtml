@@ -1,0 +1,165 @@
+﻿@model IEnumerable<NFLMVC.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwayTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeasonType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Season)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Week)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreFirstQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreSecondQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreThirdQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreFourthQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WTScoreFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreFirstQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreSecondQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreThirdQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreFourthQtr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTScoreFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeutralField)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AwayTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeasonType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Season)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Week)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreFirstQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreSecondQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreThirdQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreFourthQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreOT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WTScoreFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreFirstQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreSecondQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreThirdQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreFourthQtr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreOT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTScoreFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeutralField)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

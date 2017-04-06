@@ -1,0 +1,12 @@
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\NFLDALEF.dll.config
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\NFLDALEF.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\NFLDALEF.pdb
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\EntityFramework.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\NFLCommon.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\NFLCommon.pdb
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\EntityFramework.xml
+C:\Projects\NFLRest\NFLDALEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NFLRest\NFLDALEF\obj\Debug\NFLDALEF.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRest\NFLDALEF\obj\Debug\NFLDALEF.dll
+C:\Projects\NFLRest\NFLDALEF\obj\Debug\NFLDALEF.pdb

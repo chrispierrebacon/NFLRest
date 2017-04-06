@@ -1,9 +1,8 @@
-﻿using System.Data.SqlClient;
-using NFLEF;
+﻿using NFLCommon;
 using System.Collections.Generic;
 using System;
 using System.Data;
-using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLDAL
 {
@@ -81,6 +80,11 @@ namespace NFLDAL
 
             var reader = _databaseAccess.NonQuery("DELETE_Team", parameters);
             return reader.ContainsKey("ReturnVal") ? (int)reader["ReturnVal"] : -1;
+        }
+
+        public IEnumerable<Team> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

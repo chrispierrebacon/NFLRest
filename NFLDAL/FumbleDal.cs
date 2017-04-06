@@ -1,10 +1,9 @@
-﻿using NFLEF;
+﻿using NFLCommon;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLDAL
 {
@@ -43,12 +42,12 @@ namespace NFLDAL
 
         public Fumble Get(Guid Id)
         {
-            throw new NotImplementedException();
+            return entities.Fumbles.FirstOrDefault(i => i.Id.Equals(Id));
         }
 
         public IEnumerable<Fumble> GetAll()
         {
-            throw new NotImplementedException();
+            return entities.Fumbles;
         }
 
         public int Update(Fumble obj)

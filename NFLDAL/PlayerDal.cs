@@ -1,10 +1,8 @@
-﻿using NFLEF;
-using NFLEF;
+﻿using NFLCommon;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
+using NFLCommon.DALInterfaces;
 
 namespace NFLDAL
 {
@@ -128,6 +126,11 @@ namespace NFLDAL
 
             var reader = _databaseAccess.Query("GET_PlayerIdByGsisId", parameters);
             return reader.ContainsKey("PlayerId") ? Guid.Parse(reader["PlayerId"].ToString()) : Guid.Empty;
+        }
+
+        public IEnumerable<Player> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

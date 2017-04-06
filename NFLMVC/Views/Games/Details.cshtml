@@ -1,0 +1,202 @@
+﻿@model NFLMVC.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwayTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwayTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeasonType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeasonType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Season)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Season)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Week)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Week)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreFirstQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreFirstQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreSecondQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreSecondQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreThirdQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreThirdQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreFourthQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreFourthQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WTScoreFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WTScoreFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreFirstQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreFirstQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreSecondQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreSecondQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreThirdQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreThirdQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreFourthQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreFourthQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTScoreFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTScoreFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NeutralField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeutralField)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

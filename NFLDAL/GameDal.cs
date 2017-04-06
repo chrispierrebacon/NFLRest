@@ -1,12 +1,9 @@
-﻿using NFLEF;
+﻿using NFLCommon;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
 using System.Data;
+using NFLCommon.DALInterfaces;
+using System.Linq;
 
 namespace NFLDAL
 {
@@ -21,12 +18,16 @@ namespace NFLDAL
 
         public Guid Create(Game game)
         {
+            int[] array = new int[7];
+
+
             var parameters = new Dictionary<string, object>
             {
                 { "HomeTeam", game.HomeTeam },
                 { "AwayTeam", game.AwayTeam },
                 { "DateTime", game.DateTime },
                 { "SeasonType", game.SeasonType },
+                { "Season", game.Season },
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },
@@ -104,6 +105,11 @@ namespace NFLDAL
             return reader.ContainsKey("GameId") ? Guid.Parse(reader["GameId"].ToString()) : Guid.Empty;
         }
 
+        public IEnumerable<Game> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Update(Game game)
         {
             var parameters = new Dictionary<string, object>
@@ -113,6 +119,7 @@ namespace NFLDAL
                 { "AwayTeam", game.AwayTeam },
                 { "DateTime", game.DateTime },
                 { "SeasonType", game.SeasonType },
+                { "Season", game.Season },
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },

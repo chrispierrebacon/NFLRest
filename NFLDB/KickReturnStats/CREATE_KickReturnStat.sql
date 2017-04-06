@@ -7,7 +7,9 @@
     @Long INT = 0, 
     @LongTouchdown INT = 0,
 	@GsisId NVARCHAR(50),
-	@Id UNIQUEIDENTIFIER OUTPUT
+	@Id UNIQUEIDENTIFIER OUTPUT,
+	@ErrorMessage NVARCHAR(256) OUTPUT,
+	@ErrorNumber INT OUTPUT
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
@@ -16,5 +18,7 @@ AS
 			RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH

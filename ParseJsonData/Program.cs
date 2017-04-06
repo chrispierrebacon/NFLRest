@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Collections.Concurrent;
-using NFLEF;
+using NFLCommon;
 
 namespace ParseJsonData
 {
@@ -18,19 +18,26 @@ namespace ParseJsonData
     {
         public static void Main(string[] args)
         {
-            //var stuff = parseStats();
-
+            string naggers = string.Empty;
 
             Dictionary<string, string> headers = new Dictionary<string, string>
             {
                 { "Content-Type", "application/json; charset=utf-8" }
             };
 
-            foreach (var game in parseGames())
-            {
-                RestRequest<Game> restRequest = new RestRequest<Game>();
-                restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
-            }
+            //var games = parseGames();
+
+            //foreach (var player in parsePlayers())
+            //{
+            //    RestRequest<Player> restRequest = new RestRequest<Player>();
+            //    restRequest.MakeRequest("http://localhost:49786", "api/players", player, Method.POST, headers);
+            //}
+
+            //foreach (var game in parseGames())
+            //{
+            //    RestRequest<Game> restRequest = new RestRequest<Game>();
+            //    restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
+            //}
 
             foreach (var stat in parseStats())
             {
@@ -360,12 +367,13 @@ namespace ParseJsonData
                     hour += 12;
                 }
 
-                game.DateTime = new DateTime(Convert.ToInt32(g.Last.year), Convert.ToInt32(g.Last.month), Convert.ToInt32(g.Last.day), hour, Convert.ToInt32(matches[1].ToString()), 0);
+                string datetime = g.Last.eid;
+                game.DateTime = DateTime.ParseExact(datetime, "yyyyMMddff", CultureInfo.InvariantCulture);
                 game.SeasonType = g.Last.season_type;
                 game.Eid = g.Last.eid;
                 game.GameKey = g.Last.gamekey;
                 game.Week = g.Last.week;
-
+                game.Season = g.Last.year;
                 games.Add(game);
             }
 
@@ -385,7 +393,7 @@ namespace ParseJsonData
                 dynamic shit = p.First();
 
                 Player player = new Player();
-                player.Birthdate = shit.birthdate != null ? shit.birthdate : new DateTime(1753, 1, 1);
+                player.Birthdate = shit.birthdate != null && shit.birthdate != "//" ? shit.birthdate : new DateTime(1753, 1, 1);
                 player.College = shit.college;
                 player.FirstName = shit.first_name;
                 player.FullName = shit.full_name;
@@ -487,20 +495,23 @@ namespace ParseJsonData
         {
             var passingStats = new List<PassingStat>();
 
-            foreach (var p in teamStats.passing)
+            if (teamStats.passing != null)
             {
-                var passingStat = new PassingStat();
-                passingStat.GsisId = p.Name;
-                JEnumerable<JToken> jStats = p.Children();
-                dynamic stats = jStats.First();
-                passingStat.Attempts = stats.att;
-                passingStat.Completions = stats.cmp;
-                passingStat.Yards = stats.yds;
-                passingStat.Touchdowns = stats.tds;
-                passingStat.Interceptions = stats.ints;
-                passingStat.TwoPointAttempts = stats.twopta;
-                passingStat.TwoPointMakes = stats.twoptm;
-                passingStats.Add(passingStat);
+                foreach (var p in teamStats.passing)
+                {
+                    var passingStat = new PassingStat();
+                    passingStat.GsisId = p.Name;
+                    JEnumerable<JToken> jStats = p.Children();
+                    dynamic stats = jStats.First();
+                    passingStat.Attempts = stats.att;
+                    passingStat.Completions = stats.cmp;
+                    passingStat.Yards = stats.yds;
+                    passingStat.Touchdowns = stats.tds;
+                    passingStat.Interceptions = stats.ints;
+                    passingStat.TwoPointAttempts = stats.twopta;
+                    passingStat.TwoPointMakes = stats.twoptm;
+                    passingStats.Add(passingStat);
+                }
             }
 
             return passingStats;
@@ -509,20 +520,23 @@ namespace ParseJsonData
         private static List<RushingStat> buildRushingStats(dynamic teamStats)
         {
             var rushingStats = new List<RushingStat>();
-            
-            foreach(var r in teamStats.rushing)
+
+            if (teamStats.rushing != null)
             {
-                var rushingStat = new RushingStat();
-                rushingStat.GsisId = r.Name;
-                JEnumerable<JToken> jStats = r.Children();
-                dynamic stats = jStats.First();
-                rushingStat.Attempts = stats.att;
-                rushingStat.Yards = stats.yds;
-                rushingStat.Touchdowns = stats.tds;
-                rushingStat.Long = stats.lng;
-                rushingStat.TwoPointAttempts = stats.twopta;
-                rushingStat.TwoPointsMade = stats.twoptm;
-                rushingStats.Add(rushingStat);
+                foreach (var r in teamStats.rushing)
+                {
+                    var rushingStat = new RushingStat();
+                    rushingStat.GsisId = r.Name;
+                    JEnumerable<JToken> jStats = r.Children();
+                    dynamic stats = jStats.First();
+                    rushingStat.Attempts = stats.att;
+                    rushingStat.Yards = stats.yds;
+                    rushingStat.Touchdowns = stats.tds;
+                    rushingStat.Long = stats.lng;
+                    rushingStat.TwoPointAttempts = stats.twopta;
+                    rushingStat.TwoPointsMade = stats.twoptm;
+                    rushingStats.Add(rushingStat);
+                }
             }
 
             return rushingStats;
@@ -532,19 +546,22 @@ namespace ParseJsonData
         {
             var receivingStats = new List<ReceivingStat>();
 
-            foreach(var r in teamStats.receiving)
+            if (teamStats.receiving != null)
             {
-                var receivingStat = new ReceivingStat();
-                receivingStat.GsisId = r.Name;
-                JEnumerable<JToken> jStats = r.Children();
-                dynamic stats = jStats.First();
-                receivingStat.Receptions = stats.rec;
-                receivingStat.Yards = stats.yds;
-                receivingStat.Touchdowns = stats.tds;
-                receivingStat.Long = stats.lng;
-                receivingStat.TwoPointAttempts = stats.twopta;
-                receivingStat.TwoPointsMade = stats.twoptm;
-                receivingStats.Add(receivingStat);
+                foreach (var r in teamStats.receiving)
+                {
+                    var receivingStat = new ReceivingStat();
+                    receivingStat.GsisId = r.Name;
+                    JEnumerable<JToken> jStats = r.Children();
+                    dynamic stats = jStats.First();
+                    receivingStat.Receptions = stats.rec;
+                    receivingStat.Yards = stats.yds;
+                    receivingStat.Touchdowns = stats.tds;
+                    receivingStat.Long = stats.lng;
+                    receivingStat.TwoPointAttempts = stats.twopta;
+                    receivingStat.TwoPointsMade = stats.twoptm;
+                    receivingStats.Add(receivingStat);
+                }
             }
 
             return receivingStats;
@@ -673,20 +690,22 @@ namespace ParseJsonData
         {
             var defensiveStats = new List<DefensiveStat>();
 
-            foreach(var d in teamStats.defense)
+            if (teamStats.defense != null)
             {
-                var defensiveStat = new DefensiveStat();
-                defensiveStat.GsisId = d.Name;
-                JEnumerable<JToken> jStats = d.Children();
-                dynamic stats = jStats.First();
-                defensiveStat.Tackles = stats.tkl;
-                defensiveStat.Assists = stats.ast;
-                defensiveStat.Sacks = stats.sk;
-                defensiveStat.Interceptions = stats["int"];
-                defensiveStat.ForcedFumbles = stats.ffum;
-                defensiveStats.Add(defensiveStat);
+                foreach (var d in teamStats.defense)
+                {
+                    var defensiveStat = new DefensiveStat();
+                    defensiveStat.GsisId = d.Name;
+                    JEnumerable<JToken> jStats = d.Children();
+                    dynamic stats = jStats.First();
+                    defensiveStat.Tackles = stats.tkl;
+                    defensiveStat.Assists = stats.ast;
+                    defensiveStat.Sacks = stats.sk;
+                    defensiveStat.Interceptions = stats["int"];
+                    defensiveStat.ForcedFumbles = stats.ffum;
+                    defensiveStats.Add(defensiveStat);
+                }
             }
-
             return defensiveStats;
         }
 

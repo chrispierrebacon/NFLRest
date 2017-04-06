@@ -154,8 +154,8 @@ C:\Projects\NFLRest\NFLRESTAPI\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\Microsoft.Web.Infrastructure.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\Newtonsoft.Json.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\NFLBLL.dll
-C:\Projects\NFLRest\NFLRESTAPI\bin\NFLDAL.dll
-C:\Projects\NFLRest\NFLRESTAPI\bin\NFLEF.dll
+C:\Projects\NFLRest\NFLRESTAPI\bin\NFLCommon.dll
+C:\Projects\NFLRest\NFLRESTAPI\bin\NFLDALEF.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\Owin.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Net.Http.Formatting.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Helpers.dll
@@ -170,8 +170,8 @@ C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.WebPages.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.WebPages.Razor.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\WebGrease.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\NFLBLL.pdb
-C:\Projects\NFLRest\NFLRESTAPI\bin\NFLDAL.pdb
-C:\Projects\NFLRest\NFLRESTAPI\bin\NFLEF.pdb
+C:\Projects\NFLRest\NFLRESTAPI\bin\NFLCommon.pdb
+C:\Projects\NFLRest\NFLRESTAPI\bin\NFLDALEF.pdb
 C:\Projects\NFLRest\NFLRESTAPI\bin\Antlr3.Runtime.pdb
 C:\Projects\NFLRest\NFLRESTAPI\bin\Autofac.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\Autofac.Integration.Mvc.xml

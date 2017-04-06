@@ -5,6 +5,7 @@
     [AwayTeam]         NVARCHAR (10)    NOT NULL,
     [DateTime]         DATETIME         NOT NULL,
     [SeasonType]       NVARCHAR(4)     NOT NULL,
+	[Season]		   INT			NOT NULL,
     [Eid]              BIGINT              NOT NULL,
     [GameKey]          BIGINT              NOT NULL,
     [Week]             INT              NOT NULL,

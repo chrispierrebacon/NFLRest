@@ -71,6 +71,7 @@
     <Folder Include="ReceivingStats" />
     <Folder Include="RushingStats" />
     <Folder Include="Teams" />
+    <Folder Include="OtherSPs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Game\CREATE_Game.sql" />
@@ -104,6 +105,8 @@
     <Build Include="Game\GET_GameIdByEid.sql" />
     <Build Include="Players\GET_PlayerIdByGsisId.sql" />
     <Build Include="Game\SeasonType.sql" />
+    <Build Include="OtherSPs\DELETEStats.sql" />
+    <Build Include="OtherSPs\DELETEAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />

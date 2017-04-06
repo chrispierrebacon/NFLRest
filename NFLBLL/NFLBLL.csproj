@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBLCrud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleStatBL.cs" />
     <Compile Include="StatsBL.cs" />
@@ -55,13 +54,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NFLCommon\NFLCommon.csproj">
+      <Project>{61abcc46-648a-4440-9404-575b8b830521}</Project>
+      <Name>NFLCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NFLDAL\NFLDAL.csproj">
       <Project>{0f761925-f7ec-4012-a793-bd4f6282f722}</Project>
       <Name>NFLDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NFLEF\NFLEF.csproj">
-      <Project>{e0715143-fca2-4311-97fe-e169efc79564}</Project>
-      <Name>NFLEF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

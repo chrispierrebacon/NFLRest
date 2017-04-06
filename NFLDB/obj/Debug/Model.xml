@@ -1017,6 +1017,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -1078,6 +1080,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_DefensiveStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_DefensiveStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_DefensiveStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -1233,6 +1241,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_DefensiveStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_DefensiveStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -1240,10 +1281,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="619" />
+				<Property Name="Length" Value="760" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_DefensiveStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @Tackles INT = 0,&#xD;&#xA;    @Assists INT = 0,&#xD;&#xA;    @Sacks INT = 0,&#xD;&#xA;    @Interceptions INT = 0,&#xD;&#xA;    @ForcedFumbles INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_DefensiveStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @Tackles INT = 0,&#xD;&#xA;    @Assists INT = 0,&#xD;&#xA;    @Sacks INT = 0,&#xD;&#xA;    @Interceptions INT = 0,&#xD;&#xA;    @ForcedFumbles INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Fumble]">
@@ -1256,6 +1297,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -1317,6 +1360,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_Fumble].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Fumble].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Fumble].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -1472,6 +1521,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Fumble].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Fumble].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -1479,10 +1561,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="576" />
+				<Property Name="Length" Value="717" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Fumble]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Total INT = 0, &#xD;&#xA;    @Recovered INT = 0, &#xD;&#xA;    @TeamRecovered INT = 0, &#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @Lost INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Fumble]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Total INT = 0, &#xD;&#xA;    @Recovered INT = 0, &#xD;&#xA;    @TeamRecovered INT = 0, &#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @Lost INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Game]">
@@ -1490,13 +1572,15 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
+		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
 								   WTScoreOT, WTScoreFinal, LTScoreFirstQtr, LTScoreSecondQtr, LTScoreThirdQtr, LTScoreFourthQtr, LTScoreOT, LTScoreFinal, NeutralField)
-		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
+		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
 				@WTScoreOT, @WTScoreFinal, @LTScoreFirstQtr, @LTScoreSecondQtr, @LTScoreThirdQtr, @LTScoreFourthQtr, @LTScoreOT, @LTScoreFinal, @NeutralField)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -1522,6 +1606,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Games].[SeasonType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Games].[Season]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Games].[Eid]" />
@@ -1590,6 +1677,9 @@
 					<References Name="[dbo].[CREATE_Game].[@SeasonType]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[CREATE_Game].[@Season]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[CREATE_Game].[@Eid]" />
 				</Entry>
 				<Entry>
@@ -1642,6 +1732,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_Game].[@NeutralField]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Game].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Game].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -1701,6 +1797,21 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Game].[@Season]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2041,6 +2152,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Game].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Game].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -2048,10 +2192,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1357" />
+				<Property Name="Length" Value="1530" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Game]&#xD;&#xA;&#x9;@HomeTeam NVARCHAR(10),&#xD;&#xA;&#x9;@AwayTeam NVARCHAR(10),&#xD;&#xA;&#x9;@DateTime DATETIME,&#xD;&#xA;&#x9;@SeasonType NVARCHAR(5),&#xD;&#xA;&#x9;@Eid INT,&#xD;&#xA;&#x9;@GameKey INT,&#xD;&#xA;&#x9;@Week INT,&#xD;&#xA;&#x9;@WT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@LT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@WTScoreFirstQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreSecondQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreThirdQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreFourthQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreOT INT = -1,&#xD;&#xA;&#x9;@WTScoreFinal INT = -1,&#xD;&#xA;&#x9;@LTScoreFirstQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreSecondQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreThirdQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreFourthQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreOT INT = -1,&#xD;&#xA;&#x9;@LTScoreFinal INT = -1, &#xD;&#xA;&#x9;@NeutralField BIT = 0,&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Game]&#xD;&#xA;&#x9;@HomeTeam NVARCHAR(10),&#xD;&#xA;&#x9;@AwayTeam NVARCHAR(10),&#xD;&#xA;&#x9;@DateTime DATETIME,&#xD;&#xA;&#x9;@SeasonType NVARCHAR(5),&#xD;&#xA;&#x9;@Season INT,&#xD;&#xA;&#x9;@Eid INT,&#xD;&#xA;&#x9;@GameKey INT,&#xD;&#xA;&#x9;@Week INT,&#xD;&#xA;&#x9;@WT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@LT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@WTScoreFirstQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreSecondQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreThirdQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreFourthQtr INT = -1,&#xD;&#xA;&#x9;@WTScoreOT INT = -1,&#xD;&#xA;&#x9;@WTScoreFinal INT = -1,&#xD;&#xA;&#x9;@LTScoreFirstQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreSecondQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreThirdQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreFourthQtr INT = -1,&#xD;&#xA;&#x9;@LTScoreOT INT = -1,&#xD;&#xA;&#x9;@LTScoreFinal INT = -1, &#xD;&#xA;&#x9;@NeutralField BIT = 0,&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_KickingStat]">
@@ -2066,6 +2210,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -2151,6 +2297,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickingStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickingStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickingStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -2378,6 +2530,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickingStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickingStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -2385,10 +2570,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="978" />
+				<Property Name="Length" Value="1119" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @FieldGoalsMade INT = 0,&#xD;&#xA;    @FieldGoalsAttempted INT = 0,&#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @TotalPoints INT = 0, &#xD;&#xA;    @ExtraPointsMade INT = 0, &#xD;&#xA;&#x9;@ExtraPointsMissed INT = 0,&#xD;&#xA;    @ExtraPointsAttempted INT = 0,&#xD;&#xA;&#x9;@ExtraPointsBlocked INT = 0,&#xD;&#xA;&#x9;@ExtraPointsTotal INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#x9;&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @FieldGoalsMade INT = 0,&#xD;&#xA;    @FieldGoalsAttempted INT = 0,&#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @TotalPoints INT = 0, &#xD;&#xA;    @ExtraPointsMade INT = 0, &#xD;&#xA;&#x9;@ExtraPointsMissed INT = 0,&#xD;&#xA;    @ExtraPointsAttempted INT = 0,&#xD;&#xA;&#x9;@ExtraPointsBlocked INT = 0,&#xD;&#xA;&#x9;@ExtraPointsTotal INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#x9;&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_KickReturnStat]">
@@ -2401,6 +2586,8 @@
 			RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -2462,6 +2649,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickReturnStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickReturnStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickReturnStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -2617,6 +2810,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickReturnStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickReturnStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -2624,10 +2850,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="612" />
+				<Property Name="Length" Value="753" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickReturnStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickReturnStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_PassingStat]">
@@ -2642,6 +2868,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0		
 	END CATCH]]></Value>
 			</Property>
@@ -2715,6 +2943,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PassingStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PassingStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PassingStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -2906,6 +3140,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PassingStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PassingStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -2913,10 +3180,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="770" />
+				<Property Name="Length" Value="911" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PassingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Completions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Interceptions INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointMakes INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PassingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Completions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Interceptions INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointMakes INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Player]">
@@ -2929,6 +3196,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -3038,6 +3307,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_Player].[@YearsPro]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Player].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Player].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -3356,6 +3631,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Player].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Player].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -3363,10 +3671,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="992" />
+				<Property Name="Length" Value="1133" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Player]&#xD;&#xA;&#x9;@FirstName nvarchar(50) = '',&#xD;&#xA;&#x9;@LastName nvarchar(50) = '',&#xD;&#xA;&#x9;@Position nvarchar(10) = '',&#xD;&#xA;&#x9;@Team nvarchar(10) = '',&#xD;&#xA;&#x9;@Birthdate datetime = '1753-1-1',&#xD;&#xA;&#x9;@College nvarchar(50) = '',&#xD;&#xA;&#x9;@FullName nvarchar(50) = '',&#xD;&#xA;&#x9;@GsisId nvarchar(50) = '',&#xD;&#xA;&#x9;@GsisName nvarchar(50) = '',&#xD;&#xA;&#x9;@Height int = -1,&#xD;&#xA;&#x9;@Number int = -1,&#xD;&#xA;&#x9;@ProfileId nvarchar(50) = -1,&#xD;&#xA;&#x9;@ProfileUrl nvarchar(50) = -1,&#xD;&#xA;&#x9;@Status nvarchar(10) = '',&#xD;&#xA;&#x9;@Weight int = -1,&#xD;&#xA;&#x9;@YearsPro int = -1,&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Player]&#xD;&#xA;&#x9;@FirstName nvarchar(50) = '',&#xD;&#xA;&#x9;@LastName nvarchar(50) = '',&#xD;&#xA;&#x9;@Position nvarchar(10) = '',&#xD;&#xA;&#x9;@Team nvarchar(10) = '',&#xD;&#xA;&#x9;@Birthdate datetime = '1753-1-1',&#xD;&#xA;&#x9;@College nvarchar(50) = '',&#xD;&#xA;&#x9;@FullName nvarchar(50) = '',&#xD;&#xA;&#x9;@GsisId nvarchar(50) = '',&#xD;&#xA;&#x9;@GsisName nvarchar(50) = '',&#xD;&#xA;&#x9;@Height int = -1,&#xD;&#xA;&#x9;@Number int = -1,&#xD;&#xA;&#x9;@ProfileId nvarchar(50) = -1,&#xD;&#xA;&#x9;@ProfileUrl nvarchar(50) = -1,&#xD;&#xA;&#x9;@Status nvarchar(10) = '',&#xD;&#xA;&#x9;@Weight int = -1,&#xD;&#xA;&#x9;@YearsPro int = -1,&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_PuntingStat]">
@@ -3379,6 +3687,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -3440,6 +3750,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntingStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntingStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntingStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -3595,6 +3911,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntingStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntingStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -3602,10 +3951,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="584" />
+				<Property Name="Length" Value="723" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Punts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @InsideTwenty INT = 0, &#xD;&#xA;    @Long INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Punts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @InsideTwenty INT = 0, &#xD;&#xA;    @Long INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_PuntReturnStat]">
@@ -3618,6 +3967,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -3679,6 +4030,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntReturnStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntReturnStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntReturnStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -3834,6 +4191,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntReturnStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntReturnStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -3841,10 +4231,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="608" />
+				<Property Name="Length" Value="749" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntReturnStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntReturnStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_ReceivingStat]">
@@ -3857,6 +4247,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -3924,6 +4316,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_ReceivingStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_ReceivingStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_ReceivingStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -4097,6 +4495,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_ReceivingStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_ReceivingStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -4104,10 +4535,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="687" />
+				<Property Name="Length" Value="826" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_ReceivingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Receptions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_ReceivingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Receptions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_RushingStat]">
@@ -4120,6 +4551,8 @@
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
 	END CATCH]]></Value>
 			</Property>
@@ -4187,6 +4620,12 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_RushingStat].[@GsisId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_RushingStat].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_RushingStat].[@ErrorNumber]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -4360,6 +4799,39 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_RushingStat].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_RushingStat].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -4367,10 +4839,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="669" />
+				<Property Name="Length" Value="810" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_RushingStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_RushingStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Team]">
@@ -4718,6 +5190,94 @@
 			<AttachedAnnotation Disambiguator="23" />
 			<AttachedAnnotation Disambiguator="24" />
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DELETEAll]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	EXEC DELETEStats
+	DELETE FROM Games
+	DELETE FROM Players
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[DELETEStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="111" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[DELETEAll]&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DELETEStats]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	DELETE FROM PassingStats
+	DELETE FROM RushingStats
+	DELETE FROM ReceivingStats
+	DELETE FROM DefensiveStats
+	DELETE FROM KickingStats
+	DELETE FROM KickReturnStats
+	DELETE FROM PuntingStats
+	DELETE FROM PuntReturnStats
+	DELETE FROM Fumbles
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PassingStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[RushingStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ReceivingStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DefensiveStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[KickingStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[KickReturnStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PuntingStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Fumbles]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="298" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[DELETEStats]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Divisions]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -5016,6 +5576,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Games].[Season]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7280,130 +7856,138 @@ END]]></Value>
 		<Element Type="SqlProcedure" Name="[dbo].[UPDATE_Game]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[	
-	SELECT * INTO tGame
+	SELECT * INTO #tGame
 	FROM Games
 	WHERE GameId = @GameId
 	
 	IF @HomeTeam = ''
 	BEGIN
-		SET @HomeTeam = (SELECT HomeTeam FROM tGame)
+		SET @HomeTeam = (SELECT HomeTeam FROM #tGame)
 	END
 
 	IF @AwayTeam = ''
 	BEGIN
-		SET @AwayTeam = (SELECT AwayTeam FROM tGame)
+		SET @AwayTeam = (SELECT AwayTeam FROM #tGame)
 	END
 
 	IF @DateTime = '1753-1-1'
 	BEGIN
-		SET @DateTime = (SELECT DateTime FROM tGame)
+		SET @DateTime = (SELECT DateTime FROM #tGame)
 	END
 
 	IF @SeasonType = 'NONE'
 	BEGIN
-		SET @SeasonType = (SELECT SeasonType FROM tGame)
+		SET @SeasonType = (SELECT SeasonType FROM #tGame)
+	END
+
+	IF @Season = 0
+	BEGIN
+		SET @Season = (SELECT Season FROM #tGame)
 	END
 
 	IF @Eid = -1
 	BEGIN
-		SET @Eid = (SELECT Eid FROM tGame)
+		SET @Eid = (SELECT Eid FROM #tGame)
 	END
 
 	IF @GameKey = -1
 	BEGIN
-		SET @GameKey = (SELECT GameKey FROM tGame)
+		SET @GameKey = (SELECT GameKey FROM #tGame)
 	END
 
 	IF @Week = -1
 	BEGIN
-		SET @Week = (SELECT Week FROM tGame)
+		SET @Week = (SELECT Week FROM #tGame)
 	END
 
 	IF @WT = ''
 	BEGIN
-		SET @WT = (SELECT WT FROM tGame)
+		SET @WT = (SELECT WT FROM #tGame)
 	END
 
 	IF @LT = ''
 	BEGIN
-		SET @LT = (SELECT LT FROM tGame)
+		SET @LT = (SELECT LT FROM #tGame)
 	END
 
 	IF @WTScoreFirstQtr = -1
 	BEGIN
-		SET @WTScoreFirstQtr = (SELECT WTScoreFirstQtr FROM tGame)
+		SET @WTScoreFirstQtr = (SELECT WTScoreFirstQtr FROM #tGame)
 	END
 
 	IF @WTScoreSecondQtr = -1
 	BEGIN
-		SET @WTScoreSecondQtr = (SELECT WTScoreSecondQtr FROM tGame)
+		SET @WTScoreSecondQtr = (SELECT WTScoreSecondQtr FROM #tGame)
 	END
 
 	IF @WTScoreThirdQtr = -1
 	BEGIN
-		SET @WTScoreThirdQtr = (SELECT WTScoreThirdQtr FROM tGame)
+		SET @WTScoreThirdQtr = (SELECT WTScoreThirdQtr FROM #tGame)
 	END
 
 	IF @WTScoreFourthQtr = -1
 	BEGIN
-		SET @WTScoreFourthQtr = (SELECT WTScoreFourthQtr FROM tGame)
+		SET @WTScoreFourthQtr = (SELECT WTScoreFourthQtr FROM #tGame)
 	END
 
 	IF @WTScoreOT = -1
 	BEGIN
-		SET @WTScoreOT = (SELECT WTScoreOT FROM tGame)
+		SET @WTScoreOT = (SELECT WTScoreOT FROM #tGame)
 	END
 
 	IF @WTScoreFinal = -1
 	BEGIN
-		SET @WTScoreFinal = (SELECT WTScoreFinal FROM tGame)
+		SET @WTScoreFinal = (SELECT WTScoreFinal FROM #tGame)
 	END
 
 	IF @LTScoreFirstQtr = -1
 	BEGIN
-		SET @LTScoreFirstQtr = (SELECT LTScoreFirstQtr FROM tGame)
+		SET @LTScoreFirstQtr = (SELECT LTScoreFirstQtr FROM #tGame)
 	END
 
 	IF @LTScoreSecondQtr = -1
 	BEGIN
-		SET @LTScoreSecondQtr = (SELECT LTScoreSecondQtr FROM tGame)
+		SET @LTScoreSecondQtr = (SELECT LTScoreSecondQtr FROM #tGame)
 	END
 
 	IF @LTScoreThirdQtr = -1
 	BEGIN
-		SET @LTScoreThirdQtr = (SELECT LTScoreThirdQtr FROM tGame)
+		SET @LTScoreThirdQtr = (SELECT LTScoreThirdQtr FROM #tGame)
 	END
 
 	IF @LTScoreFourthQtr = -1
 	BEGIN
-		SET @LTScoreFourthQtr = (SELECT LTScoreFourthQtr FROM tGame)
+		SET @LTScoreFourthQtr = (SELECT LTScoreFourthQtr FROM #tGame)
 	END
 
 	IF @LTScoreOT = -1
 	BEGIN
-		SET @LTScoreOT = (SELECT LTScoreOT FROM tGame)
+		SET @LTScoreOT = (SELECT LTScoreOT FROM #tGame)
 	END
 
 	IF @LTScoreFinal = -1
 	BEGIN
-		SET @LTScoreFinal = (SELECT LTScoreFinal FROM tGame)
+		SET @LTScoreFinal = (SELECT LTScoreFinal FROM #tGame)
 	END
 
 	BEGIN TRY
 		DELETE FROM Games
 		WHERE @GameId = GameId
 
-		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
+		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
 								   WTScoreOT, WTScoreFinal, LTScoreFirstQtr, LTScoreSecondQtr, LTScoreThirdQtr, LTScoreFourthQtr, LTScoreOT, LTScoreFinal, NeutralField)
-		VALUES (@GameId, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
+		VALUES (@GameId, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
 				@WTScoreOT, @WTScoreFinal, @LTScoreFirstQtr, @LTScoreSecondQtr, @LTScoreThirdQtr, @LTScoreFourthQtr, @LTScoreOT, @LTScoreFinal, @NeutralField)
 
-		DROP TABLE tGame
 		RETURN 1
 	END TRY
 	BEGIN CATCH
+		SET @ErrorMessage = ERROR_MESSAGE()
+		SET @ErrorNumber = ERROR_NUMBER()
 		RETURN 0
-	END CATCH]]></Value>
+	END CATCH
+	IF OBJECT_ID('tempdb..#tGame') IS NOT NULL -- Check for table existence
+		DROP TABLE #tGame;]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="BodyDependencies">
@@ -7419,88 +8003,138 @@ END]]></Value>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@HomeTeam]" />
 				</Entry>
-				<Entry />
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[HomeTeam]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@AwayTeam]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[AwayTeam]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@DateTime]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[DateTime]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@SeasonType]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[SeasonType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[@Season]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[Season]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@Eid]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[Eid]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@GameKey]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[GameKey]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@Week]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[Week]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WT]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WT]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LT]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LT]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreFirstQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFirstQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreSecondQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreSecondQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreThirdQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreThirdQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreFourthQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFourthQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreOT]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreOT]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@WTScoreFinal]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFinal]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreFirstQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFirstQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreSecondQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreSecondQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreThirdQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreThirdQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreFourthQtr]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFourthQtr]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreOT]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreOT]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@LTScoreFinal]" />
 				</Entry>
-				<Entry />
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFinal]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[Games].[HomeTeam]" />
 				</Entry>
@@ -7512,6 +8146,9 @@ END]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Games].[SeasonType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Games].[Season]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Games].[Eid]" />
@@ -7569,6 +8206,245 @@ END]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[UPDATE_Game].[@NeutralField]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[@ErrorMessage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UPDATE_Game].[@ErrorNumber]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DynamicObjects">
+				<Entry>
+					<Element Type="SqlDynamicColumnSource" Name="[dbo].[UPDATE_Game].[#tGame]">
+						<Relationship Name="Columns">
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[Id]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[Id]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[GameId]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[GameId]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[HomeTeam]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[HomeTeam]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[AwayTeam]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[AwayTeam]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[DateTime]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[DateTime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[SeasonType]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[SeasonType]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[Season]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[Season]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[Eid]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[Eid]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[GameKey]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[GameKey]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[Week]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[Week]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WT]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WT]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LT]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LT]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFirstQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreFirstQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreSecondQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreSecondQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreThirdQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreThirdQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFourthQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreFourthQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreOT]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreOT]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[WTScoreFinal]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[WTScoreFinal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFirstQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreFirstQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreSecondQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreSecondQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreThirdQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreThirdQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFourthQtr]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreFourthQtr]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreOT]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreOT]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[LTScoreFinal]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[LTScoreFinal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[NeutralField]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[NeutralField]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -7655,6 +8531,24 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UPDATE_Game].[@Season]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[0]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7988,6 +8882,45 @@ END]]></Value>
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UPDATE_Game].[@ErrorMessage]">
+						<Property Name="IsOutput" Value="True" />
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA['']]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="256" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UPDATE_Game].[@ErrorNumber]">
+						<Property Name="IsOutput" Value="True" />
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA['']]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -7995,10 +8928,10 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="3429" />
+				<Property Name="Length" Value="3792" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[UPDATE_Game]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@HomeTeam NVARCHAR(10) = '',&#xD;&#xA;&#x9;@AwayTeam NVARCHAR(10) = '',&#xD;&#xA;&#x9;@DateTime DATETIME = '1753-1-1',&#xD;&#xA;&#x9;@SeasonType VARCHAR(10) = 'NONE',&#xD;&#xA;&#x9;@Eid INT = 0,&#xD;&#xA;&#x9;@GameKey INT = 0,&#xD;&#xA;&#x9;@Week INT = 0,&#xD;&#xA;&#x9;@WT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@LT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@WTScoreFirstQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreSecondQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreThirdQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreFourthQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreOT INT = 0,&#xD;&#xA;&#x9;@WTScoreFinal INT = 0,&#xD;&#xA;&#x9;@LTScoreFirstQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreSecondQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreThirdQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreFourthQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreOT INT = 0,&#xD;&#xA;&#x9;@LTScoreFinal INT = 0, &#xD;&#xA;&#x9;@NeutralField BIT = 0&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[UPDATE_Game]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@HomeTeam NVARCHAR(10) = '',&#xD;&#xA;&#x9;@AwayTeam NVARCHAR(10) = '',&#xD;&#xA;&#x9;@DateTime DATETIME = '1753-1-1',&#xD;&#xA;&#x9;@SeasonType VARCHAR(10) = 'NONE',&#xD;&#xA;&#x9;@Season INT = 0,&#xD;&#xA;&#x9;@Eid INT = 0,&#xD;&#xA;&#x9;@GameKey INT = 0,&#xD;&#xA;&#x9;@Week INT = 0,&#xD;&#xA;&#x9;@WT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@LT NVARCHAR(10) = '',&#xD;&#xA;&#x9;@WTScoreFirstQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreSecondQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreThirdQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreFourthQtr INT = 0,&#xD;&#xA;&#x9;@WTScoreOT INT = 0,&#xD;&#xA;&#x9;@WTScoreFinal INT = 0,&#xD;&#xA;&#x9;@LTScoreFirstQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreSecondQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreThirdQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreFourthQtr INT = 0,&#xD;&#xA;&#x9;@LTScoreOT INT = 0,&#xD;&#xA;&#x9;@LTScoreFinal INT = 0, &#xD;&#xA;&#x9;@NeutralField BIT = 0,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) = '' OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT = '' OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 	</Model>
