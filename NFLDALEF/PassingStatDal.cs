@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class PassingStatDal : IPassingStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(PassingStat passingStat)
         {
             Guid guid = Guid.NewGuid();
             passingStat.PassingStatsId = guid;
-            entities.PassingStats.Add(passingStat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.PassingStats.Add(passingStat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public PassingStat Get(Guid passingStatId)
         {
-            return entities.PassingStats.FirstOrDefault(i => i.PassingStatsId.Equals(passingStatId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.PassingStats.FirstOrDefault(i => i.PassingStatsId.Equals(passingStatId));
+            }
         }
 
         public IEnumerable<PassingStat> GetAll()
         {
-            return entities.PassingStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.PassingStats;
+            }
         }
 
         public int Update(PassingStat passingStat)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid passingStatId)
         {
-            var stat = entities.PassingStats.FirstOrDefault(i => i.PassingStatsId.Equals(passingStatId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.PassingStats.Remove(stat);
-                return 1;
+                var stat = entities.PassingStats.FirstOrDefault(i => i.PassingStatsId.Equals(passingStatId));
+                if (stat != null)
+                {
+                    entities.PassingStats.Remove(stat);
+                    return 1;
+                }
+                return 0;
             }
-            return 0;
         }
     }
 }

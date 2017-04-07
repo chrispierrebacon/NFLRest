@@ -114,5 +114,6 @@
   <ItemGroup>
     <None Include="Snapshots\AddingID.dacpac" />
     <None Include="Snapshots\shit.dacpac" />
+    <None Include="Snapshots\WT.dacpac" />
   </ItemGroup>
 </Project>

@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class FumbleDal : IFumbleDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(Fumble stat)
         {
             Guid guid = Guid.NewGuid();
             stat.FumblesId = guid;
-            entities.Fumbles.Add(stat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Fumbles.Add(stat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public Fumble Get(Guid Id)
         {
-            return entities.Fumbles.FirstOrDefault(i => i.Id.Equals(Id));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Fumbles.FirstOrDefault(i => i.Id.Equals(Id));
+            }
         }
 
         public IEnumerable<Fumble> GetAll()
         {
-            return entities.Fumbles;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Fumbles;
+            }
         }
 
         public int Update(Fumble obj)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid Id)
         {
-            var stat = entities.Fumbles.FirstOrDefault(i => i.FumblesId.Equals(Id));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.Fumbles.Remove(stat);
-                return 1;
+                var stat = entities.Fumbles.FirstOrDefault(i => i.FumblesId.Equals(Id));
+                if (stat != null)
+                {
+                    entities.Fumbles.Remove(stat);
+                    return 1;
+                }
+                return 0;
             }
-            return 0;
         }
     }
 }

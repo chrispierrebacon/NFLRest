@@ -453,27 +453,22 @@ namespace ParseJsonData
         {
             Game game = new Game();
 
-            dynamic winningTeam = g.home.score.T > g.away.score.T ? g.home : g.away;
-            dynamic losingTeam = g.home.score.T > g.away.score.T ? g.away : g.home;
+            game.HomeTeam = g.home.abbr == "JAX" ? "JAC" : g.home.abbr;
+            game.AwayTeam = g.away.abbr == "JAX" ? "JAC" : g.away.abbr;
 
-            game.HomeTeam = g.home.abbr;
-            game.AwayTeam = g.away.abbr;
+            game.HTScoreFirstQtr = g.home.score["1"];
+            game.HTScoreSecondQtr = g.home.score["2"];
+            game.HTScoreThirdQtr = g.home.score["3"];
+            game.HTScoreFourthQtr = g.home.score["4"];
+            game.HTScoreOT = g.home.score["5"];
+            game.HTScoreFinal = g.home.score.T;
 
-            game.WT = winningTeam.abbr;
-            game.WTScoreFirstQtr = winningTeam.score["1"];
-            game.WTScoreSecondQtr = winningTeam.score["2"];
-            game.WTScoreThirdQtr = winningTeam.score["3"];
-            game.WTScoreFourthQtr = winningTeam.score["4"];
-            game.WTScoreOT = winningTeam.score["5"];
-            game.WTScoreFinal = winningTeam.score.T;
-
-            game.LT = losingTeam.abbr;
-            game.LTScoreFirstQtr = losingTeam.score["1"];
-            game.LTScoreSecondQtr = losingTeam.score["2"];
-            game.LTScoreThirdQtr = losingTeam.score["3"];
-            game.LTScoreFourthQtr = losingTeam.score["4"];
-            game.LTScoreOT = losingTeam.score["5"];
-            game.LTScoreFinal = losingTeam.score.T;
+            game.ATScoreFirstQtr = g.away.score["1"];
+            game.ATScoreSecondQtr = g.away.score["2"];
+            game.ATScoreThirdQtr = g.away.score["3"];
+            game.ATScoreFourthQtr = g.away.score["4"];
+            game.ATScoreOT = g.away.score["5"];
+            game.ATScoreFinal = g.away.score.T;
 
             request.Game = game;
         } 

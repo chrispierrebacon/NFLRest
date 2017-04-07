@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class KickReturnStatDal : IKickReturnStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(KickReturnStat kickReturnStat)
         {
             Guid guid = Guid.NewGuid();
             kickReturnStat.KickReturnStatsId = guid;
-            entities.KickReturnStats.Add(kickReturnStat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.KickReturnStats.Add(kickReturnStat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public KickReturnStat Get(Guid kickReturnStatId)
         {
-            return entities.KickReturnStats.FirstOrDefault(i => i.KickReturnStatsId.Equals(kickReturnStatId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.KickReturnStats.FirstOrDefault(i => i.KickReturnStatsId.Equals(kickReturnStatId));
+            }
         }
 
         public IEnumerable<KickReturnStat> GetAll()
         {
-            return entities.KickReturnStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.KickReturnStats;
+            }
         }
 
         public int Update(KickReturnStat kickReturnStat)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid kickReturnStatId)
         {
-            var stat = entities.KickReturnStats.FirstOrDefault(i => i.KickReturnStatsId.Equals(kickReturnStatId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.KickReturnStats.Remove(stat);
-                return 1;
+                var stat = entities.KickReturnStats.FirstOrDefault(i => i.KickReturnStatsId.Equals(kickReturnStatId));
+                if (stat != null)
+                {
+                    entities.KickReturnStats.Remove(stat);
+                    return 1;
+                }
+                return 0;
             }
-            return 0;
         }
     }
 }

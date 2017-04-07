@@ -45,6 +45,10 @@ namespace NFLBLL
         {
             // Fetch GameId
             Guid gameId = _gameDal.GetGameIdByEid(request.Game.Eid);
+            if (gameId.Equals(Guid.Empty))
+            {
+                return 0;
+            }
 
             // Update Game
             request.Game.GameId = gameId;
@@ -57,9 +61,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(fumble.GsisId);
-                    fumble.PlayerId = playerId;
-                    fumble.GameId = gameId;
-                    Guid fumbleResp = _fumbleDal.Create(fumble);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        fumble.PlayerId = playerId;
+                        fumble.GameId = gameId;
+                        Guid fumbleResp = _fumbleDal.Create(fumble);
+                    }                    
                 });
                 tasks.Add(t);
             }
@@ -69,9 +76,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(kickingStat.GsisId);
-                    kickingStat.PlayerId = playerId;
-                    kickingStat.GameId = gameId;
-                    Guid kickingStatResp = _kickingStatDal.Create(kickingStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        kickingStat.PlayerId = playerId;
+                        kickingStat.GameId = gameId;
+                        Guid kickingStatResp = _kickingStatDal.Create(kickingStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -81,9 +91,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(kickReturnStat.GsisId);
-                    kickReturnStat.PlayerId = playerId;
-                    kickReturnStat.GameId = gameId;
-                    Guid kickingStatResp = _kickReturnStatDal.Create(kickReturnStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        kickReturnStat.PlayerId = playerId;
+                        kickReturnStat.GameId = gameId;
+                        Guid kickingStatResp = _kickReturnStatDal.Create(kickReturnStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -93,9 +106,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(passingStat.GsisId);
-                    passingStat.PlayerId = playerId;
-                    passingStat.GameId = gameId;
-                    Guid kickingStatResp = _passingStatDal.Create(passingStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        passingStat.PlayerId = playerId;
+                        passingStat.GameId = gameId;
+                        Guid kickingStatResp = _passingStatDal.Create(passingStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -105,9 +121,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(puntingStat.GsisId);
-                    puntingStat.PlayerId = playerId;
-                    puntingStat.GameId = gameId;
-                    Guid kickingStatResp = _puntingStatDal.Create(puntingStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        puntingStat.PlayerId = playerId;
+                        puntingStat.GameId = gameId;
+                        Guid kickingStatResp = _puntingStatDal.Create(puntingStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -117,9 +136,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(puntReturnStat.GsisId);
-                    puntReturnStat.PlayerId = playerId;
-                    puntReturnStat.GameId = gameId;
-                    Guid kickingStatResp = _puntReturnStatDal.Create(puntReturnStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        puntReturnStat.PlayerId = playerId;
+                        puntReturnStat.GameId = gameId;
+                        Guid kickingStatResp = _puntReturnStatDal.Create(puntReturnStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -129,9 +151,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(receivingStat.GsisId);
-                    receivingStat.PlayerId = playerId;
-                    receivingStat.GameId = gameId;
-                    Guid kickingStatResp = _receivingStatDal.Create(receivingStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        receivingStat.PlayerId = playerId;
+                        receivingStat.GameId = gameId;
+                        Guid kickingStatResp = _receivingStatDal.Create(receivingStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -141,9 +166,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(rushingStat.GsisId);
-                    rushingStat.PlayerId = playerId;
-                    rushingStat.GameId = gameId;
-                    Guid kickingStatResp = _rushingStatDal.Create(rushingStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        rushingStat.PlayerId = playerId;
+                        rushingStat.GameId = gameId;
+                        Guid kickingStatResp = _rushingStatDal.Create(rushingStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -153,9 +181,12 @@ namespace NFLBLL
                 Task t = Task.Run(() =>
                 {
                     Guid playerId = _playerDal.GetPlayerIdByGsisId(defensiveStat.GsisId);
-                    defensiveStat.PlayerId = playerId;
-                    defensiveStat.GameId = gameId;
-                    Guid kickingStatResp = _defensiveStatDal.Create(defensiveStat);
+                    if (!playerId.Equals(Guid.Empty))
+                    {
+                        defensiveStat.PlayerId = playerId;
+                        defensiveStat.GameId = gameId;
+                        Guid kickingStatResp = _defensiveStatDal.Create(defensiveStat); 
+                    }
                 });
                 tasks.Add(t);
             }
@@ -236,9 +267,9 @@ namespace NFLBLL
             foreach(var gameId in gameIds)
             {
                 Game game = entities.Games.Where(i => i.GameId == gameId).FirstOrDefault();
-                bool isWT = game.WT.Equals(teamName);
+                bool isHT = game.HomeTeam.Equals(teamName);
                 GameStats teamGameStats = getGameStatsByIdsAndTeamName(teamName, gameId);
-                string oppTeam = isWT ? game.LT : game.WT;
+                string oppTeam = isHT ? game.AwayTeam : game.HomeTeam;
                 GameStats oppGameStats = getGameStatsByIdsAndTeamName(oppTeam, gameId);
 
                 // Sack points
@@ -248,9 +279,9 @@ namespace NFLBLL
 
                 // D/STPoints = TotalPoints - (OffensivePoints + Kicking points)
                 // This includes safeties
-                fantasyPoints += isWT ? teamGameStats.Game.WTScoreFinal : teamGameStats.Game.LTScoreFinal;
+                fantasyPoints += isHT ? teamGameStats.Game.HTScoreFinal : teamGameStats.Game.ATScoreFinal;
                 fantasyPoints -= getOffensivePoints(teamGameStats);
-                fantasyPoints += getPointsAllowedFantasyPoints(isWT ? game.WTScoreFinal : game.LTScoreFinal);
+                fantasyPoints += getPointsAllowedFantasyPoints(isHT ? game.HTScoreFinal : game.ATScoreFinal);
             }
 
             return fantasyPoints;

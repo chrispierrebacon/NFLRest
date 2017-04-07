@@ -31,20 +31,18 @@ namespace NFLDAL
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },
-                { "WT", game.WT },
-                { "LT", game.LT },
-                { "WTScoreFirstQtr", game.WTScoreFirstQtr },
-                { "WTScoreSecondQtr", game.WTScoreSecondQtr },
-                { "WTScoreThirdQtr", game.WTScoreThirdQtr },
-                { "WTScoreFourthQtr", game.WTScoreFourthQtr },
-                { "WTScoreOT", game.WTScoreOT },
-                { "WTScoreFinal", game.WTScoreFinal },
-                { "LTScoreFirstQtr", game.LTScoreFirstQtr },
-                { "LTScoreSecondQtr", game.LTScoreSecondQtr },
-                { "LTScoreThirdQtr", game.LTScoreThirdQtr },
-                { "LTScoreFourthQtr", game.LTScoreFourthQtr },
-                { "LTScoreOT", game.LTScoreOT },
-                { "LTScoreFinal", game.LTScoreFinal },
+                { "HTScoreFirstQtr", game.HTScoreFirstQtr },
+                { "HTScoreSecondQtr", game.HTScoreSecondQtr },
+                { "HTScoreThirdQtr", game.HTScoreThirdQtr },
+                { "HTScoreFourthQtr", game.HTScoreFourthQtr },
+                { "HTScoreOT", game.HTScoreOT },
+                { "HTScoreFinal", game.HTScoreFinal },
+                { "ATScoreFirstQtr", game.ATScoreFirstQtr },
+                { "ATScoreSecondQtr", game.ATScoreSecondQtr },
+                { "ATScoreThirdQtr", game.ATScoreThirdQtr },
+                { "ATScoreFourthQtr", game.ATScoreFourthQtr },
+                { "ATScoreOT", game.ATScoreOT },
+                { "ATScoreFinal", game.ATScoreFinal },
                 { "NeutralField", game.NeutralField }
             };
 
@@ -75,20 +73,18 @@ namespace NFLDAL
             game.Eid = reader.ContainsKey("Eid") ? (int)reader["Eid"] : -1;
             game.GameKey = reader.ContainsKey("GameKey") ? (int)reader["GameKey"] : -1;
             game.Week = reader.ContainsKey("Week") ? (int)reader["Week"] : -1;
-            game.WT = reader.ContainsKey("WT") ? reader["WT"].ToString() : string.Empty;
-            game.LT = reader.ContainsKey("LT") ? reader["LT"].ToString() : string.Empty;
-            game.WTScoreFirstQtr = reader.ContainsKey("WTScoreFirstQtr") ? (int)reader["WTScoreFirstQtr"] : -1;
-            game.WTScoreSecondQtr = reader.ContainsKey("WTScoreSecondQtr") ? (int)reader["WTScoreSecondQtr"] : -1;
-            game.WTScoreThirdQtr = reader.ContainsKey("WTScoreThirdQtr") ? (int)reader["WTScoreThirdQtr"] : -1;
-            game.WTScoreFourthQtr = reader.ContainsKey("WTScoreFourthQtr") ? (int)reader["WTScoreFourthQtr"] : -1;
-            game.WTScoreOT = reader.ContainsKey("WTScoreOT") ? (int)reader["WTScoreOT"] : -1;
-            game.WTScoreFinal = reader.ContainsKey("WTScoreFinal") ? (int)reader["WTScoreFinal"] : -1;
-            game.LTScoreFirstQtr = reader.ContainsKey("LTScoreFirstQtr") ? (int)reader["LTScoreFirstQtr"] : -1;
-            game.LTScoreSecondQtr = reader.ContainsKey("LTScoreSecondQtr") ? (int)reader["LTScoreSecondQtr"] : -1;
-            game.LTScoreThirdQtr = reader.ContainsKey("LTScoreThirdQtr") ? (int)reader["LTScoreThirdQtr"] : -1;
-            game.LTScoreFourthQtr = reader.ContainsKey("LTScoreFourthQtr") ? (int)reader["LTScoreFourthQtr"] : -1;
-            game.LTScoreOT = reader.ContainsKey("LTScoreOT") ? (int)reader["LTScoreOT"] : -1;
-            game.LTScoreFinal = reader.ContainsKey("LTScoreFinal") ? (int)reader["LTScoreFinal"] : -1;
+            game.HTScoreFirstQtr = reader.ContainsKey("HTScoreFirstQtr") ? (int)reader["HTScoreFirstQtr"] : -1;
+            game.HTScoreSecondQtr = reader.ContainsKey("HTScoreSecondQtr") ? (int)reader["HTScoreSecondQtr"] : -1;
+            game.HTScoreThirdQtr = reader.ContainsKey("HTScoreThirdQtr") ? (int)reader["HTScoreThirdQtr"] : -1;
+            game.HTScoreFourthQtr = reader.ContainsKey("HTScoreFourthQtr") ? (int)reader["HTScoreFourthQtr"] : -1;
+            game.HTScoreOT = reader.ContainsKey("HTScoreOT") ? (int)reader["HTScoreOT"] : -1;
+            game.HTScoreFinal = reader.ContainsKey("HTScoreFinal") ? (int)reader["HTScoreFinal"] : -1;
+            game.ATScoreFirstQtr = reader.ContainsKey("ATScoreFirstQtr") ? (int)reader["ATScoreFirstQtr"] : -1;
+            game.ATScoreSecondQtr = reader.ContainsKey("ATScoreSecondQtr") ? (int)reader["ATScoreSecondQtr"] : -1;
+            game.ATScoreThirdQtr = reader.ContainsKey("ATScoreThirdQtr") ? (int)reader["ATScoreThirdQtr"] : -1;
+            game.ATScoreFourthQtr = reader.ContainsKey("ATScoreFourthQtr") ? (int)reader["ATScoreFourthQtr"] : -1;
+            game.ATScoreOT = reader.ContainsKey("ATScoreOT") ? (int)reader["ATScoreOT"] : -1;
+            game.ATScoreFinal = reader.ContainsKey("ATScoreFinal") ? (int)reader["ATScoreFinal"] : -1;
             game.NeutralField = reader.ContainsKey("NeutralField") ? (bool)reader["NeutralField"] : false;
 
             return game;
@@ -123,20 +119,18 @@ namespace NFLDAL
                 { "Eid", game.Eid },
                 { "GameKey", game.GameKey },
                 { "Week", game.Week },
-                { "WT", game.WT },
-                { "LT", game.LT },
-                { "WTScoreFirstQtr", game.WTScoreFirstQtr },
-                { "WTScoreSecondQtr", game.WTScoreSecondQtr },
-                { "WTScoreThirdQtr", game.WTScoreThirdQtr },
-                { "WTScoreFourthQtr", game.WTScoreFourthQtr },
-                { "WTScoreOT", game.WTScoreOT },
-                { "WTScoreFinal", game.WTScoreFinal },
-                { "LTScoreFirstQtr", game.LTScoreFirstQtr },
-                { "LTScoreSecondQtr", game.LTScoreSecondQtr },
-                { "LTScoreThirdQtr", game.LTScoreThirdQtr },
-                { "LTScoreFourthQtr", game.LTScoreFourthQtr },
-                { "LTScoreOT", game.LTScoreOT },
-                { "LTScoreFinal", game.LTScoreFinal },
+                { "HTScoreFirstQtr", game.HTScoreFirstQtr },
+                { "HTScoreSecondQtr", game.HTScoreSecondQtr },
+                { "HTScoreThirdQtr", game.HTScoreThirdQtr },
+                { "HTScoreFourthQtr", game.HTScoreFourthQtr },
+                { "HTScoreOT", game.HTScoreOT },
+                { "HTScoreFinal", game.HTScoreFinal },
+                { "ATScoreFirstQtr", game.ATScoreFirstQtr },
+                { "ATScoreSecondQtr", game.ATScoreSecondQtr },
+                { "ATScoreThirdQtr", game.ATScoreThirdQtr },
+                { "ATScoreFourthQtr", game.ATScoreFourthQtr },
+                { "ATScoreOT", game.ATScoreOT },
+                { "ATScoreFinal", game.ATScoreFinal },
                 { "NeutralField", game.NeutralField }
             };
             

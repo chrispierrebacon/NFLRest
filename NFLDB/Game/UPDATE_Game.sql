@@ -8,20 +8,18 @@
 	@Eid INT = 0,
 	@GameKey INT = 0,
 	@Week INT = 0,
-	@WT NVARCHAR(10) = '',
-	@LT NVARCHAR(10) = '',
-	@WTScoreFirstQtr INT = 0,
-	@WTScoreSecondQtr INT = 0,
-	@WTScoreThirdQtr INT = 0,
-	@WTScoreFourthQtr INT = 0,
-	@WTScoreOT INT = 0,
-	@WTScoreFinal INT = 0,
-	@LTScoreFirstQtr INT = 0,
-	@LTScoreSecondQtr INT = 0,
-	@LTScoreThirdQtr INT = 0,
-	@LTScoreFourthQtr INT = 0,
-	@LTScoreOT INT = 0,
-	@LTScoreFinal INT = 0, 
+	@HTScoreFirstQtr INT = 0,
+	@HTScoreSecondQtr INT = 0,
+	@HTScoreThirdQtr INT = 0,
+	@HTScoreFourthQtr INT = 0,
+	@HTScoreOT INT = 0,
+	@HTScoreFinal INT = 0,
+	@ATScoreFirstQtr INT = 0,
+	@ATScoreSecondQtr INT = 0,
+	@ATScoreThirdQtr INT = 0,
+	@ATScoreFourthQtr INT = 0,
+	@ATScoreOT INT = 0,
+	@ATScoreFinal INT = 0, 
 	@NeutralField BIT = 0,
 	@ErrorMessage NVARCHAR(256) = '' OUTPUT,
 	@ErrorNumber INT = '' OUTPUT
@@ -70,84 +68,74 @@ AS
 		SET @Week = (SELECT Week FROM #tGame)
 	END
 
-	IF @WT = ''
+	IF @HTScoreFirstQtr = -1
 	BEGIN
-		SET @WT = (SELECT WT FROM #tGame)
+		SET @HTScoreFirstQtr = (SELECT HTScoreFirstQtr FROM #tGame)
 	END
 
-	IF @LT = ''
+	IF @HTScoreSecondQtr = -1
 	BEGIN
-		SET @LT = (SELECT LT FROM #tGame)
+		SET @HTScoreSecondQtr = (SELECT HTScoreSecondQtr FROM #tGame)
 	END
 
-	IF @WTScoreFirstQtr = -1
+	IF @HTScoreThirdQtr = -1
 	BEGIN
-		SET @WTScoreFirstQtr = (SELECT WTScoreFirstQtr FROM #tGame)
+		SET @HTScoreThirdQtr = (SELECT HTScoreThirdQtr FROM #tGame)
 	END
 
-	IF @WTScoreSecondQtr = -1
+	IF @HTScoreFourthQtr = -1
 	BEGIN
-		SET @WTScoreSecondQtr = (SELECT WTScoreSecondQtr FROM #tGame)
+		SET @HTScoreFourthQtr = (SELECT HTScoreFourthQtr FROM #tGame)
 	END
 
-	IF @WTScoreThirdQtr = -1
+	IF @HTScoreOT = -1
 	BEGIN
-		SET @WTScoreThirdQtr = (SELECT WTScoreThirdQtr FROM #tGame)
+		SET @HTScoreOT = (SELECT HTScoreOT FROM #tGame)
 	END
 
-	IF @WTScoreFourthQtr = -1
+	IF @HTScoreFinal = -1
 	BEGIN
-		SET @WTScoreFourthQtr = (SELECT WTScoreFourthQtr FROM #tGame)
+		SET @HTScoreFinal = (SELECT HTScoreFinal FROM #tGame)
 	END
 
-	IF @WTScoreOT = -1
+	IF @ATScoreFirstQtr = -1
 	BEGIN
-		SET @WTScoreOT = (SELECT WTScoreOT FROM #tGame)
+		SET @ATScoreFirstQtr = (SELECT ATScoreFirstQtr FROM #tGame)
 	END
 
-	IF @WTScoreFinal = -1
+	IF @ATScoreSecondQtr = -1
 	BEGIN
-		SET @WTScoreFinal = (SELECT WTScoreFinal FROM #tGame)
+		SET @ATScoreSecondQtr = (SELECT ATScoreSecondQtr FROM #tGame)
 	END
 
-	IF @LTScoreFirstQtr = -1
+	IF @ATScoreThirdQtr = -1
 	BEGIN
-		SET @LTScoreFirstQtr = (SELECT LTScoreFirstQtr FROM #tGame)
+		SET @ATScoreThirdQtr = (SELECT ATScoreThirdQtr FROM #tGame)
 	END
 
-	IF @LTScoreSecondQtr = -1
+	IF @ATScoreFourthQtr = -1
 	BEGIN
-		SET @LTScoreSecondQtr = (SELECT LTScoreSecondQtr FROM #tGame)
+		SET @ATScoreFourthQtr = (SELECT ATScoreFourthQtr FROM #tGame)
 	END
 
-	IF @LTScoreThirdQtr = -1
+	IF @ATScoreOT = -1
 	BEGIN
-		SET @LTScoreThirdQtr = (SELECT LTScoreThirdQtr FROM #tGame)
+		SET @ATScoreOT = (SELECT ATScoreOT FROM #tGame)
 	END
 
-	IF @LTScoreFourthQtr = -1
+	IF @ATScoreFinal = -1
 	BEGIN
-		SET @LTScoreFourthQtr = (SELECT LTScoreFourthQtr FROM #tGame)
-	END
-
-	IF @LTScoreOT = -1
-	BEGIN
-		SET @LTScoreOT = (SELECT LTScoreOT FROM #tGame)
-	END
-
-	IF @LTScoreFinal = -1
-	BEGIN
-		SET @LTScoreFinal = (SELECT LTScoreFinal FROM #tGame)
+		SET @ATScoreFinal = (SELECT ATScoreFinal FROM #tGame)
 	END
 
 	BEGIN TRY
 		DELETE FROM Games
 		WHERE @GameId = GameId
 
-		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
-								   WTScoreOT, WTScoreFinal, LTScoreFirstQtr, LTScoreSecondQtr, LTScoreThirdQtr, LTScoreFourthQtr, LTScoreOT, LTScoreFinal, NeutralField)
-		VALUES (@GameId, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
-				@WTScoreOT, @WTScoreFinal, @LTScoreFirstQtr, @LTScoreSecondQtr, @LTScoreThirdQtr, @LTScoreFourthQtr, @LTScoreOT, @LTScoreFinal, @NeutralField)
+		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, HTScoreFirstQtr, HTScoreSecondQtr, HTScoreThirdQtr, HTScoreFourthQtr,
+								   HTScoreOT, HTScoreFinal, ATScoreFirstQtr, ATScoreSecondQtr, ATScoreThirdQtr, ATScoreFourthQtr, ATScoreOT, ATScoreFinal, NeutralField)
+		VALUES (@GameId, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @HTScoreFirstQtr, @HTScoreSecondQtr, @HTScoreThirdQtr, @HTScoreFourthQtr,
+				@HTScoreOT, @HTScoreFinal, @ATScoreFirstQtr, @ATScoreSecondQtr, @ATScoreThirdQtr, @ATScoreFourthQtr, @ATScoreOT, @ATScoreFinal, @NeutralField)
 
 		RETURN 1
 	END TRY

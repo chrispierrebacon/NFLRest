@@ -67,20 +67,18 @@
           <ScalarProperty Name="Eid" ColumnName="Eid" />
           <ScalarProperty Name="GameKey" ColumnName="GameKey" />
           <ScalarProperty Name="Week" ColumnName="Week" />
-          <ScalarProperty Name="WT" ColumnName="WT" />
-          <ScalarProperty Name="LT" ColumnName="LT" />
-          <ScalarProperty Name="WTScoreFirstQtr" ColumnName="WTScoreFirstQtr" />
-          <ScalarProperty Name="WTScoreSecondQtr" ColumnName="WTScoreSecondQtr" />
-          <ScalarProperty Name="WTScoreThirdQtr" ColumnName="WTScoreThirdQtr" />
-          <ScalarProperty Name="WTScoreFourthQtr" ColumnName="WTScoreFourthQtr" />
-          <ScalarProperty Name="WTScoreOT" ColumnName="WTScoreOT" />
-          <ScalarProperty Name="WTScoreFinal" ColumnName="WTScoreFinal" />
-          <ScalarProperty Name="LTScoreFirstQtr" ColumnName="LTScoreFirstQtr" />
-          <ScalarProperty Name="LTScoreSecondQtr" ColumnName="LTScoreSecondQtr" />
-          <ScalarProperty Name="LTScoreThirdQtr" ColumnName="LTScoreThirdQtr" />
-          <ScalarProperty Name="LTScoreFourthQtr" ColumnName="LTScoreFourthQtr" />
-          <ScalarProperty Name="LTScoreOT" ColumnName="LTScoreOT" />
-          <ScalarProperty Name="LTScoreFinal" ColumnName="LTScoreFinal" />
+          <ScalarProperty Name="HTScoreFirstQtr" ColumnName="HTScoreFirstQtr" />
+          <ScalarProperty Name="HTScoreSecondQtr" ColumnName="HTScoreSecondQtr" />
+          <ScalarProperty Name="HTScoreThirdQtr" ColumnName="HTScoreThirdQtr" />
+          <ScalarProperty Name="HTScoreFourthQtr" ColumnName="HTScoreFourthQtr" />
+          <ScalarProperty Name="HTScoreOT" ColumnName="HTScoreOT" />
+          <ScalarProperty Name="HTScoreFinal" ColumnName="HTScoreFinal" />
+          <ScalarProperty Name="ATScoreFirstQtr" ColumnName="ATScoreFirstQtr" />
+          <ScalarProperty Name="ATScoreSecondQtr" ColumnName="ATScoreSecondQtr" />
+          <ScalarProperty Name="ATScoreThirdQtr" ColumnName="ATScoreThirdQtr" />
+          <ScalarProperty Name="ATScoreFourthQtr" ColumnName="ATScoreFourthQtr" />
+          <ScalarProperty Name="ATScoreOT" ColumnName="ATScoreOT" />
+          <ScalarProperty Name="ATScoreFinal" ColumnName="ATScoreFinal" />
           <ScalarProperty Name="NeutralField" ColumnName="NeutralField" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -268,6 +266,8 @@
     <FunctionImportMapping FunctionImportName="CREATE_ReceivingStat" FunctionName="NFLDBModel.Store.CREATE_ReceivingStat" />
     <FunctionImportMapping FunctionImportName="CREATE_RushingStat" FunctionName="NFLDBModel.Store.CREATE_RushingStat" />
     <FunctionImportMapping FunctionImportName="CREATE_Team" FunctionName="NFLDBModel.Store.CREATE_Team" />
+    <FunctionImportMapping FunctionImportName="DELETEAll" FunctionName="NFLDBModel.Store.DELETEAll" />
+    <FunctionImportMapping FunctionImportName="DELETEStats" FunctionName="NFLDBModel.Store.DELETEStats" />
     <FunctionImportMapping FunctionImportName="GET_GameIdByEid" FunctionName="NFLDBModel.Store.GET_GameIdByEid" />
     <FunctionImportMapping FunctionImportName="GET_PlayerIdByGsisId" FunctionName="NFLDBModel.Store.GET_PlayerIdByGsisId" />
     <FunctionImportMapping FunctionImportName="UPDATE_Game" FunctionName="NFLDBModel.Store.UPDATE_Game" />

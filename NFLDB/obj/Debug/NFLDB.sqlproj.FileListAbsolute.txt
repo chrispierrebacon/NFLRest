@@ -1,9 +1,0 @@
-C:\Projects\NFLRest\NFLDB\bin\Debug\NFLDB.dacpac
-C:\Projects\NFLRest\NFLDB\bin\Debug\NFLDB.dll
-C:\Projects\NFLRest\NFLDB\bin\Debug\NFLDB.pdb
-C:\Projects\NFLRest\NFLDB\obj\Debug\Model.xml
-C:\Projects\NFLRest\NFLDB\obj\Debug\refactor.xml
-C:\Projects\NFLRest\NFLDB\obj\Debug\postdeploy.sql
-C:\Projects\NFLRest\NFLDB\obj\Debug\predeploy.sql
-C:\Projects\NFLRest\NFLDB\obj\Debug\NFLDB.dll
-C:\Projects\NFLRest\NFLDB\obj\Debug\NFLDB.pdb

@@ -45,7 +45,7 @@ namespace NFLCommon
         public virtual DbSet<SeasonType> SeasonTypes { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
     
-        public virtual int CREATE_DefensiveStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> tackles, Nullable<int> assists, Nullable<int> sacks, Nullable<int> interceptions, Nullable<int> forcedFumbles, string gsisId, ObjectParameter id)
+        public virtual int CREATE_DefensiveStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> tackles, Nullable<int> assists, Nullable<int> sacks, Nullable<int> interceptions, Nullable<int> forcedFumbles, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -79,10 +79,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_DefensiveStat", gameIdParameter, playerIdParameter, tacklesParameter, assistsParameter, sacksParameter, interceptionsParameter, forcedFumblesParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_DefensiveStat", gameIdParameter, playerIdParameter, tacklesParameter, assistsParameter, sacksParameter, interceptionsParameter, forcedFumblesParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_Fumble(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> total, Nullable<int> recovered, Nullable<int> teamRecovered, Nullable<int> yards, Nullable<int> lost, string gsisId, ObjectParameter id)
+        public virtual int CREATE_Fumble(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> total, Nullable<int> recovered, Nullable<int> teamRecovered, Nullable<int> yards, Nullable<int> lost, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -116,10 +116,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Fumble", gameIdParameter, playerIdParameter, totalParameter, recoveredParameter, teamRecoveredParameter, yardsParameter, lostParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Fumble", gameIdParameter, playerIdParameter, totalParameter, recoveredParameter, teamRecoveredParameter, yardsParameter, lostParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_Game(string homeTeam, string awayTeam, Nullable<System.DateTime> dateTime, string seasonType, Nullable<int> eid, Nullable<int> gameKey, Nullable<int> week, string wT, string lT, Nullable<int> wTScoreFirstQtr, Nullable<int> wTScoreSecondQtr, Nullable<int> wTScoreThirdQtr, Nullable<int> wTScoreFourthQtr, Nullable<int> wTScoreOT, Nullable<int> wTScoreFinal, Nullable<int> lTScoreFirstQtr, Nullable<int> lTScoreSecondQtr, Nullable<int> lTScoreThirdQtr, Nullable<int> lTScoreFourthQtr, Nullable<int> lTScoreOT, Nullable<int> lTScoreFinal, Nullable<bool> neutralField, ObjectParameter id)
+        public virtual int CREATE_Game(string homeTeam, string awayTeam, Nullable<System.DateTime> dateTime, string seasonType, Nullable<int> season, Nullable<int> eid, Nullable<int> gameKey, Nullable<int> week, Nullable<int> wTScoreFirstQtr, Nullable<int> wTScoreSecondQtr, Nullable<int> wTScoreThirdQtr, Nullable<int> wTScoreFourthQtr, Nullable<int> wTScoreOT, Nullable<int> wTScoreFinal, Nullable<int> lTScoreFirstQtr, Nullable<int> lTScoreSecondQtr, Nullable<int> lTScoreThirdQtr, Nullable<int> lTScoreFourthQtr, Nullable<int> lTScoreOT, Nullable<int> lTScoreFinal, Nullable<bool> neutralField, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var homeTeamParameter = homeTeam != null ?
                 new ObjectParameter("HomeTeam", homeTeam) :
@@ -137,6 +137,10 @@ namespace NFLCommon
                 new ObjectParameter("SeasonType", seasonType) :
                 new ObjectParameter("SeasonType", typeof(string));
     
+            var seasonParameter = season.HasValue ?
+                new ObjectParameter("Season", season) :
+                new ObjectParameter("Season", typeof(int));
+    
             var eidParameter = eid.HasValue ?
                 new ObjectParameter("Eid", eid) :
                 new ObjectParameter("Eid", typeof(int));
@@ -148,14 +152,6 @@ namespace NFLCommon
             var weekParameter = week.HasValue ?
                 new ObjectParameter("Week", week) :
                 new ObjectParameter("Week", typeof(int));
-    
-            var wTParameter = wT != null ?
-                new ObjectParameter("WT", wT) :
-                new ObjectParameter("WT", typeof(string));
-    
-            var lTParameter = lT != null ?
-                new ObjectParameter("LT", lT) :
-                new ObjectParameter("LT", typeof(string));
     
             var wTScoreFirstQtrParameter = wTScoreFirstQtr.HasValue ?
                 new ObjectParameter("WTScoreFirstQtr", wTScoreFirstQtr) :
@@ -209,10 +205,10 @@ namespace NFLCommon
                 new ObjectParameter("NeutralField", neutralField) :
                 new ObjectParameter("NeutralField", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Game", homeTeamParameter, awayTeamParameter, dateTimeParameter, seasonTypeParameter, eidParameter, gameKeyParameter, weekParameter, wTParameter, lTParameter, wTScoreFirstQtrParameter, wTScoreSecondQtrParameter, wTScoreThirdQtrParameter, wTScoreFourthQtrParameter, wTScoreOTParameter, wTScoreFinalParameter, lTScoreFirstQtrParameter, lTScoreSecondQtrParameter, lTScoreThirdQtrParameter, lTScoreFourthQtrParameter, lTScoreOTParameter, lTScoreFinalParameter, neutralFieldParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Game", homeTeamParameter, awayTeamParameter, dateTimeParameter, seasonTypeParameter, seasonParameter, eidParameter, gameKeyParameter, weekParameter, wTScoreFirstQtrParameter, wTScoreSecondQtrParameter, wTScoreThirdQtrParameter, wTScoreFourthQtrParameter, wTScoreOTParameter, wTScoreFinalParameter, lTScoreFirstQtrParameter, lTScoreSecondQtrParameter, lTScoreThirdQtrParameter, lTScoreFourthQtrParameter, lTScoreOTParameter, lTScoreFinalParameter, neutralFieldParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_KickingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> fieldGoalsMade, Nullable<int> fieldGoalsAttempted, Nullable<int> yards, Nullable<int> totalPoints, Nullable<int> extraPointsMade, Nullable<int> extraPointsMissed, Nullable<int> extraPointsAttempted, Nullable<int> extraPointsBlocked, Nullable<int> extraPointsTotal, string gsisId, ObjectParameter id)
+        public virtual int CREATE_KickingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> fieldGoalsMade, Nullable<int> fieldGoalsAttempted, Nullable<int> yards, Nullable<int> totalPoints, Nullable<int> extraPointsMade, Nullable<int> extraPointsMissed, Nullable<int> extraPointsAttempted, Nullable<int> extraPointsBlocked, Nullable<int> extraPointsTotal, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -262,10 +258,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_KickingStat", gameIdParameter, playerIdParameter, fieldGoalsMadeParameter, fieldGoalsAttemptedParameter, yardsParameter, totalPointsParameter, extraPointsMadeParameter, extraPointsMissedParameter, extraPointsAttemptedParameter, extraPointsBlockedParameter, extraPointsTotalParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_KickingStat", gameIdParameter, playerIdParameter, fieldGoalsMadeParameter, fieldGoalsAttemptedParameter, yardsParameter, totalPointsParameter, extraPointsMadeParameter, extraPointsMissedParameter, extraPointsAttemptedParameter, extraPointsBlockedParameter, extraPointsTotalParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_KickReturnStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> returns, Nullable<int> average, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> longTouchdown, string gsisId, ObjectParameter id)
+        public virtual int CREATE_KickReturnStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> returns, Nullable<int> average, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> longTouchdown, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -299,10 +295,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_KickReturnStat", gameIdParameter, playerIdParameter, returnsParameter, averageParameter, touchdownsParameter, longParameter, longTouchdownParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_KickReturnStat", gameIdParameter, playerIdParameter, returnsParameter, averageParameter, touchdownsParameter, longParameter, longTouchdownParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_PassingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> attempts, Nullable<int> completions, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> interceptions, Nullable<int> twoPointAttempts, Nullable<int> twoPointMakes, string gsisId, ObjectParameter id)
+        public virtual int CREATE_PassingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> attempts, Nullable<int> completions, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> interceptions, Nullable<int> twoPointAttempts, Nullable<int> twoPointMakes, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -344,10 +340,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PassingStat", gameIdParameter, playerIdParameter, attemptsParameter, completionsParameter, yardsParameter, touchdownsParameter, interceptionsParameter, twoPointAttemptsParameter, twoPointMakesParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PassingStat", gameIdParameter, playerIdParameter, attemptsParameter, completionsParameter, yardsParameter, touchdownsParameter, interceptionsParameter, twoPointAttemptsParameter, twoPointMakesParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_Player(string firstName, string lastName, string position, string team, Nullable<System.DateTime> birthdate, string college, string fullName, string gsisId, string gsisName, Nullable<int> height, Nullable<int> number, string profileId, string profileUrl, string status, Nullable<int> weight, Nullable<int> yearsPro, ObjectParameter id)
+        public virtual int CREATE_Player(string firstName, string lastName, string position, string team, Nullable<System.DateTime> birthdate, string college, string fullName, string gsisId, string gsisName, Nullable<int> height, Nullable<int> number, string profileId, string profileUrl, string status, Nullable<int> weight, Nullable<int> yearsPro, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var firstNameParameter = firstName != null ?
                 new ObjectParameter("FirstName", firstName) :
@@ -413,10 +409,10 @@ namespace NFLCommon
                 new ObjectParameter("YearsPro", yearsPro) :
                 new ObjectParameter("YearsPro", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Player", firstNameParameter, lastNameParameter, positionParameter, teamParameter, birthdateParameter, collegeParameter, fullNameParameter, gsisIdParameter, gsisNameParameter, heightParameter, numberParameter, profileIdParameter, profileUrlParameter, statusParameter, weightParameter, yearsProParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Player", firstNameParameter, lastNameParameter, positionParameter, teamParameter, birthdateParameter, collegeParameter, fullNameParameter, gsisIdParameter, gsisNameParameter, heightParameter, numberParameter, profileIdParameter, profileUrlParameter, statusParameter, weightParameter, yearsProParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_PuntingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> punts, Nullable<int> yards, Nullable<int> average, Nullable<int> insideTwenty, Nullable<int> @long, string gsisId, ObjectParameter id)
+        public virtual int CREATE_PuntingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> punts, Nullable<int> yards, Nullable<int> average, Nullable<int> insideTwenty, Nullable<int> @long, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -450,10 +446,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PuntingStat", gameIdParameter, playerIdParameter, puntsParameter, yardsParameter, averageParameter, insideTwentyParameter, longParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PuntingStat", gameIdParameter, playerIdParameter, puntsParameter, yardsParameter, averageParameter, insideTwentyParameter, longParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_PuntReturnStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> returns, Nullable<int> average, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> longTouchdown, string gsisId, ObjectParameter id)
+        public virtual int CREATE_PuntReturnStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> returns, Nullable<int> average, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> longTouchdown, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -487,10 +483,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PuntReturnStat", gameIdParameter, playerIdParameter, returnsParameter, averageParameter, touchdownsParameter, longParameter, longTouchdownParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_PuntReturnStat", gameIdParameter, playerIdParameter, returnsParameter, averageParameter, touchdownsParameter, longParameter, longTouchdownParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_ReceivingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> receptions, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> twoPointAttempts, Nullable<int> twoPointsMade, string gsisId, ObjectParameter id)
+        public virtual int CREATE_ReceivingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> receptions, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> twoPointAttempts, Nullable<int> twoPointsMade, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -528,10 +524,10 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_ReceivingStat", gameIdParameter, playerIdParameter, receptionsParameter, yardsParameter, touchdownsParameter, longParameter, twoPointAttemptsParameter, twoPointsMadeParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_ReceivingStat", gameIdParameter, playerIdParameter, receptionsParameter, yardsParameter, touchdownsParameter, longParameter, twoPointAttemptsParameter, twoPointsMadeParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
-        public virtual int CREATE_RushingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> attempts, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> twoPointAttempts, Nullable<int> twoPointsMade, string gsisId, ObjectParameter id)
+        public virtual int CREATE_RushingStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> attempts, Nullable<int> yards, Nullable<int> touchdowns, Nullable<int> @long, Nullable<int> twoPointAttempts, Nullable<int> twoPointsMade, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -569,7 +565,7 @@ namespace NFLCommon
                 new ObjectParameter("GsisId", gsisId) :
                 new ObjectParameter("GsisId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_RushingStat", gameIdParameter, playerIdParameter, attemptsParameter, yardsParameter, touchdownsParameter, longParameter, twoPointAttemptsParameter, twoPointsMadeParameter, gsisIdParameter, id);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_RushingStat", gameIdParameter, playerIdParameter, attemptsParameter, yardsParameter, touchdownsParameter, longParameter, twoPointAttemptsParameter, twoPointsMadeParameter, gsisIdParameter, id, errorMessage, errorNumber);
         }
     
         public virtual int CREATE_Team(string prefix, string city, string nickName, string conference, string division, ObjectParameter id)
@@ -597,6 +593,16 @@ namespace NFLCommon
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CREATE_Team", prefixParameter, cityParameter, nickNameParameter, conferenceParameter, divisionParameter, id);
         }
     
+        public virtual int DELETEAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETEAll");
+        }
+    
+        public virtual int DELETEStats()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETEStats");
+        }
+    
         public virtual ObjectResult<Nullable<System.Guid>> GET_GameIdByEid(Nullable<int> eid)
         {
             var eidParameter = eid.HasValue ?
@@ -615,7 +621,7 @@ namespace NFLCommon
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.Guid>>("GET_PlayerIdByGsisId", gsidParameter);
         }
     
-        public virtual int UPDATE_Game(Nullable<System.Guid> gameId, string homeTeam, string awayTeam, Nullable<System.DateTime> dateTime, string seasonType, Nullable<int> eid, Nullable<int> gameKey, Nullable<int> week, string wT, string lT, Nullable<int> wTScoreFirstQtr, Nullable<int> wTScoreSecondQtr, Nullable<int> wTScoreThirdQtr, Nullable<int> wTScoreFourthQtr, Nullable<int> wTScoreOT, Nullable<int> wTScoreFinal, Nullable<int> lTScoreFirstQtr, Nullable<int> lTScoreSecondQtr, Nullable<int> lTScoreThirdQtr, Nullable<int> lTScoreFourthQtr, Nullable<int> lTScoreOT, Nullable<int> lTScoreFinal, Nullable<bool> neutralField)
+        public virtual int UPDATE_Game(Nullable<System.Guid> gameId, string homeTeam, string awayTeam, Nullable<System.DateTime> dateTime, string seasonType, Nullable<int> season, Nullable<int> eid, Nullable<int> gameKey, Nullable<int> week, Nullable<int> hTScoreFirstQtr, Nullable<int> hTScoreSecondQtr, Nullable<int> hTScoreThirdQtr, Nullable<int> hTScoreFourthQtr, Nullable<int> hTScoreOT, Nullable<int> hTScoreFinal, Nullable<int> aTScoreFirstQtr, Nullable<int> aTScoreSecondQtr, Nullable<int> aTScoreThirdQtr, Nullable<int> aTScoreFourthQtr, Nullable<int> aTScoreOT, Nullable<int> aTScoreFinal, Nullable<bool> neutralField, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
             var gameIdParameter = gameId.HasValue ?
                 new ObjectParameter("GameId", gameId) :
@@ -637,6 +643,10 @@ namespace NFLCommon
                 new ObjectParameter("SeasonType", seasonType) :
                 new ObjectParameter("SeasonType", typeof(string));
     
+            var seasonParameter = season.HasValue ?
+                new ObjectParameter("Season", season) :
+                new ObjectParameter("Season", typeof(int));
+    
             var eidParameter = eid.HasValue ?
                 new ObjectParameter("Eid", eid) :
                 new ObjectParameter("Eid", typeof(int));
@@ -649,67 +659,59 @@ namespace NFLCommon
                 new ObjectParameter("Week", week) :
                 new ObjectParameter("Week", typeof(int));
     
-            var wTParameter = wT != null ?
-                new ObjectParameter("WT", wT) :
-                new ObjectParameter("WT", typeof(string));
+            var hTScoreFirstQtrParameter = hTScoreFirstQtr.HasValue ?
+                new ObjectParameter("HTScoreFirstQtr", hTScoreFirstQtr) :
+                new ObjectParameter("HTScoreFirstQtr", typeof(int));
     
-            var lTParameter = lT != null ?
-                new ObjectParameter("LT", lT) :
-                new ObjectParameter("LT", typeof(string));
+            var hTScoreSecondQtrParameter = hTScoreSecondQtr.HasValue ?
+                new ObjectParameter("HTScoreSecondQtr", hTScoreSecondQtr) :
+                new ObjectParameter("HTScoreSecondQtr", typeof(int));
     
-            var wTScoreFirstQtrParameter = wTScoreFirstQtr.HasValue ?
-                new ObjectParameter("WTScoreFirstQtr", wTScoreFirstQtr) :
-                new ObjectParameter("WTScoreFirstQtr", typeof(int));
+            var hTScoreThirdQtrParameter = hTScoreThirdQtr.HasValue ?
+                new ObjectParameter("HTScoreThirdQtr", hTScoreThirdQtr) :
+                new ObjectParameter("HTScoreThirdQtr", typeof(int));
     
-            var wTScoreSecondQtrParameter = wTScoreSecondQtr.HasValue ?
-                new ObjectParameter("WTScoreSecondQtr", wTScoreSecondQtr) :
-                new ObjectParameter("WTScoreSecondQtr", typeof(int));
+            var hTScoreFourthQtrParameter = hTScoreFourthQtr.HasValue ?
+                new ObjectParameter("HTScoreFourthQtr", hTScoreFourthQtr) :
+                new ObjectParameter("HTScoreFourthQtr", typeof(int));
     
-            var wTScoreThirdQtrParameter = wTScoreThirdQtr.HasValue ?
-                new ObjectParameter("WTScoreThirdQtr", wTScoreThirdQtr) :
-                new ObjectParameter("WTScoreThirdQtr", typeof(int));
+            var hTScoreOTParameter = hTScoreOT.HasValue ?
+                new ObjectParameter("HTScoreOT", hTScoreOT) :
+                new ObjectParameter("HTScoreOT", typeof(int));
     
-            var wTScoreFourthQtrParameter = wTScoreFourthQtr.HasValue ?
-                new ObjectParameter("WTScoreFourthQtr", wTScoreFourthQtr) :
-                new ObjectParameter("WTScoreFourthQtr", typeof(int));
+            var hTScoreFinalParameter = hTScoreFinal.HasValue ?
+                new ObjectParameter("HTScoreFinal", hTScoreFinal) :
+                new ObjectParameter("HTScoreFinal", typeof(int));
     
-            var wTScoreOTParameter = wTScoreOT.HasValue ?
-                new ObjectParameter("WTScoreOT", wTScoreOT) :
-                new ObjectParameter("WTScoreOT", typeof(int));
+            var aTScoreFirstQtrParameter = aTScoreFirstQtr.HasValue ?
+                new ObjectParameter("ATScoreFirstQtr", aTScoreFirstQtr) :
+                new ObjectParameter("ATScoreFirstQtr", typeof(int));
     
-            var wTScoreFinalParameter = wTScoreFinal.HasValue ?
-                new ObjectParameter("WTScoreFinal", wTScoreFinal) :
-                new ObjectParameter("WTScoreFinal", typeof(int));
+            var aTScoreSecondQtrParameter = aTScoreSecondQtr.HasValue ?
+                new ObjectParameter("ATScoreSecondQtr", aTScoreSecondQtr) :
+                new ObjectParameter("ATScoreSecondQtr", typeof(int));
     
-            var lTScoreFirstQtrParameter = lTScoreFirstQtr.HasValue ?
-                new ObjectParameter("LTScoreFirstQtr", lTScoreFirstQtr) :
-                new ObjectParameter("LTScoreFirstQtr", typeof(int));
+            var aTScoreThirdQtrParameter = aTScoreThirdQtr.HasValue ?
+                new ObjectParameter("ATScoreThirdQtr", aTScoreThirdQtr) :
+                new ObjectParameter("ATScoreThirdQtr", typeof(int));
     
-            var lTScoreSecondQtrParameter = lTScoreSecondQtr.HasValue ?
-                new ObjectParameter("LTScoreSecondQtr", lTScoreSecondQtr) :
-                new ObjectParameter("LTScoreSecondQtr", typeof(int));
+            var aTScoreFourthQtrParameter = aTScoreFourthQtr.HasValue ?
+                new ObjectParameter("ATScoreFourthQtr", aTScoreFourthQtr) :
+                new ObjectParameter("ATScoreFourthQtr", typeof(int));
     
-            var lTScoreThirdQtrParameter = lTScoreThirdQtr.HasValue ?
-                new ObjectParameter("LTScoreThirdQtr", lTScoreThirdQtr) :
-                new ObjectParameter("LTScoreThirdQtr", typeof(int));
+            var aTScoreOTParameter = aTScoreOT.HasValue ?
+                new ObjectParameter("ATScoreOT", aTScoreOT) :
+                new ObjectParameter("ATScoreOT", typeof(int));
     
-            var lTScoreFourthQtrParameter = lTScoreFourthQtr.HasValue ?
-                new ObjectParameter("LTScoreFourthQtr", lTScoreFourthQtr) :
-                new ObjectParameter("LTScoreFourthQtr", typeof(int));
-    
-            var lTScoreOTParameter = lTScoreOT.HasValue ?
-                new ObjectParameter("LTScoreOT", lTScoreOT) :
-                new ObjectParameter("LTScoreOT", typeof(int));
-    
-            var lTScoreFinalParameter = lTScoreFinal.HasValue ?
-                new ObjectParameter("LTScoreFinal", lTScoreFinal) :
-                new ObjectParameter("LTScoreFinal", typeof(int));
+            var aTScoreFinalParameter = aTScoreFinal.HasValue ?
+                new ObjectParameter("ATScoreFinal", aTScoreFinal) :
+                new ObjectParameter("ATScoreFinal", typeof(int));
     
             var neutralFieldParameter = neutralField.HasValue ?
                 new ObjectParameter("NeutralField", neutralField) :
                 new ObjectParameter("NeutralField", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_Game", gameIdParameter, homeTeamParameter, awayTeamParameter, dateTimeParameter, seasonTypeParameter, eidParameter, gameKeyParameter, weekParameter, wTParameter, lTParameter, wTScoreFirstQtrParameter, wTScoreSecondQtrParameter, wTScoreThirdQtrParameter, wTScoreFourthQtrParameter, wTScoreOTParameter, wTScoreFinalParameter, lTScoreFirstQtrParameter, lTScoreSecondQtrParameter, lTScoreThirdQtrParameter, lTScoreFourthQtrParameter, lTScoreOTParameter, lTScoreFinalParameter, neutralFieldParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_Game", gameIdParameter, homeTeamParameter, awayTeamParameter, dateTimeParameter, seasonTypeParameter, seasonParameter, eidParameter, gameKeyParameter, weekParameter, hTScoreFirstQtrParameter, hTScoreSecondQtrParameter, hTScoreThirdQtrParameter, hTScoreFourthQtrParameter, hTScoreOTParameter, hTScoreFinalParameter, aTScoreFirstQtrParameter, aTScoreSecondQtrParameter, aTScoreThirdQtrParameter, aTScoreFourthQtrParameter, aTScoreOTParameter, aTScoreFinalParameter, neutralFieldParameter, errorMessage, errorNumber);
         }
     }
 }

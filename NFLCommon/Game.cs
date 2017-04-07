@@ -33,25 +33,23 @@ namespace NFLCommon
         public string HomeTeam { get; set; }
         public string AwayTeam { get; set; }
         public System.DateTime DateTime { get; set; }
-        public string SeasonType { get; set; } = "NONE";
+        public string SeasonType { get; set; } = "PRE";
         public int Season { get; set; }
         public long Eid { get; set; }
         public long GameKey { get; set; }
         public int Week { get; set; }
-        public string WT { get; set; }
-        public string LT { get; set; }
-        public int WTScoreFirstQtr { get; set; }
-        public int WTScoreSecondQtr { get; set; }
-        public int WTScoreThirdQtr { get; set; }
-        public int WTScoreFourthQtr { get; set; }
-        public int WTScoreOT { get; set; }
-        public int WTScoreFinal { get; set; }
-        public int LTScoreFirstQtr { get; set; }
-        public int LTScoreSecondQtr { get; set; }
-        public int LTScoreThirdQtr { get; set; }
-        public int LTScoreFourthQtr { get; set; }
-        public int LTScoreOT { get; set; }
-        public int LTScoreFinal { get; set; }
+        public int HTScoreFirstQtr { get; set; }
+        public int HTScoreSecondQtr { get; set; }
+        public int HTScoreThirdQtr { get; set; }
+        public int HTScoreFourthQtr { get; set; }
+        public int HTScoreOT { get; set; }
+        public int HTScoreFinal { get; set; }
+        public int ATScoreFirstQtr { get; set; }
+        public int ATScoreSecondQtr { get; set; }
+        public int ATScoreThirdQtr { get; set; }
+        public int ATScoreFourthQtr { get; set; }
+        public int ATScoreOT { get; set; }
+        public int ATScoreFinal { get; set; }
         public bool NeutralField { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

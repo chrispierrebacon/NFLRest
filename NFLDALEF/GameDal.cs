@@ -9,50 +9,75 @@ namespace NFLDALEF
 {
     public class GameDal : IGameDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
-        public GameDal()
-        {
-            entities.Configuration.ProxyCreationEnabled = false;
-        }       
-
         public Guid Create(Game game)
         {
             Guid guid = Guid.NewGuid();
             game.GameId = guid;
-            entities.Games.Add(game);
-            entities.SaveChanges();
+
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Games.Add(game);
+                entities.SaveChanges();
+            }
+                
             return guid;
         }
 
         public Game Get(Guid gameId)
         {
-            return entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
+            }
         }
 
         public Guid GetGameIdByEid(long Eid)
         {
-            return entities.Games.FirstOrDefault(i => i.Eid.Equals(Eid)).GameId;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Games.FirstOrDefault(i => i.Eid.Equals(Eid))?.GameId ?? Guid.Empty;
+            }
         }
 
-        public IEnumerable<Game> GetAll()
+        public IEnumerable<Game> GetAll(out string something)
         {
             return entities.Games;
         }
 
         public int Update(Game game)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var entities = new NFLDBEntities())
+                {
+                    Game gameToDelete = entities.Games.FirstOrDefault(i => i.GameId == game.GameId);
+                    entities.Games.Remove(gameToDelete);
+                    entities.Games.Add(game);
+                    entities.SaveChanges();
+                }
+                
+                return 1;
+            }
+            catch(Exception ex)
+            {
+                // TODO some elegant logic
+                throw new Exception();
+            }
         }
 
         public int Delete(Guid gameId)
         {
-            var stat = entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.Games.Remove(stat);
-                return 1;
-            }
+                var stat = entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
+                if (stat != null)
+                {
+                    entities.Games.Remove(stat);
+                    return 1;
+                }
+            }            
             return 0;
         }
     }

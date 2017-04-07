@@ -15,24 +15,41 @@ namespace NFLDALEF
         {
             Guid guid = Guid.NewGuid();
             player.PlayerId = guid;
-            entities.Players.Add(player);
-            entities.SaveChanges();
+
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Players.Add(player);
+                entities.SaveChanges();
+            }
+
             return guid;
         }
 
         public Player Get(Guid playerId)
         {
-            return entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
+            }
         }
 
         public Guid GetPlayerIdByGsisId(string GsisId)
         {
-            return entities.Players.FirstOrDefault(i => i.GsisId.Equals(GsisId)).PlayerId;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Players.FirstOrDefault(i => i.GsisId.Equals(GsisId))?.PlayerId ?? Guid.Empty;
+            }
         }
 
         public IEnumerable<Player> GetAll()
         {
-            return entities.Players;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Players;
+            }
         }
 
         public int Update(Player player)
@@ -42,15 +59,16 @@ namespace NFLDALEF
 
         public int Delete(Guid playerId)
         {
-            var stat = entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.Players.Remove(stat);
-                return 1;
+                var stat = entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
+                if (stat != null)
+                {
+                    entities.Players.Remove(stat);
+                    return 1;
+                }
+                return 0; 
             }
-            return 0;
         }
-
-        
     }
 }

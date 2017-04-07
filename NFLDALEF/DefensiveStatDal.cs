@@ -9,25 +9,41 @@ namespace NFLDALEF
 {
     public class DefensiveStatDal : IDefensiveStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(DefensiveStat stat)
         {
-            Guid guid = Guid.NewGuid();
-            stat.DefensiveStatsId = guid;
-            entities.DefensiveStats.Add(stat);
-            entities.SaveChanges();
-            return guid;
+            try
+            {
+                Guid guid = Guid.NewGuid();
+                stat.DefensiveStatsId = guid;
+                using (var entities = new NFLDBEntities())
+                {
+                    entities.DefensiveStats.Add(stat);
+                    entities.SaveChanges();
+                }
+                return guid;
+            }
+            catch
+            {
+                return Guid.Empty;
+            }
         }
 
         public DefensiveStat Get(Guid Id)
         {
-            return entities.DefensiveStats.First(i => i.DefensiveStatsId.Equals(Id));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.DefensiveStats.First(i => i.DefensiveStatsId.Equals(Id)); 
+            }
         }
 
         public IEnumerable<DefensiveStat> GetAll()
         {
-            return entities.DefensiveStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.DefensiveStats; 
+            }
         }
 
         public int Update(DefensiveStat obj)
@@ -37,13 +53,16 @@ namespace NFLDALEF
 
         public int Delete(Guid Id)
         {
-            var stat = entities.DefensiveStats.FirstOrDefault(i => i.DefensiveStatsId.Equals(Id));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.DefensiveStats.Remove(stat);
-                return 1;
+                var stat = entities.DefensiveStats.FirstOrDefault(i => i.DefensiveStatsId.Equals(Id));
+                if (stat != null)
+                {
+                    entities.DefensiveStats.Remove(stat);
+                    return 1;
+                }
+                return 0; 
             }
-            return 0;
         }        
     }
 }

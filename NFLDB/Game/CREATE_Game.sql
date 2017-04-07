@@ -7,8 +7,6 @@
 	@Eid INT,
 	@GameKey INT,
 	@Week INT,
-	@WT NVARCHAR(10) = '',
-	@LT NVARCHAR(10) = '',
 	@WTScoreFirstQtr INT = -1,
 	@WTScoreSecondQtr INT = -1,
 	@WTScoreThirdQtr INT = -1,
@@ -29,9 +27,9 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, WT, LT, WTScoreFirstQtr, WTScoreSecondQtr, WTScoreThirdQtr, WTScoreFourthQtr,
-								   WTScoreOT, WTScoreFinal, LTScoreFirstQtr, LTScoreSecondQtr, LTScoreThirdQtr, LTScoreFourthQtr, LTScoreOT, LTScoreFinal, NeutralField)
-		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WT, @LT, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
+		INSERT INTO [dbo].[Games] (GameId, HomeTeam, AwayTeam, DateTime, SeasonType, Season, Eid, GameKey, Week, HTScoreFirstQtr, HTScoreSecondQtr, HTScoreThirdQtr, HTScoreFourthQtr,
+								   HTScoreOT, HTScoreFinal, ATScoreFirstQtr, ATScoreSecondQtr, ATScoreThirdQtr, ATScoreFourthQtr, ATScoreOT, ATScoreFinal, NeutralField)
+		VALUES (@Id, @HomeTeam, @AwayTeam, @DateTime, @SeasonType, @Season, @Eid, @GameKey, @Week, @WTScoreFirstQtr, @WTScoreSecondQtr, @WTScoreThirdQtr, @WTScoreFourthQtr,
 				@WTScoreOT, @WTScoreFinal, @LTScoreFirstQtr, @LTScoreSecondQtr, @LTScoreThirdQtr, @LTScoreFourthQtr, @LTScoreOT, @LTScoreFinal, @NeutralField)
 		RETURN 1
 	END TRY

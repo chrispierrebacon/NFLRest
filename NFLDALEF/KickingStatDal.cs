@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class KickingStatDal : IKickingStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(KickingStat kickingStat)
         {
             Guid guid = Guid.NewGuid();
             kickingStat.KickingStatsId = guid;
-            entities.KickingStats.Add(kickingStat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.KickingStats.Add(kickingStat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public KickingStat Get(Guid kickingStatId)
         {
-            return entities.KickingStats.FirstOrDefault(i => i.KickingStatsId.Equals(kickingStatId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.KickingStats.FirstOrDefault(i => i.KickingStatsId.Equals(kickingStatId));
+            }
         }
 
         public IEnumerable<KickingStat> GetAll()
         {
-            return entities.KickingStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.KickingStats;
+            }
         }
 
         public int Update(KickingStat kickingStat)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid kickingStatId)
         {
-            var stat = entities.KickingStats.FirstOrDefault(i => i.KickingStatsId.Equals(kickingStatId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.KickingStats.Remove(stat);
-                return 1;
-            }
-            return 0;
+                var stat = entities.KickingStats.FirstOrDefault(i => i.KickingStatsId.Equals(kickingStatId));
+                if (stat != null)
+                {
+                    entities.KickingStats.Remove(stat);
+                    return 1;
+                }
+                return 0;
+            }                
         }
     }
 }

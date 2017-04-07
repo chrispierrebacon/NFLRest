@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class PuntReturnStatDal : IPuntReturnStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(PuntReturnStat puntReturnStat)
         {
             Guid guid = Guid.NewGuid();
             puntReturnStat.PuntReturnStatsId = guid;
-            entities.PuntReturnStats.Add(puntReturnStat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.PuntReturnStats.Add(puntReturnStat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public PuntReturnStat Get(Guid puntReturnStatId)
         {
-            return entities.PuntReturnStats.FirstOrDefault(i => i.PuntReturnStatsId.Equals(puntReturnStatId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.PuntReturnStats.FirstOrDefault(i => i.PuntReturnStatsId.Equals(puntReturnStatId));
+            }
         }
 
         public IEnumerable<PuntReturnStat> GetAll()
         {
-            return entities.PuntReturnStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.PuntReturnStats;
+            }
         }
 
         public int Update(PuntReturnStat puntReturnStat)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid puntReturnStatId)
         {
-            var stat = entities.PuntReturnStats.FirstOrDefault(i => i.PuntReturnStatsId.Equals(puntReturnStatId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.PuntReturnStats.Remove(stat);
-                return 1;
+                var stat = entities.PuntReturnStats.FirstOrDefault(i => i.PuntReturnStatsId.Equals(puntReturnStatId));
+                if (stat != null)
+                {
+                    entities.PuntReturnStats.Remove(stat);
+                    return 1;
+                }
+                return 0;
             }
-            return 0;
         }
     }
 }

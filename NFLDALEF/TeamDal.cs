@@ -15,19 +15,32 @@ namespace NFLDALEF
         {
             Guid guid = Guid.NewGuid();
             team.TeamId = guid;
-            entities.Teams.Add(team);
-            entities.SaveChanges();
+
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Teams.Add(team);
+                entities.SaveChanges();
+            }
+
             return guid;
         }
 
         public Team Get(Guid teamId)
         {
-            return entities.Teams.FirstOrDefault(i => i.TeamId.Equals(teamId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Teams.FirstOrDefault(i => i.TeamId.Equals(teamId));
+            }
         }
 
         public IEnumerable<Team> GetAll()
         {
-            return entities.Teams;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.Teams;
+            }
         }
 
         public int Update(Team team)
@@ -37,11 +50,14 @@ namespace NFLDALEF
 
         public int Delete(Guid teamId)
         {
-            var stat = entities.Teams.FirstOrDefault(i => i.TeamId.Equals(teamId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.Teams.Remove(stat);
-                return 1;
+                var stat = entities.Teams.FirstOrDefault(i => i.TeamId.Equals(teamId));
+                if (stat != null)
+                {
+                    entities.Teams.Remove(stat);
+                    return 1;
+                }
             }
             return 0;
         }

@@ -9,25 +9,34 @@ namespace NFLDALEF
 {
     public class ReceivingStatDal : IReceivingStatDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(ReceivingStat receivingStat)
         {
             Guid guid = Guid.NewGuid();
             receivingStat.ReceivingStatsId = guid;
-            entities.ReceivingStats.Add(receivingStat);
-            entities.SaveChanges();
+            using (var entities = new NFLDBEntities())
+            {
+                entities.ReceivingStats.Add(receivingStat);
+                entities.SaveChanges();
+            }
             return guid;
         }
 
         public ReceivingStat Get(Guid receivingStatId)
         {
-            return entities.ReceivingStats.FirstOrDefault(i => i.ReceivingStatsId.Equals(receivingStatId));
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.ReceivingStats.FirstOrDefault(i => i.ReceivingStatsId.Equals(receivingStatId));
+            }
         }
 
         public IEnumerable<ReceivingStat> GetAll()
         {
-            return entities.ReceivingStats;
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Configuration.ProxyCreationEnabled = false;
+                return entities.ReceivingStats;
+            }
         }
 
         public int Update(ReceivingStat receivingStat)
@@ -37,13 +46,16 @@ namespace NFLDALEF
 
         public int Delete(Guid receivingStatId)
         {
-            var stat = entities.ReceivingStats.FirstOrDefault(i => i.ReceivingStatsId.Equals(receivingStatId));
-            if (stat != null)
+            using (var entities = new NFLDBEntities())
             {
-                entities.ReceivingStats.Remove(stat);
-                return 1;
-            }
-            return 0;
+                var stat = entities.ReceivingStats.FirstOrDefault(i => i.ReceivingStatsId.Equals(receivingStatId));
+                if (stat != null)
+                {
+                    entities.ReceivingStats.Remove(stat);
+                    return 1;
+                }
+                return 0;
+            }                
         }
     }
 }
