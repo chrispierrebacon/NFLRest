@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public PassingStat Get(Guid passingStatId)
+        public IEnumerable<PassingStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.PassingStats.FirstOrDefault(i => i.PassingStatsId.Equals(passingStatId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<PassingStat> GetAll()
@@ -57,5 +53,7 @@ namespace NFLDALEF
                 return 0;
             }
         }
+
+        
     }
 }

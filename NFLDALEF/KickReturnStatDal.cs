@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public KickReturnStat Get(Guid kickReturnStatId)
+        public IEnumerable<KickReturnStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.KickReturnStats.FirstOrDefault(i => i.KickReturnStatsId.Equals(kickReturnStatId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<KickReturnStat> GetAll()
@@ -57,5 +53,7 @@ namespace NFLDALEF
                 return 0;
             }
         }
+
+        
     }
 }

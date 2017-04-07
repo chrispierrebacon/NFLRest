@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public RushingStat Get(Guid rushingStatId)
+        public IEnumerable<RushingStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.RushingStats.FirstOrDefault(i => i.RushingStatsId.Equals(rushingStatId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<RushingStat> GetAll()
@@ -57,5 +53,7 @@ namespace NFLDALEF
                 return 0;
             }
         }
+
+        
     }
 }

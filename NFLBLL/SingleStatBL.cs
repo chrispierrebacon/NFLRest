@@ -23,14 +23,10 @@ namespace NFLBLL
         {
             return _dalCrud.Create(obj);
         }
-              
 
-        public virtual IEnumerable<T> Get(string filterJson = "")
+        public IEnumerable<T> Get(string filterJson = "")
         {
-            Filter filter = JsonConvert.DeserializeObject<Filter>(filterJson);
-            var list = new List<T>();
-            list.Add(_dalCrud.Get(filter.Id));
-            return list;
+            return _dalCrud.Get(filterJson);
         }
 
         public int Update(T obj)
@@ -42,10 +38,5 @@ namespace NFLBLL
         {
             return _dalCrud.Delete(Id);
         }
-    }
-
-    public class Filter
-    {
-        public Guid Id { get; set; } = Guid.Empty;
     }
 }

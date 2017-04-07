@@ -23,7 +23,7 @@ namespace NFLRESTAPI
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             GameDal gameDal = new GameDal();
-            var gameBL = new GamesBL(gameDal);
+            var gameBL = new SingleStatBL<Game>(gameDal);
 
             PlayerDal playerDal = new PlayerDal();
             var playerBL = new SingleStatBL<Player>(playerDal);

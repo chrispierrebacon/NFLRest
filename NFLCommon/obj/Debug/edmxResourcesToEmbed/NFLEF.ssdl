@@ -145,7 +145,7 @@
     <Property Name="Height" Type="int" Nullable="false" />
     <Property Name="Number" Type="int" Nullable="false" />
     <Property Name="ProfileId" Type="int" Nullable="false" />
-    <Property Name="ProfileUrl" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfileUrl" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="Status" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="YearsPro" Type="int" Nullable="false" />

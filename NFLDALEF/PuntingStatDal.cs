@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public PuntingStat Get(Guid puntingStatId)
+        public IEnumerable<PuntingStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.PuntingStats.FirstOrDefault(i => i.PuntingStatsId.Equals(puntingStatId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<PuntingStat> GetAll()
@@ -57,5 +53,7 @@ namespace NFLDALEF
                 return 0;
             }
         }
+
+        
     }
 }

@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public Fumble Get(Guid Id)
+        public IEnumerable<Fumble> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.Fumbles.FirstOrDefault(i => i.Id.Equals(Id));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Fumble> GetAll()

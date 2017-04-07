@@ -28,13 +28,9 @@ namespace NFLDALEF
             }
         }
 
-        public DefensiveStat Get(Guid Id)
+        public IEnumerable<DefensiveStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.DefensiveStats.First(i => i.DefensiveStatsId.Equals(Id)); 
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<DefensiveStat> GetAll()

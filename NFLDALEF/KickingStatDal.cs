@@ -21,13 +21,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public KickingStat Get(Guid kickingStatId)
+        public IEnumerable<KickingStat> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.KickingStats.FirstOrDefault(i => i.KickingStatsId.Equals(kickingStatId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<KickingStat> GetAll()

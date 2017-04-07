@@ -169,7 +169,7 @@
     <Property Name="Height" Type="Int32" Nullable="false" />
     <Property Name="Number" Type="Int32" Nullable="false" />
     <Property Name="ProfileId" Type="Int32" Nullable="false" />
-    <Property Name="ProfileUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProfileUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Weight" Type="Int32" Nullable="false" />
     <Property Name="YearsPro" Type="Int32" Nullable="false" />

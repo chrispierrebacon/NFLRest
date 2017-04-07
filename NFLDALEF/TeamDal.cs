@@ -25,13 +25,9 @@ namespace NFLDALEF
             return guid;
         }
 
-        public Team Get(Guid teamId)
+        public IEnumerable<Team> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.Teams.FirstOrDefault(i => i.TeamId.Equals(teamId));
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Team> GetAll()
@@ -61,5 +57,7 @@ namespace NFLDALEF
             }
             return 0;
         }
+
+        
     }
 }

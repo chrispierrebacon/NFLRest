@@ -5,7 +5,7 @@ namespace NFLCommon.DALInterfaces
 {
     public interface IDalCrud<T> 
     {
-        T Get(Guid id);
+        IEnumerable<T> Get(string filterJson);
         Guid Create(T obj);
         IEnumerable<T> GetAll();
         int Update(T obj);

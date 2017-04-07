@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefensiveStatDal.cs" />
-    <Compile Include="EFDalCrud.cs" />
     <Compile Include="FumbleDal.cs" />
     <Compile Include="GameDal.cs" />
     <Compile Include="KickingStatDal.cs" />

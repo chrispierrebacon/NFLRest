@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using NFLCommon.DALInterfaces;
 using System.Linq;
+using System.Data.Entity.Validation;
 
 namespace NFLDALEF
 {
@@ -19,19 +20,35 @@ namespace NFLDALEF
             using (var entities = new NFLDBEntities())
             {
                 entities.Players.Add(player);
-                entities.SaveChanges();
+                try
+                {
+                    // Your code...
+                    // Could also be before try if you know the exception occurs in SaveChanges
+
+                    entities.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    //foreach (var eve in e.EntityValidationErrors)
+                    //{
+                    //    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                    //        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    //    foreach (var ve in eve.ValidationErrors)
+                    //    {
+                    //        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                    //            ve.PropertyName, ve.ErrorMessage);
+                    //    }
+                    //}
+                    throw;
+                }
             }
 
             return guid;
         }
 
-        public Player Get(Guid playerId)
+        public IEnumerable<Player> Get(string filterJson)
         {
-            using (var entities = new NFLDBEntities())
-            {
-                entities.Configuration.ProxyCreationEnabled = false;
-                return entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
-            }
+            throw new NotImplementedException();
         }
 
         public Guid GetPlayerIdByGsisId(string GsisId)
@@ -70,5 +87,7 @@ namespace NFLDALEF
                 return 0; 
             }
         }
+
+        
     }
 }

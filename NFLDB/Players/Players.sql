@@ -14,7 +14,7 @@
     [Height] INT NOT NULL, 
     [Number] INT NOT NULL, 
     [ProfileId] INT NOT NULL, 
-    [ProfileUrl] NVARCHAR(50) NOT NULL, 
+    [ProfileUrl] NVARCHAR(256) NOT NULL, 
     [Status] NVARCHAR(10) NOT NULL, 
     [Weight] INT NOT NULL, 
     [YearsPro] INT NOT NULL, 
