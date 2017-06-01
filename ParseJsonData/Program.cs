@@ -25,7 +25,11 @@ namespace ParseJsonData
                 { "Content-Type", "application/json; charset=utf-8" }
             };
 
-            //var games = parseGames();
+            //foreach(var team in getTeams())
+            //{
+            //    RestRequest<Team> restRequest = new RestRequest<Team>();
+            //    restRequest.MakeRequest("http://localhost:49786", "api/teams", team, Method.POST, headers);
+            //}
 
             //foreach (var player in parsePlayers())
             //{

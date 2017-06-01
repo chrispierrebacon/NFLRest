@@ -1,0 +1,17 @@
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLDALEF.Test.dll.config
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLDALEF.Test.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLDALEF.Test.pdb
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\EntityFramework.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\EntityFramework.SqlServer.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLCommon.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLDALEF.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\Newtonsoft.Json.dll
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLCommon.pdb
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\NFLDALEF.pdb
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\EntityFramework.xml
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\EntityFramework.SqlServer.xml
+C:\Projects\NFLRest\NFLDALEF.Test\bin\Release\Newtonsoft.Json.xml
+C:\Projects\NFLRest\NFLDALEF.Test\obj\Release\NFLDALEF.Test.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRest\NFLDALEF.Test\obj\Release\NFLDALEF.Test.dll
+C:\Projects\NFLRest\NFLDALEF.Test\obj\Release\NFLDALEF.Test.pdb

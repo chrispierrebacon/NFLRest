@@ -25,7 +25,8 @@ namespace NFLMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/darkly.css",
+                      "~/Content/Site.css"));
         }
     }
 }

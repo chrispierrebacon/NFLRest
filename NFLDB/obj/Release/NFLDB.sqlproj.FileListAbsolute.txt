@@ -1,0 +1,9 @@
+C:\Projects\NFLRest\NFLDB\bin\Release\NFLDB.dacpac
+C:\Projects\NFLRest\NFLDB\bin\Release\NFLDB.dll
+C:\Projects\NFLRest\NFLDB\bin\Release\NFLDB.pdb
+C:\Projects\NFLRest\NFLDB\obj\Release\Model.xml
+C:\Projects\NFLRest\NFLDB\obj\Release\refactor.xml
+C:\Projects\NFLRest\NFLDB\obj\Release\postdeploy.sql
+C:\Projects\NFLRest\NFLDB\obj\Release\predeploy.sql
+C:\Projects\NFLRest\NFLDB\obj\Release\NFLDB.dll
+C:\Projects\NFLRest\NFLDB\obj\Release\NFLDB.pdb

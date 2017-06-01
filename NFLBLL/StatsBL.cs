@@ -1,7 +1,5 @@
-﻿using NFLDAL;
-using NFLCommon;
+﻿using NFLCommon;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,7 +50,7 @@ namespace NFLBLL
 
             // Update Game
             request.Game.GameId = gameId;
-            int gameResp = _gameDal.Update(request.Game);
+            int gameResp = _gameDal.UpdateScore(request.Game);
 
             List<Task> tasks = new List<Task>();
 
@@ -311,7 +309,7 @@ namespace NFLBLL
                  + gameStats.KickingStats.Sum(i => i.FieldGoalsMade) * 3;
         }
 
-        // TODO: This should disregard defensive scores, but we will need to get them first.
+        // TODO: This should disregard defensive scores (and acquire currency), but we will need to get them first.
         public int getPointsAllowedFantasyPoints(int pointsAllowed)
         {
             int fantasyPointsAllowed = 10;
@@ -343,6 +341,88 @@ namespace NFLBLL
                 }
             }
             return fantasyPointsAllowed;
+        }
+
+        // Last 4 games * .3
+        // Last 16 games * .2
+        // Last performance against upcoming team *.5
+        // Injuries
+        // Weather
+        // Other specific to position
+
+        public double getQBProjectedValue(Guid playerId)
+        {
+            throw new NotImplementedException();
+
+        }
+
+        public double getRBProjectedValue(Guid playerId)
+        {
+            // Dunno about extenuating.
+            throw new NotImplementedException();
+
+        }
+
+        public double getWRProjectedValue(Guid playerId)
+        {
+            // Dunno about extenuating. 
+            throw new NotImplementedException();
+
+        }
+
+        public double getDefenseProjectedValue(Guid playerId)
+        {
+            // Dunno about extenuating. 
+            throw new NotImplementedException();
+
+        }
+
+        public double getQBValueForOneGame(Guid playerId, Guid gameId)
+        {
+            // Passing Yards * .3 
+            // Ints * .2 can't be throwing the ball to the other team
+            // TEAM TDs *.2 
+            // TDs *.1
+            // How close is the game per quarter *.1 Garbage time points count too. We'll need to find a garbage time sweet spot. <21 points?
+            throw new NotImplementedException();
+        }
+
+        public double getRBValueForOneGame(Guid playerId, Guid gameId)
+        {
+            // Touches *.3
+            // Yards * .3 
+            // Fumbles *.2 can't be putting the ball on the ground
+            // Being up needs to be given a priority. Run the ball to kill the clock
+            throw new NotImplementedException();
+
+        }
+
+        public double getWRValueForOneGame(Guid playerId, Guid gameId)
+        {
+            // Yards/Reception * .3 This matters the most. If Randy Moss only had 3 catches but they're all 80 yard TDs, I'll take that shit all day.
+            // Closeness of game matters here too. You throw the ball more when you're down.
+            // Targets matter.
+            // So do drops.
+            // So does QB. Brady is gonna be more effective with Randy Moss than fucking Andrew Walter or Aaron Brooks. Holy shit the Raiders were terrible in 06.
+            throw new NotImplementedException();
+
+        }
+
+        public double getTEValueForOneGame(Guid playerId, Guid gameId)
+        {
+            // Basically the same as WR. I need to determine if there's anything I need to change.
+            throw new NotImplementedException();
+
+        }
+
+        public double getDefenseValueForOneGame(Guid teamId, Guid gameId)
+        {
+            // Turnovers
+            // Points allowed
+            // Time on the field
+            // Big plays
+            throw new NotImplementedException();
+
         }
 
         //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)

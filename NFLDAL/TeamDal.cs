@@ -86,5 +86,10 @@ namespace NFLDAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Team> Get(string filterJson)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

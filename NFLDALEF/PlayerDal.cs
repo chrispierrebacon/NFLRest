@@ -10,7 +10,62 @@ namespace NFLDALEF
 {
     public class PlayerDal : IPlayerDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
+        public void InsertPositions()
+        {
+            List<string> posStrings = new List<string>
+            {
+                "QB",
+                "RB",
+                "FB",
+                "WR",
+                "TE",
+                "OL",
+                "C",
+                "G",
+                "LG",
+                "RG",
+                "T",
+                "LT",
+                "RT",
+                "K",
+                "KR",
+                "DL",
+                "DE",
+                "DT",
+                "NT",
+                "LB",
+                "ILB",
+                "OLB",
+                "MLB",
+                "DB",
+                "CB",
+                "FS",
+                "SS",
+                "S",
+                "P",
+                "PR",
+                "LS",
+                "NONE"
+            };
+
+            List<Position> positions = new List<Position>();
+
+            foreach (var str in posStrings)
+            {
+                Position newPosition = new Position
+                {
+                    Name = str
+                };
+
+                positions.Add(newPosition);
+            }
+
+            using (var entities = new NFLDBEntities())
+            {
+                entities.Positions.AddRange(positions);
+                entities.SaveChanges();
+            }
+        }
 
         public Guid Create(Player player)
         {

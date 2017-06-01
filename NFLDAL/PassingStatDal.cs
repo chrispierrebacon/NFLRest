@@ -59,5 +59,10 @@ namespace NFLDAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<PassingStat> Get(string filterJson)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

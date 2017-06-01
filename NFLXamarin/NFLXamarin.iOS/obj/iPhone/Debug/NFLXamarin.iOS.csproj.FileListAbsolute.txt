@@ -1,0 +1,13 @@
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\NFLXamariniOS.exe
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\NFLXamariniOS.pdb
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.dll
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.xml
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.xml
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\obj\iPhone\Debug\optimized\
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\obj\iPhone\Debug\NFLXamarin.iOS.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\obj\iPhone\Debug\NFLXamariniOS.exe
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\obj\iPhone\Debug\NFLXamariniOS.pdb
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\obj\iPhone\Debug\NFLXamariniOS.exe.mdb
+C:\Projects\NFLRest\NFLXamarin\NFLXamarin.iOS\bin\iPhone\Debug\NFLXamariniOS.exe.mdb

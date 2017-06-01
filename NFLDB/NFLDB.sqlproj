@@ -107,6 +107,7 @@
     <Build Include="Game\SeasonType.sql" />
     <Build Include="OtherSPs\DELETEStats.sql" />
     <Build Include="OtherSPs\DELETEAll.sql" />
+    <Build Include="Game\GET_Games.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />

@@ -241,7 +241,7 @@
           <Property Name="Conference" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="Division" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Defensive__GameI__61F6E0BB">
+        <Association Name="FK__Defensive__GameI__300424B4">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,7 +253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Defensive__Playe__236943A5">
+        <Association Name="FK__Defensive__Playe__30F848ED">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +265,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Fumbles__GameId__62EB04F4">
+        <Association Name="FK__Fumbles__GameId__31EC6D26">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -277,7 +277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Fumbles__PlayerI__245D67DE">
+        <Association Name="FK__Fumbles__PlayerI__32E0915F">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -289,7 +289,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__AwayTeam__600E9849">
+        <Association Name="FK__Games__AwayTeam__33D4B598">
           <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
           <End Role="Games" Type="Self.Games" Multiplicity="*" />
           <ReferentialConstraint>
@@ -301,7 +301,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__HomeTeam__5F1A7410">
+        <Association Name="FK__Games__HomeTeam__34C8D9D1">
           <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
           <End Role="Games" Type="Self.Games" Multiplicity="*" />
           <ReferentialConstraint>
@@ -313,7 +313,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__SeasonTyp__6102BC82">
+        <Association Name="FK__Games__SeasonTyp__35BCFE0A">
           <End Role="SeasonType" Type="Self.SeasonType" Multiplicity="1" />
           <End Role="Games" Type="Self.Games" Multiplicity="*" />
           <ReferentialConstraint>
@@ -325,7 +325,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickingSt__GameI__5E264FD7">
+        <Association Name="FK__KickingSt__GameI__36B12243">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -337,7 +337,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickingSt__Playe__15D01CBC">
+        <Association Name="FK__KickingSt__Playe__37A5467C">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -349,7 +349,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickRetur__GameI__63DF292D">
+        <Association Name="FK__KickRetur__GameI__38996AB5">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -361,7 +361,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickRetur__Playe__2645B050">
+        <Association Name="FK__KickRetur__Playe__398D8EEE">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -373,7 +373,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PassingSt__GameI__64D34D66">
+        <Association Name="FK__PassingSt__GameI__3A81B327">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -385,7 +385,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PassingSt__Playe__2739D489">
+        <Association Name="FK__PassingSt__Playe__3B75D760">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -397,7 +397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Players__Positio__2BFE89A6">
+        <Association Name="FK__Players__Positio__3C69FB99">
           <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
           <End Role="Players" Type="Self.Players" Multiplicity="*" />
           <ReferentialConstraint>
@@ -409,7 +409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Players__TeamPre__2CF2ADDF">
+        <Association Name="FK__Players__Team__3D5E1FD2">
           <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
           <End Role="Players" Type="Self.Players" Multiplicity="*" />
           <ReferentialConstraint>
@@ -421,7 +421,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntingSt__GameI__65C7719F">
+        <Association Name="FK__PuntingSt__GameI__3E52440B">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -433,7 +433,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntingSt__Playe__282DF8C2">
+        <Association Name="FK__PuntingSt__Playe__3F466844">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -445,7 +445,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntRetur__GameI__66BB95D8">
+        <Association Name="FK__PuntRetur__GameI__403A8C7D">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -457,7 +457,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntRetur__Playe__29221CFB">
+        <Association Name="FK__PuntRetur__Playe__412EB0B6">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -469,7 +469,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receiving__GameI__67AFBA11">
+        <Association Name="FK__Receiving__GameI__4222D4EF">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,7 +481,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receiving__Playe__2A164134">
+        <Association Name="FK__Receiving__Playe__4316F928">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -493,7 +493,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RushingSt__GameI__68A3DE4A">
+        <Association Name="FK__RushingSt__GameI__440B1D61">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -505,7 +505,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RushingSt__Playe__2B0A656D">
+        <Association Name="FK__RushingSt__Playe__44FF419A">
           <End Role="Players" Type="Self.Players" Multiplicity="1" />
           <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
           <ReferentialConstraint>
@@ -517,7 +517,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teams__Conferenc__2DE6D218">
+        <Association Name="FK__Teams__Conferenc__45F365D3">
           <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
           <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -529,7 +529,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teams__Division__2EDAF651">
+        <Association Name="FK__Teams__Division__46E78A0C">
           <End Role="Divisions" Type="Self.Divisions" Multiplicity="1" />
           <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -773,103 +773,103 @@
           <EntitySet Name="RushingStats" EntityType="Self.RushingStats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeasonType" EntityType="Self.SeasonType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Defensive__GameI__61F6E0BB" Association="Self.FK__Defensive__GameI__61F6E0BB">
+          <AssociationSet Name="FK__Defensive__GameI__300424B4" Association="Self.FK__Defensive__GameI__300424B4">
             <End Role="Games" EntitySet="Games" />
             <End Role="DefensiveStats" EntitySet="DefensiveStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Defensive__Playe__236943A5" Association="Self.FK__Defensive__Playe__236943A5">
+          <AssociationSet Name="FK__Defensive__Playe__30F848ED" Association="Self.FK__Defensive__Playe__30F848ED">
             <End Role="Players" EntitySet="Players" />
             <End Role="DefensiveStats" EntitySet="DefensiveStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Fumbles__GameId__62EB04F4" Association="Self.FK__Fumbles__GameId__62EB04F4">
+          <AssociationSet Name="FK__Fumbles__GameId__31EC6D26" Association="Self.FK__Fumbles__GameId__31EC6D26">
             <End Role="Games" EntitySet="Games" />
             <End Role="Fumbles" EntitySet="Fumbles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Fumbles__PlayerI__245D67DE" Association="Self.FK__Fumbles__PlayerI__245D67DE">
+          <AssociationSet Name="FK__Fumbles__PlayerI__32E0915F" Association="Self.FK__Fumbles__PlayerI__32E0915F">
             <End Role="Players" EntitySet="Players" />
             <End Role="Fumbles" EntitySet="Fumbles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__AwayTeam__600E9849" Association="Self.FK__Games__AwayTeam__600E9849">
+          <AssociationSet Name="FK__Games__AwayTeam__33D4B598" Association="Self.FK__Games__AwayTeam__33D4B598">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__HomeTeam__5F1A7410" Association="Self.FK__Games__HomeTeam__5F1A7410">
+          <AssociationSet Name="FK__Games__HomeTeam__34C8D9D1" Association="Self.FK__Games__HomeTeam__34C8D9D1">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__SeasonTyp__6102BC82" Association="Self.FK__Games__SeasonTyp__6102BC82">
+          <AssociationSet Name="FK__Games__SeasonTyp__35BCFE0A" Association="Self.FK__Games__SeasonTyp__35BCFE0A">
             <End Role="SeasonType" EntitySet="SeasonType" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickingSt__GameI__5E264FD7" Association="Self.FK__KickingSt__GameI__5E264FD7">
+          <AssociationSet Name="FK__KickingSt__GameI__36B12243" Association="Self.FK__KickingSt__GameI__36B12243">
             <End Role="Games" EntitySet="Games" />
             <End Role="KickingStats" EntitySet="KickingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickingSt__Playe__15D01CBC" Association="Self.FK__KickingSt__Playe__15D01CBC">
+          <AssociationSet Name="FK__KickingSt__Playe__37A5467C" Association="Self.FK__KickingSt__Playe__37A5467C">
             <End Role="Players" EntitySet="Players" />
             <End Role="KickingStats" EntitySet="KickingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickRetur__GameI__63DF292D" Association="Self.FK__KickRetur__GameI__63DF292D">
+          <AssociationSet Name="FK__KickRetur__GameI__38996AB5" Association="Self.FK__KickRetur__GameI__38996AB5">
             <End Role="Games" EntitySet="Games" />
             <End Role="KickReturnStats" EntitySet="KickReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickRetur__Playe__2645B050" Association="Self.FK__KickRetur__Playe__2645B050">
+          <AssociationSet Name="FK__KickRetur__Playe__398D8EEE" Association="Self.FK__KickRetur__Playe__398D8EEE">
             <End Role="Players" EntitySet="Players" />
             <End Role="KickReturnStats" EntitySet="KickReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PassingSt__GameI__64D34D66" Association="Self.FK__PassingSt__GameI__64D34D66">
+          <AssociationSet Name="FK__PassingSt__GameI__3A81B327" Association="Self.FK__PassingSt__GameI__3A81B327">
             <End Role="Games" EntitySet="Games" />
             <End Role="PassingStats" EntitySet="PassingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PassingSt__Playe__2739D489" Association="Self.FK__PassingSt__Playe__2739D489">
+          <AssociationSet Name="FK__PassingSt__Playe__3B75D760" Association="Self.FK__PassingSt__Playe__3B75D760">
             <End Role="Players" EntitySet="Players" />
             <End Role="PassingStats" EntitySet="PassingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Players__Positio__2BFE89A6" Association="Self.FK__Players__Positio__2BFE89A6">
+          <AssociationSet Name="FK__Players__Positio__3C69FB99" Association="Self.FK__Players__Positio__3C69FB99">
             <End Role="Positions" EntitySet="Positions" />
             <End Role="Players" EntitySet="Players" />
           </AssociationSet>
-          <AssociationSet Name="FK__Players__TeamPre__2CF2ADDF" Association="Self.FK__Players__TeamPre__2CF2ADDF">
+          <AssociationSet Name="FK__Players__Team__3D5E1FD2" Association="Self.FK__Players__Team__3D5E1FD2">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Players" EntitySet="Players" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntingSt__GameI__65C7719F" Association="Self.FK__PuntingSt__GameI__65C7719F">
+          <AssociationSet Name="FK__PuntingSt__GameI__3E52440B" Association="Self.FK__PuntingSt__GameI__3E52440B">
             <End Role="Games" EntitySet="Games" />
             <End Role="PuntingStats" EntitySet="PuntingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntingSt__Playe__282DF8C2" Association="Self.FK__PuntingSt__Playe__282DF8C2">
+          <AssociationSet Name="FK__PuntingSt__Playe__3F466844" Association="Self.FK__PuntingSt__Playe__3F466844">
             <End Role="Players" EntitySet="Players" />
             <End Role="PuntingStats" EntitySet="PuntingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntRetur__GameI__66BB95D8" Association="Self.FK__PuntRetur__GameI__66BB95D8">
+          <AssociationSet Name="FK__PuntRetur__GameI__403A8C7D" Association="Self.FK__PuntRetur__GameI__403A8C7D">
             <End Role="Games" EntitySet="Games" />
             <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntRetur__Playe__29221CFB" Association="Self.FK__PuntRetur__Playe__29221CFB">
+          <AssociationSet Name="FK__PuntRetur__Playe__412EB0B6" Association="Self.FK__PuntRetur__Playe__412EB0B6">
             <End Role="Players" EntitySet="Players" />
             <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receiving__GameI__67AFBA11" Association="Self.FK__Receiving__GameI__67AFBA11">
+          <AssociationSet Name="FK__Receiving__GameI__4222D4EF" Association="Self.FK__Receiving__GameI__4222D4EF">
             <End Role="Games" EntitySet="Games" />
             <End Role="ReceivingStats" EntitySet="ReceivingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receiving__Playe__2A164134" Association="Self.FK__Receiving__Playe__2A164134">
+          <AssociationSet Name="FK__Receiving__Playe__4316F928" Association="Self.FK__Receiving__Playe__4316F928">
             <End Role="Players" EntitySet="Players" />
             <End Role="ReceivingStats" EntitySet="ReceivingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__RushingSt__GameI__68A3DE4A" Association="Self.FK__RushingSt__GameI__68A3DE4A">
+          <AssociationSet Name="FK__RushingSt__GameI__440B1D61" Association="Self.FK__RushingSt__GameI__440B1D61">
             <End Role="Games" EntitySet="Games" />
             <End Role="RushingStats" EntitySet="RushingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__RushingSt__Playe__2B0A656D" Association="Self.FK__RushingSt__Playe__2B0A656D">
+          <AssociationSet Name="FK__RushingSt__Playe__44FF419A" Association="Self.FK__RushingSt__Playe__44FF419A">
             <End Role="Players" EntitySet="Players" />
             <End Role="RushingStats" EntitySet="RushingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teams__Conferenc__2DE6D218" Association="Self.FK__Teams__Conferenc__2DE6D218">
+          <AssociationSet Name="FK__Teams__Conferenc__45F365D3" Association="Self.FK__Teams__Conferenc__45F365D3">
             <End Role="Conferences" EntitySet="Conferences" />
             <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teams__Division__2EDAF651" Association="Self.FK__Teams__Division__2EDAF651">
+          <AssociationSet Name="FK__Teams__Division__46E78A0C" Association="Self.FK__Teams__Division__46E78A0C">
             <End Role="Divisions" EntitySet="Divisions" />
             <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
@@ -890,7 +890,7 @@
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Teams" Relationship="Self.FK__Teams__Conferenc__2DE6D218" FromRole="Conferences" ToRole="Teams" />
+          <NavigationProperty Name="Teams" Relationship="Self.FK__Teams__Conferenc__45F365D3" FromRole="Conferences" ToRole="Teams" />
         </EntityType>
         <EntityType Name="DefensiveStat">
           <Key>
@@ -906,15 +906,15 @@
           <Property Name="Interceptions" Type="Int32" Nullable="false" />
           <Property Name="ForcedFumbles" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__Defensive__GameI__61F6E0BB" FromRole="DefensiveStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__Defensive__Playe__236943A5" FromRole="DefensiveStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__Defensive__GameI__300424B4" FromRole="DefensiveStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Defensive__Playe__30F848ED" FromRole="DefensiveStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="Division">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Teams" Relationship="Self.FK__Teams__Division__2EDAF651" FromRole="Divisions" ToRole="Teams" />
+          <NavigationProperty Name="Teams" Relationship="Self.FK__Teams__Division__46E78A0C" FromRole="Divisions" ToRole="Teams" />
         </EntityType>
         <EntityType Name="Fumble">
           <Key>
@@ -930,8 +930,8 @@
           <Property Name="Yards" Type="Int32" Nullable="false" />
           <Property Name="Lost" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__Fumbles__GameId__62EB04F4" FromRole="Fumbles" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__Fumbles__PlayerI__245D67DE" FromRole="Fumbles" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__Fumbles__GameId__31EC6D26" FromRole="Fumbles" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Fumbles__PlayerI__32E0915F" FromRole="Fumbles" ToRole="Players" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -960,18 +960,18 @@
           <Property Name="ATScoreOT" Type="Int32" Nullable="false" />
           <Property Name="ATScoreFinal" Type="Int32" Nullable="false" />
           <Property Name="NeutralField" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DefensiveStats" Relationship="Self.FK__Defensive__GameI__61F6E0BB" FromRole="Games" ToRole="DefensiveStats" />
-          <NavigationProperty Name="Fumbles" Relationship="Self.FK__Fumbles__GameId__62EB04F4" FromRole="Games" ToRole="Fumbles" />
-          <NavigationProperty Name="Team" Relationship="Self.FK__Games__AwayTeam__600E9849" FromRole="Games" ToRole="Teams" />
-          <NavigationProperty Name="Team1" Relationship="Self.FK__Games__HomeTeam__5F1A7410" FromRole="Games" ToRole="Teams" />
-          <NavigationProperty Name="SeasonType1" Relationship="Self.FK__Games__SeasonTyp__6102BC82" FromRole="Games" ToRole="SeasonType" />
-          <NavigationProperty Name="KickingStats" Relationship="Self.FK__KickingSt__GameI__5E264FD7" FromRole="Games" ToRole="KickingStats" />
-          <NavigationProperty Name="KickReturnStats" Relationship="Self.FK__KickRetur__GameI__63DF292D" FromRole="Games" ToRole="KickReturnStats" />
-          <NavigationProperty Name="PassingStats" Relationship="Self.FK__PassingSt__GameI__64D34D66" FromRole="Games" ToRole="PassingStats" />
-          <NavigationProperty Name="PuntingStats" Relationship="Self.FK__PuntingSt__GameI__65C7719F" FromRole="Games" ToRole="PuntingStats" />
-          <NavigationProperty Name="PuntReturnStats" Relationship="Self.FK__PuntRetur__GameI__66BB95D8" FromRole="Games" ToRole="PuntReturnStats" />
-          <NavigationProperty Name="ReceivingStats" Relationship="Self.FK__Receiving__GameI__67AFBA11" FromRole="Games" ToRole="ReceivingStats" />
-          <NavigationProperty Name="RushingStats" Relationship="Self.FK__RushingSt__GameI__68A3DE4A" FromRole="Games" ToRole="RushingStats" />
+          <NavigationProperty Name="DefensiveStats" Relationship="Self.FK__Defensive__GameI__300424B4" FromRole="Games" ToRole="DefensiveStats" />
+          <NavigationProperty Name="Fumbles" Relationship="Self.FK__Fumbles__GameId__31EC6D26" FromRole="Games" ToRole="Fumbles" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Games__AwayTeam__33D4B598" FromRole="Games" ToRole="Teams" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK__Games__HomeTeam__34C8D9D1" FromRole="Games" ToRole="Teams" />
+          <NavigationProperty Name="SeasonType1" Relationship="Self.FK__Games__SeasonTyp__35BCFE0A" FromRole="Games" ToRole="SeasonType" />
+          <NavigationProperty Name="KickingStats" Relationship="Self.FK__KickingSt__GameI__36B12243" FromRole="Games" ToRole="KickingStats" />
+          <NavigationProperty Name="KickReturnStats" Relationship="Self.FK__KickRetur__GameI__38996AB5" FromRole="Games" ToRole="KickReturnStats" />
+          <NavigationProperty Name="PassingStats" Relationship="Self.FK__PassingSt__GameI__3A81B327" FromRole="Games" ToRole="PassingStats" />
+          <NavigationProperty Name="PuntingStats" Relationship="Self.FK__PuntingSt__GameI__3E52440B" FromRole="Games" ToRole="PuntingStats" />
+          <NavigationProperty Name="PuntReturnStats" Relationship="Self.FK__PuntRetur__GameI__403A8C7D" FromRole="Games" ToRole="PuntReturnStats" />
+          <NavigationProperty Name="ReceivingStats" Relationship="Self.FK__Receiving__GameI__4222D4EF" FromRole="Games" ToRole="ReceivingStats" />
+          <NavigationProperty Name="RushingStats" Relationship="Self.FK__RushingSt__GameI__440B1D61" FromRole="Games" ToRole="RushingStats" />
         </EntityType>
         <EntityType Name="KickingStat">
           <Key>
@@ -991,8 +991,8 @@
           <Property Name="ExtraPointsBlocked" Type="Int32" Nullable="false" />
           <Property Name="ExtraPointsTotal" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__KickingSt__GameI__5E264FD7" FromRole="KickingStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__KickingSt__Playe__15D01CBC" FromRole="KickingStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__KickingSt__GameI__36B12243" FromRole="KickingStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__KickingSt__Playe__37A5467C" FromRole="KickingStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="KickReturnStat">
           <Key>
@@ -1008,8 +1008,8 @@
           <Property Name="Long" Type="Int32" Nullable="false" />
           <Property Name="LongTouchdown" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__KickRetur__GameI__63DF292D" FromRole="KickReturnStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__KickRetur__Playe__2645B050" FromRole="KickReturnStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__KickRetur__GameI__38996AB5" FromRole="KickReturnStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__KickRetur__Playe__398D8EEE" FromRole="KickReturnStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="PassingStat">
           <Key>
@@ -1027,8 +1027,8 @@
           <Property Name="TwoPointAttempts" Type="Int32" Nullable="false" />
           <Property Name="TwoPointMakes" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__PassingSt__GameI__64D34D66" FromRole="PassingStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__PassingSt__Playe__2739D489" FromRole="PassingStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__PassingSt__GameI__3A81B327" FromRole="PassingStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__PassingSt__Playe__3B75D760" FromRole="PassingStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -1052,24 +1052,24 @@
           <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Weight" Type="Int32" Nullable="false" />
           <Property Name="YearsPro" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DefensiveStats" Relationship="Self.FK__Defensive__Playe__236943A5" FromRole="Players" ToRole="DefensiveStats" />
-          <NavigationProperty Name="Fumbles" Relationship="Self.FK__Fumbles__PlayerI__245D67DE" FromRole="Players" ToRole="Fumbles" />
-          <NavigationProperty Name="KickingStats" Relationship="Self.FK__KickingSt__Playe__15D01CBC" FromRole="Players" ToRole="KickingStats" />
-          <NavigationProperty Name="KickReturnStats" Relationship="Self.FK__KickRetur__Playe__2645B050" FromRole="Players" ToRole="KickReturnStats" />
-          <NavigationProperty Name="PassingStats" Relationship="Self.FK__PassingSt__Playe__2739D489" FromRole="Players" ToRole="PassingStats" />
-          <NavigationProperty Name="Position1" Relationship="Self.FK__Players__Positio__2BFE89A6" FromRole="Players" ToRole="Positions" />
-          <NavigationProperty Name="Team1" Relationship="Self.FK__Players__TeamPre__2CF2ADDF" FromRole="Players" ToRole="Teams" />
-          <NavigationProperty Name="PuntingStats" Relationship="Self.FK__PuntingSt__Playe__282DF8C2" FromRole="Players" ToRole="PuntingStats" />
-          <NavigationProperty Name="PuntReturnStats" Relationship="Self.FK__PuntRetur__Playe__29221CFB" FromRole="Players" ToRole="PuntReturnStats" />
-          <NavigationProperty Name="ReceivingStats" Relationship="Self.FK__Receiving__Playe__2A164134" FromRole="Players" ToRole="ReceivingStats" />
-          <NavigationProperty Name="RushingStats" Relationship="Self.FK__RushingSt__Playe__2B0A656D" FromRole="Players" ToRole="RushingStats" />
+          <NavigationProperty Name="DefensiveStats" Relationship="Self.FK__Defensive__Playe__30F848ED" FromRole="Players" ToRole="DefensiveStats" />
+          <NavigationProperty Name="Fumbles" Relationship="Self.FK__Fumbles__PlayerI__32E0915F" FromRole="Players" ToRole="Fumbles" />
+          <NavigationProperty Name="KickingStats" Relationship="Self.FK__KickingSt__Playe__37A5467C" FromRole="Players" ToRole="KickingStats" />
+          <NavigationProperty Name="KickReturnStats" Relationship="Self.FK__KickRetur__Playe__398D8EEE" FromRole="Players" ToRole="KickReturnStats" />
+          <NavigationProperty Name="PassingStats" Relationship="Self.FK__PassingSt__Playe__3B75D760" FromRole="Players" ToRole="PassingStats" />
+          <NavigationProperty Name="Position1" Relationship="Self.FK__Players__Positio__3C69FB99" FromRole="Players" ToRole="Positions" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK__Players__Team__3D5E1FD2" FromRole="Players" ToRole="Teams" />
+          <NavigationProperty Name="PuntingStats" Relationship="Self.FK__PuntingSt__Playe__3F466844" FromRole="Players" ToRole="PuntingStats" />
+          <NavigationProperty Name="PuntReturnStats" Relationship="Self.FK__PuntRetur__Playe__412EB0B6" FromRole="Players" ToRole="PuntReturnStats" />
+          <NavigationProperty Name="ReceivingStats" Relationship="Self.FK__Receiving__Playe__4316F928" FromRole="Players" ToRole="ReceivingStats" />
+          <NavigationProperty Name="RushingStats" Relationship="Self.FK__RushingSt__Playe__44FF419A" FromRole="Players" ToRole="RushingStats" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Players" Relationship="Self.FK__Players__Positio__2BFE89A6" FromRole="Positions" ToRole="Players" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Players__Positio__3C69FB99" FromRole="Positions" ToRole="Players" />
         </EntityType>
         <EntityType Name="PuntingStat">
           <Key>
@@ -1085,8 +1085,8 @@
           <Property Name="InsideTwenty" Type="Int32" Nullable="false" />
           <Property Name="Long" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__PuntingSt__GameI__65C7719F" FromRole="PuntingStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__PuntingSt__Playe__282DF8C2" FromRole="PuntingStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__PuntingSt__GameI__3E52440B" FromRole="PuntingStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__PuntingSt__Playe__3F466844" FromRole="PuntingStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="PuntReturnStat">
           <Key>
@@ -1102,8 +1102,8 @@
           <Property Name="Long" Type="Int32" Nullable="false" />
           <Property Name="LongTouchdown" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__PuntRetur__GameI__66BB95D8" FromRole="PuntReturnStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__PuntRetur__Playe__29221CFB" FromRole="PuntReturnStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__PuntRetur__GameI__403A8C7D" FromRole="PuntReturnStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__PuntRetur__Playe__412EB0B6" FromRole="PuntReturnStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="ReceivingStat">
           <Key>
@@ -1120,8 +1120,8 @@
           <Property Name="TwoPointAttempts" Type="Int32" Nullable="false" />
           <Property Name="TwoPointsMade" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__Receiving__GameI__67AFBA11" FromRole="ReceivingStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__Receiving__Playe__2A164134" FromRole="ReceivingStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__Receiving__GameI__4222D4EF" FromRole="ReceivingStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Receiving__Playe__4316F928" FromRole="ReceivingStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="RushingStat">
           <Key>
@@ -1138,15 +1138,15 @@
           <Property Name="TwoPointAttempts" Type="Int32" Nullable="false" />
           <Property Name="TwoPointsMade" Type="Int32" Nullable="false" />
           <Property Name="GsisId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="Self.FK__RushingSt__GameI__68A3DE4A" FromRole="RushingStats" ToRole="Games" />
-          <NavigationProperty Name="Player" Relationship="Self.FK__RushingSt__Playe__2B0A656D" FromRole="RushingStats" ToRole="Players" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__RushingSt__GameI__440B1D61" FromRole="RushingStats" ToRole="Games" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__RushingSt__Playe__44FF419A" FromRole="RushingStats" ToRole="Players" />
         </EntityType>
         <EntityType Name="SeasonType">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Games" Relationship="Self.FK__Games__SeasonTyp__6102BC82" FromRole="SeasonType" ToRole="Games" />
+          <NavigationProperty Name="Games" Relationship="Self.FK__Games__SeasonTyp__35BCFE0A" FromRole="SeasonType" ToRole="Games" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -1159,13 +1159,13 @@
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Conference" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Division" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Conference1" Relationship="Self.FK__Teams__Conferenc__2DE6D218" FromRole="Teams" ToRole="Conferences" />
-          <NavigationProperty Name="Division1" Relationship="Self.FK__Teams__Division__2EDAF651" FromRole="Teams" ToRole="Divisions" />
-          <NavigationProperty Name="Games" Relationship="Self.FK__Games__AwayTeam__600E9849" FromRole="Teams" ToRole="Games" />
-          <NavigationProperty Name="Games1" Relationship="Self.FK__Games__HomeTeam__5F1A7410" FromRole="Teams" ToRole="Games" />
-          <NavigationProperty Name="Players" Relationship="Self.FK__Players__TeamPre__2CF2ADDF" FromRole="Teams" ToRole="Players" />
+          <NavigationProperty Name="Conference1" Relationship="Self.FK__Teams__Conferenc__45F365D3" FromRole="Teams" ToRole="Conferences" />
+          <NavigationProperty Name="Division1" Relationship="Self.FK__Teams__Division__46E78A0C" FromRole="Teams" ToRole="Divisions" />
+          <NavigationProperty Name="Games" Relationship="Self.FK__Games__AwayTeam__33D4B598" FromRole="Teams" ToRole="Games" />
+          <NavigationProperty Name="Games1" Relationship="Self.FK__Games__HomeTeam__34C8D9D1" FromRole="Teams" ToRole="Games" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Players__Team__3D5E1FD2" FromRole="Teams" ToRole="Players" />
         </EntityType>
-        <Association Name="FK__Teams__Conferenc__2DE6D218">
+        <Association Name="FK__Teams__Conferenc__45F365D3">
           <End Role="Conferences" Type="Self.Conference" Multiplicity="1" />
           <End Role="Teams" Type="Self.Team" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1177,7 +1177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Defensive__GameI__61F6E0BB">
+        <Association Name="FK__Defensive__GameI__300424B4">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="DefensiveStats" Type="Self.DefensiveStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1189,7 +1189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Defensive__Playe__236943A5">
+        <Association Name="FK__Defensive__Playe__30F848ED">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="DefensiveStats" Type="Self.DefensiveStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1201,7 +1201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teams__Division__2EDAF651">
+        <Association Name="FK__Teams__Division__46E78A0C">
           <End Role="Divisions" Type="Self.Division" Multiplicity="1" />
           <End Role="Teams" Type="Self.Team" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1213,7 +1213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Fumbles__GameId__62EB04F4">
+        <Association Name="FK__Fumbles__GameId__31EC6D26">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="Fumbles" Type="Self.Fumble" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1225,7 +1225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Fumbles__PlayerI__245D67DE">
+        <Association Name="FK__Fumbles__PlayerI__32E0915F">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="Fumbles" Type="Self.Fumble" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1237,7 +1237,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__AwayTeam__600E9849">
+        <Association Name="FK__Games__AwayTeam__33D4B598">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1249,7 +1249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__HomeTeam__5F1A7410">
+        <Association Name="FK__Games__HomeTeam__34C8D9D1">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1261,7 +1261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__SeasonTyp__6102BC82">
+        <Association Name="FK__Games__SeasonTyp__35BCFE0A">
           <End Role="SeasonType" Type="Self.SeasonType" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1273,7 +1273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickingSt__GameI__5E264FD7">
+        <Association Name="FK__KickingSt__GameI__36B12243">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="KickingStats" Type="Self.KickingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1285,7 +1285,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickRetur__GameI__63DF292D">
+        <Association Name="FK__KickRetur__GameI__38996AB5">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="KickReturnStats" Type="Self.KickReturnStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1297,7 +1297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PassingSt__GameI__64D34D66">
+        <Association Name="FK__PassingSt__GameI__3A81B327">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="PassingStats" Type="Self.PassingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1309,7 +1309,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntingSt__GameI__65C7719F">
+        <Association Name="FK__PuntingSt__GameI__3E52440B">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="PuntingStats" Type="Self.PuntingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1321,7 +1321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntRetur__GameI__66BB95D8">
+        <Association Name="FK__PuntRetur__GameI__403A8C7D">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="PuntReturnStats" Type="Self.PuntReturnStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1333,7 +1333,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receiving__GameI__67AFBA11">
+        <Association Name="FK__Receiving__GameI__4222D4EF">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="ReceivingStats" Type="Self.ReceivingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1345,7 +1345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RushingSt__GameI__68A3DE4A">
+        <Association Name="FK__RushingSt__GameI__440B1D61">
           <End Role="Games" Type="Self.Game" Multiplicity="1" />
           <End Role="RushingStats" Type="Self.RushingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1357,7 +1357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickingSt__Playe__15D01CBC">
+        <Association Name="FK__KickingSt__Playe__37A5467C">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="KickingStats" Type="Self.KickingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1369,7 +1369,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KickRetur__Playe__2645B050">
+        <Association Name="FK__KickRetur__Playe__398D8EEE">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="KickReturnStats" Type="Self.KickReturnStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1381,7 +1381,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PassingSt__Playe__2739D489">
+        <Association Name="FK__PassingSt__Playe__3B75D760">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="PassingStats" Type="Self.PassingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1393,7 +1393,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Players__Positio__2BFE89A6">
+        <Association Name="FK__Players__Positio__3C69FB99">
           <End Role="Positions" Type="Self.Position" Multiplicity="1" />
           <End Role="Players" Type="Self.Player" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1405,7 +1405,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Players__TeamPre__2CF2ADDF">
+        <Association Name="FK__Players__Team__3D5E1FD2">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Players" Type="Self.Player" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1417,7 +1417,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntingSt__Playe__282DF8C2">
+        <Association Name="FK__PuntingSt__Playe__3F466844">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="PuntingStats" Type="Self.PuntingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1429,7 +1429,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuntRetur__Playe__29221CFB">
+        <Association Name="FK__PuntRetur__Playe__412EB0B6">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="PuntReturnStats" Type="Self.PuntReturnStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1441,7 +1441,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receiving__Playe__2A164134">
+        <Association Name="FK__Receiving__Playe__4316F928">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="ReceivingStats" Type="Self.ReceivingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1453,7 +1453,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RushingSt__Playe__2B0A656D">
+        <Association Name="FK__RushingSt__Playe__44FF419A">
           <End Role="Players" Type="Self.Player" Multiplicity="1" />
           <End Role="RushingStats" Type="Self.RushingStat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1483,103 +1483,103 @@
           <EntitySet Name="RushingStats" EntityType="Self.RushingStat" />
           <EntitySet Name="SeasonTypes" EntityType="Self.SeasonType" />
           <EntitySet Name="Teams" EntityType="Self.Team" />
-          <AssociationSet Name="FK__Teams__Conferenc__2DE6D218" Association="Self.FK__Teams__Conferenc__2DE6D218">
+          <AssociationSet Name="FK__Teams__Conferenc__45F365D3" Association="Self.FK__Teams__Conferenc__45F365D3">
             <End Role="Conferences" EntitySet="Conferences" />
             <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Defensive__GameI__61F6E0BB" Association="Self.FK__Defensive__GameI__61F6E0BB">
+          <AssociationSet Name="FK__Defensive__GameI__300424B4" Association="Self.FK__Defensive__GameI__300424B4">
             <End Role="Games" EntitySet="Games" />
             <End Role="DefensiveStats" EntitySet="DefensiveStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Defensive__Playe__236943A5" Association="Self.FK__Defensive__Playe__236943A5">
+          <AssociationSet Name="FK__Defensive__Playe__30F848ED" Association="Self.FK__Defensive__Playe__30F848ED">
             <End Role="Players" EntitySet="Players" />
             <End Role="DefensiveStats" EntitySet="DefensiveStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teams__Division__2EDAF651" Association="Self.FK__Teams__Division__2EDAF651">
+          <AssociationSet Name="FK__Teams__Division__46E78A0C" Association="Self.FK__Teams__Division__46E78A0C">
             <End Role="Divisions" EntitySet="Divisions" />
             <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Fumbles__GameId__62EB04F4" Association="Self.FK__Fumbles__GameId__62EB04F4">
+          <AssociationSet Name="FK__Fumbles__GameId__31EC6D26" Association="Self.FK__Fumbles__GameId__31EC6D26">
             <End Role="Games" EntitySet="Games" />
             <End Role="Fumbles" EntitySet="Fumbles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Fumbles__PlayerI__245D67DE" Association="Self.FK__Fumbles__PlayerI__245D67DE">
+          <AssociationSet Name="FK__Fumbles__PlayerI__32E0915F" Association="Self.FK__Fumbles__PlayerI__32E0915F">
             <End Role="Players" EntitySet="Players" />
             <End Role="Fumbles" EntitySet="Fumbles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__AwayTeam__600E9849" Association="Self.FK__Games__AwayTeam__600E9849">
+          <AssociationSet Name="FK__Games__AwayTeam__33D4B598" Association="Self.FK__Games__AwayTeam__33D4B598">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__HomeTeam__5F1A7410" Association="Self.FK__Games__HomeTeam__5F1A7410">
+          <AssociationSet Name="FK__Games__HomeTeam__34C8D9D1" Association="Self.FK__Games__HomeTeam__34C8D9D1">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__SeasonTyp__6102BC82" Association="Self.FK__Games__SeasonTyp__6102BC82">
+          <AssociationSet Name="FK__Games__SeasonTyp__35BCFE0A" Association="Self.FK__Games__SeasonTyp__35BCFE0A">
             <End Role="SeasonType" EntitySet="SeasonTypes" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickingSt__GameI__5E264FD7" Association="Self.FK__KickingSt__GameI__5E264FD7">
+          <AssociationSet Name="FK__KickingSt__GameI__36B12243" Association="Self.FK__KickingSt__GameI__36B12243">
             <End Role="Games" EntitySet="Games" />
             <End Role="KickingStats" EntitySet="KickingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickRetur__GameI__63DF292D" Association="Self.FK__KickRetur__GameI__63DF292D">
+          <AssociationSet Name="FK__KickRetur__GameI__38996AB5" Association="Self.FK__KickRetur__GameI__38996AB5">
             <End Role="Games" EntitySet="Games" />
             <End Role="KickReturnStats" EntitySet="KickReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PassingSt__GameI__64D34D66" Association="Self.FK__PassingSt__GameI__64D34D66">
+          <AssociationSet Name="FK__PassingSt__GameI__3A81B327" Association="Self.FK__PassingSt__GameI__3A81B327">
             <End Role="Games" EntitySet="Games" />
             <End Role="PassingStats" EntitySet="PassingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntingSt__GameI__65C7719F" Association="Self.FK__PuntingSt__GameI__65C7719F">
+          <AssociationSet Name="FK__PuntingSt__GameI__3E52440B" Association="Self.FK__PuntingSt__GameI__3E52440B">
             <End Role="Games" EntitySet="Games" />
             <End Role="PuntingStats" EntitySet="PuntingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntRetur__GameI__66BB95D8" Association="Self.FK__PuntRetur__GameI__66BB95D8">
+          <AssociationSet Name="FK__PuntRetur__GameI__403A8C7D" Association="Self.FK__PuntRetur__GameI__403A8C7D">
             <End Role="Games" EntitySet="Games" />
             <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receiving__GameI__67AFBA11" Association="Self.FK__Receiving__GameI__67AFBA11">
+          <AssociationSet Name="FK__Receiving__GameI__4222D4EF" Association="Self.FK__Receiving__GameI__4222D4EF">
             <End Role="Games" EntitySet="Games" />
             <End Role="ReceivingStats" EntitySet="ReceivingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__RushingSt__GameI__68A3DE4A" Association="Self.FK__RushingSt__GameI__68A3DE4A">
+          <AssociationSet Name="FK__RushingSt__GameI__440B1D61" Association="Self.FK__RushingSt__GameI__440B1D61">
             <End Role="Games" EntitySet="Games" />
             <End Role="RushingStats" EntitySet="RushingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickingSt__Playe__15D01CBC" Association="Self.FK__KickingSt__Playe__15D01CBC">
+          <AssociationSet Name="FK__KickingSt__Playe__37A5467C" Association="Self.FK__KickingSt__Playe__37A5467C">
             <End Role="Players" EntitySet="Players" />
             <End Role="KickingStats" EntitySet="KickingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__KickRetur__Playe__2645B050" Association="Self.FK__KickRetur__Playe__2645B050">
+          <AssociationSet Name="FK__KickRetur__Playe__398D8EEE" Association="Self.FK__KickRetur__Playe__398D8EEE">
             <End Role="Players" EntitySet="Players" />
             <End Role="KickReturnStats" EntitySet="KickReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PassingSt__Playe__2739D489" Association="Self.FK__PassingSt__Playe__2739D489">
+          <AssociationSet Name="FK__PassingSt__Playe__3B75D760" Association="Self.FK__PassingSt__Playe__3B75D760">
             <End Role="Players" EntitySet="Players" />
             <End Role="PassingStats" EntitySet="PassingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Players__Positio__2BFE89A6" Association="Self.FK__Players__Positio__2BFE89A6">
+          <AssociationSet Name="FK__Players__Positio__3C69FB99" Association="Self.FK__Players__Positio__3C69FB99">
             <End Role="Positions" EntitySet="Positions" />
             <End Role="Players" EntitySet="Players" />
           </AssociationSet>
-          <AssociationSet Name="FK__Players__TeamPre__2CF2ADDF" Association="Self.FK__Players__TeamPre__2CF2ADDF">
+          <AssociationSet Name="FK__Players__Team__3D5E1FD2" Association="Self.FK__Players__Team__3D5E1FD2">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Players" EntitySet="Players" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntingSt__Playe__282DF8C2" Association="Self.FK__PuntingSt__Playe__282DF8C2">
+          <AssociationSet Name="FK__PuntingSt__Playe__3F466844" Association="Self.FK__PuntingSt__Playe__3F466844">
             <End Role="Players" EntitySet="Players" />
             <End Role="PuntingStats" EntitySet="PuntingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuntRetur__Playe__29221CFB" Association="Self.FK__PuntRetur__Playe__29221CFB">
+          <AssociationSet Name="FK__PuntRetur__Playe__412EB0B6" Association="Self.FK__PuntRetur__Playe__412EB0B6">
             <End Role="Players" EntitySet="Players" />
             <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receiving__Playe__2A164134" Association="Self.FK__Receiving__Playe__2A164134">
+          <AssociationSet Name="FK__Receiving__Playe__4316F928" Association="Self.FK__Receiving__Playe__4316F928">
             <End Role="Players" EntitySet="Players" />
             <End Role="ReceivingStats" EntitySet="ReceivingStats" />
           </AssociationSet>
-          <AssociationSet Name="FK__RushingSt__Playe__2B0A656D" Association="Self.FK__RushingSt__Playe__2B0A656D">
+          <AssociationSet Name="FK__RushingSt__Playe__44FF419A" Association="Self.FK__RushingSt__Playe__44FF419A">
             <End Role="Players" EntitySet="Players" />
             <End Role="RushingStats" EntitySet="RushingStats" />
           </AssociationSet>

@@ -40,9 +40,10 @@ namespace NFLDAL
             return returnDictionary.ContainsKey("Id") ? Guid.Parse(returnDictionary["Id"].ToString()) : Guid.Empty;
         }
 
-        public DefensiveStat Get(Guid Id)
+        public IEnumerable<DefensiveStat> Get(string filter)
         {
-            return entities.DefensiveStats.Where(i => i.DefensiveStatsId == Id).Single();
+            throw new NotImplementedException();
+
         }
 
         public IEnumerable<DefensiveStat> GetAll()

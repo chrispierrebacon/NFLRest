@@ -57,5 +57,10 @@ namespace NFLDAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<PuntingStat> Get(string filterJson)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

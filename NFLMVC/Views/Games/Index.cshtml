@@ -4,150 +4,102 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Games</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HomeTeam)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AwayTeam)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeasonType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Eid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameKey)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Week)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreFirstQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreSecondQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreThirdQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreFourthQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreOT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HTScoreFinal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreFirstQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreSecondQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreThirdQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreFourthQtr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreOT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ATScoreFinal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NeutralField)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HomeTeam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AwayTeam)
-        </td>
-        <td>
+
+<div class="row">
+    <div class="col-md-2">
+        <p class="text-right">1st</p>
+    </div>
+    <div class="col-md-1">
+        <p class="text-right">2nd</p>
+    </div>
+    <div class="col-md-1">
+        <p class="text-right">3rd</p>
+    </div>
+    <div class="col-md-1">
+        <p class="text-right">4th</p>
+    </div>
+    <div class="col-md-1">
+        <p class="text-right">OT</p>
+    </div>
+    <div class="col-md-1">
+        <p class="text-right">Final</p>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    @*<div class="row">
+        <div class="col-md-12">
             @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeasonType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Eid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameKey)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Week)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreFirstQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreSecondQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreThirdQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreFourthQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreOT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HTScoreFinal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreFirstQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreSecondQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreThirdQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreFourthQtr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreOT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ATScoreFinal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NeutralField)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+        </div>
+    </div>*@
 
-</table>
+        
+    <div class="row">
+        
+        <div class="col-md-1">
+            <p class="text-left">@Html.DisplayFor(modelItem => item.AwayTeam)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreFirstQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreSecondQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreThirdQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreFourthQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreOT)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.ATScoreFinal)</p>
+        </div>
+        <div class="col-md-1">
+        </div>        
+        <div class="col-md-1">
+            <p class="text-left">@Html.ActionLink("Edit", "Edit", new { gameId = item.GameId })</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-left">@Html.ActionLink("Delete", "Delete", new { gameId = item.GameId })</p>
+        </div>  
+    </div>
+
+    <div class="row bg-primary">
+        <div class="col-md-1">
+            <p class="text-left">@Html.DisplayFor(modelItem => item.HomeTeam)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreFirstQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreSecondQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreThirdQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreFourthQtr)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreOT)</p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-right">@Html.DisplayFor(modelItem => item.HTScoreFinal)</p>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
+            <p class="text-left">@Html.ActionLink("Details", "Details", new { gameId = item.GameId })</p>
+        </div>
+    </div>
+}

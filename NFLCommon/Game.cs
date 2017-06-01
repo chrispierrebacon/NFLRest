@@ -27,13 +27,13 @@ namespace NFLCommon
             this.ReceivingStats = new HashSet<ReceivingStat>();
             this.RushingStats = new HashSet<RushingStat>();
         }
-    
-        public int Id { get; set; }
-        public System.Guid GameId { get; set; }
+
+        public int Id { get; set; } = -1;
+        public System.Guid GameId { get; set; } = Guid.Empty;
         public string HomeTeam { get; set; }
         public string AwayTeam { get; set; }
         public System.DateTime DateTime { get; set; }
-        public string SeasonType { get; set; } = "PRE";
+        public string SeasonType { get; set; }
         public int Season { get; set; }
         public long Eid { get; set; }
         public long GameKey { get; set; }
@@ -50,7 +50,7 @@ namespace NFLCommon
         public int ATScoreFourthQtr { get; set; }
         public int ATScoreOT { get; set; }
         public int ATScoreFinal { get; set; }
-        public bool NeutralField { get; set; }
+        public bool NeutralField { get; set; } = false;
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DefensiveStat> DefensiveStats { get; set; }

@@ -6,11 +6,9 @@ using NFLCommon.DALInterfaces;
 using System.Linq;
 
 namespace NFLDALEF
-{
+{ 
     public class TeamDal : ITeamDal
     {
-        NFLDBEntities entities = new NFLDBEntities();
-
         public Guid Create(Team team)
         {
             Guid guid = Guid.NewGuid();
@@ -57,7 +55,5 @@ namespace NFLDALEF
             }
             return 0;
         }
-
-        
     }
 }

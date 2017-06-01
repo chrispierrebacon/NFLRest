@@ -1,0 +1,192 @@
+﻿@model NFLMVC.Models.Game
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwayTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwayTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeasonType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeasonType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Season)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Season)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Week)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Week)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreFirstQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreFirstQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreSecondQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreSecondQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreThirdQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreThirdQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreFourthQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreFourthQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTScoreFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTScoreFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreFirstQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreFirstQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreSecondQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreSecondQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreThirdQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreThirdQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreFourthQtr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreFourthQtr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATScoreFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATScoreFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NeutralField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeutralField)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

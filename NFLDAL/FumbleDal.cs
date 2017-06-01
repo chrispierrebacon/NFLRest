@@ -60,6 +60,9 @@ namespace NFLDAL
             throw new NotImplementedException();
         }
 
-        
+        public IEnumerable<Fumble> Get(string filterJson)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

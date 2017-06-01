@@ -1,0 +1,12 @@
+C:\Projects\NFLRest\NFLDAL\bin\Release\NFLDAL.dll.config
+C:\Projects\NFLRest\NFLDAL\bin\Release\NFLDAL.dll
+C:\Projects\NFLRest\NFLDAL\bin\Release\NFLDAL.pdb
+C:\Projects\NFLRest\NFLDAL\bin\Release\EntityFramework.dll
+C:\Projects\NFLRest\NFLDAL\bin\Release\Newtonsoft.Json.dll
+C:\Projects\NFLRest\NFLDAL\bin\Release\NFLCommon.dll
+C:\Projects\NFLRest\NFLDAL\bin\Release\NFLCommon.pdb
+C:\Projects\NFLRest\NFLDAL\bin\Release\EntityFramework.xml
+C:\Projects\NFLRest\NFLDAL\bin\Release\Newtonsoft.Json.xml
+C:\Projects\NFLRest\NFLDAL\obj\Release\NFLDAL.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRest\NFLDAL\obj\Release\NFLDAL.dll
+C:\Projects\NFLRest\NFLDAL\obj\Release\NFLDAL.pdb

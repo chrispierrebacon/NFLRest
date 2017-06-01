@@ -39,7 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -109,6 +109,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NFLEF.edmx</DependentUpon>
     </Compile>
+    <Compile Include="INFLObj.cs" />
     <Compile Include="PassingStat.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
@@ -139,7 +140,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="NFLEF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NFLEF.Designer.cs</LastGenOutput>

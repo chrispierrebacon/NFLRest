@@ -1,0 +1,14 @@
+C:\Projects\NFLRest\NFLDALEF\bin\Release\NFLDALEF.dll.config
+C:\Projects\NFLRest\NFLDALEF\bin\Release\NFLDALEF.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Release\NFLDALEF.pdb
+C:\Projects\NFLRest\NFLDALEF\bin\Release\EntityFramework.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Release\EntityFramework.SqlServer.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Release\Newtonsoft.Json.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Release\NFLCommon.dll
+C:\Projects\NFLRest\NFLDALEF\bin\Release\NFLCommon.pdb
+C:\Projects\NFLRest\NFLDALEF\bin\Release\EntityFramework.xml
+C:\Projects\NFLRest\NFLDALEF\bin\Release\EntityFramework.SqlServer.xml
+C:\Projects\NFLRest\NFLDALEF\bin\Release\Newtonsoft.Json.xml
+C:\Projects\NFLRest\NFLDALEF\obj\Release\NFLDALEF.csprojResolveAssemblyReference.cache
+C:\Projects\NFLRest\NFLDALEF\obj\Release\NFLDALEF.dll
+C:\Projects\NFLRest\NFLDALEF\obj\Release\NFLDALEF.pdb

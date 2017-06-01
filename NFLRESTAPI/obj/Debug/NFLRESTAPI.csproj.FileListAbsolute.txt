@@ -158,7 +158,9 @@ C:\Projects\NFLRest\NFLRESTAPI\bin\NFLCommon.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\NFLDALEF.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\Owin.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Net.Http.Formatting.dll
+C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Cors.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Helpers.dll
+C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Http.Cors.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Http.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Http.Owin.dll
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Http.WebHost.dll
@@ -178,6 +180,7 @@ C:\Projects\NFLRest\NFLRESTAPI\bin\Autofac.Integration.Mvc.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\Autofac.Integration.WebApi.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\Newtonsoft.Json.xml
+C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Http.Cors.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Mvc.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Net.Http.Formatting.xml
 C:\Projects\NFLRest\NFLRESTAPI\bin\System.Web.Helpers.xml

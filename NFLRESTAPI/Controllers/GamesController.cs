@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Net.Http;
 using NFLBLL;
 using Newtonsoft.Json;
 using System.Net;
 using System.Web.Http.Controllers;
-using Autofac;
 using System;
 using NFLCommon;
-
-using System.Linq;
 
 namespace NFLRESTAPI.Controllers
 {
@@ -23,7 +19,7 @@ namespace NFLRESTAPI.Controllers
             _gameBL = (SingleStatBL<Game>)container.GetService(typeof(SingleStatBL<Game>));
             base.Initialize(controllerContext);
         }
-
+        
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Game game)
         {
@@ -50,7 +46,7 @@ namespace NFLRESTAPI.Controllers
             int resp = _gameBL.Update(game);
             HttpResponseMessage response = new HttpResponseMessage();
             response.Headers.Add("Response", resp.ToString());
-            response.StatusCode = HttpStatusCode.OK;
+            response.StatusCode = HttpStatusCode.NoContent;
             return response;
         }
 
@@ -60,7 +56,7 @@ namespace NFLRESTAPI.Controllers
             int resp = _gameBL.Delete(id);
             HttpResponseMessage response = new HttpResponseMessage();
             response.Headers.Add("Response", resp.ToString());
-            response.StatusCode = HttpStatusCode.Gone;
+            response.StatusCode = HttpStatusCode.NoContent;
             return response;
         }
     }

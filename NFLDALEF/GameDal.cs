@@ -30,19 +30,20 @@ namespace NFLDALEF
             using (var entities = new NFLDBEntities())
             {
                 entities.Configuration.ProxyCreationEnabled = false;
-
+                
                 IEnumerable<Game> games = entities.Games;
 
                 if (string.IsNullOrEmpty(filterJson))
                 {
-                    games.ToList();
+                    // PRESEASON can lick lick lick my balls! yeah say that all the time
+                    return games.Where(i => !i.SeasonType.Equals("PRE")).OrderByDescending(i => i.DateTime).ToList();
                 }
 
                 GamesFilter filter = JsonConvert.DeserializeObject<GamesFilter>(filterJson);
 
                 if (!filter.Id.Equals(Guid.Empty))
                 {
-                    return games.Where(i => i.GameId.Equals(filter.Id));
+                    return games.Where(i => i.GameId.Equals(filter.Id)).ToList();
                 }
 
                 // TODO use enums to make this more elegant
@@ -66,6 +67,12 @@ namespace NFLDALEF
                 {
                     games = games.Where(i => i.Season == filter.Season);
                 }
+
+                if (!string.IsNullOrEmpty(filter.Team))
+                {
+                    games = games.Where(i => i.HomeTeam.Equals(filter.Team) || i.AwayTeam.Equals(filter.Team));
+                }
+
                 games = games.Where(i => i.DateTime >= filter.StartDate && i.DateTime <= filter.EndDate);
 
                 games = games.OrderByDescending(i => i.DateTime);
@@ -97,6 +104,25 @@ namespace NFLDALEF
             {
                 using (var entities = new NFLDBEntities())
                 {
+                    Game gameToUpdate = entities.Games.FirstOrDefault(i => i.GameId == game.GameId);
+                    entities.Entry(gameToUpdate).CurrentValues.SetValues(game);
+                    entities.SaveChanges();
+                    return 1;
+                }
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+            
+        }
+
+        public int UpdateScore(Game game)
+        {
+            try
+            {
+                using (var entities = new NFLDBEntities())
+                {
 
                     // TODO: For now just update the scores, but later we'll want to update evrything
                     Game gameToUpdate = entities.Games.FirstOrDefault(i => i.GameId == game.GameId);
@@ -113,13 +139,13 @@ namespace NFLDALEF
                     gameToUpdate.HTScoreOT = game.HTScoreOT;
                     gameToUpdate.HTScoreSecondQtr = game.HTScoreSecondQtr;
                     gameToUpdate.HTScoreThirdQtr = game.HTScoreThirdQtr;
-                    
+
                     entities.SaveChanges();
                 }
-                
+
                 return 1;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // TODO some elegant logic
                 throw new Exception();
@@ -134,11 +160,12 @@ namespace NFLDALEF
                 if (stat != null)
                 {
                     entities.Games.Remove(stat);
+                    entities.SaveChanges();
                     return 1;
                 }
             }            
             return 0;
-        }
+        }        
     }
 
     public class GamesFilter
@@ -152,5 +179,7 @@ namespace NFLDALEF
         public DateTime StartDate { get; set; } = new DateTime(1920, 8, 20);
         // Some time far in the future
         public DateTime EndDate { get; set; } = new DateTime(2100, 1, 1);
+
+        public string Team { get; set; } = string.Empty;
     }
 }

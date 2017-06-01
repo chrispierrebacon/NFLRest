@@ -41,9 +41,30 @@ namespace NFLMVC.Controllers
         }
 
         // GET: Games/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid gameId)
         {
-            return View();
+            Dictionary<string, string> headers = new Dictionary<string, string>
+            {
+                { "Content-Type", "application/json; charset=utf-8" }
+            };
+
+            GamesFilter filter = new GamesFilter
+            {
+                Id = gameId
+            };
+
+            var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", null, Method.GET, headers, filter);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string responseJson = response.Content;
+                Game games = JsonConvert.DeserializeObject<IEnumerable<Game>>(responseJson).FirstOrDefault();
+                return View(games);
+            }
+            else
+            {
+                // TODO: Make an error page or try again?
+                return View();
+            }
         }
 
         // GET: Games/Create
@@ -54,13 +75,10 @@ namespace NFLMVC.Controllers
 
         // POST: Games/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Game game)
         {
             try
             {
-                // TODO: Figure out how to populate this object
-                Game game = null;
-
                 Dictionary<string, string> headers = new Dictionary<string, string>
                 {
                     { "Content-Type", "application/json; charset=utf-8" }
@@ -86,20 +104,38 @@ namespace NFLMVC.Controllers
         }
 
         // GET: Games/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid gameId)
         {
-            return View();
+            Dictionary<string, string> headers = new Dictionary<string, string>
+            {
+                { "Content-Type", "application/json; charset=utf-8" }
+            };
+
+            GamesFilter filter = new GamesFilter
+            {
+                Id = gameId
+            };
+
+            var response = RestHelper<Game>.MakeRequest("http://localhost:49786", "api/games", null, Method.GET, headers, filter);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string responseJson = response.Content;
+                Game games = JsonConvert.DeserializeObject<IEnumerable<Game>>(responseJson).FirstOrDefault();
+                return View(games);
+            }
+            else
+            {
+                // TODO: Make an error page or try again?
+                return View();
+            }
         }
 
         // POST: Games/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid gameId, Game game)
         {
             try
             {
-                // TODO: Figure out how to get this object from the form
-                Game game = null;
-
                 Dictionary<string, string> headers = new Dictionary<string, string>
                 {
                     { "Content-Type", "application/json; charset=utf-8" }
@@ -124,17 +160,22 @@ namespace NFLMVC.Controllers
             }
         }
 
+        public ActionResult Search(GamesFilter searchFilter)
+        {
+            return View();
+        }
+
         // TODO: Figure out a good way of doing deletion
         // This clearly doesn't need more than an Id for deletion
         // GET: Games/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid gameId)
         {
             return View();
         }
 
         // POST: Games/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid gameId, FormCollection collection)
         {
             try
             {
@@ -147,17 +188,5 @@ namespace NFLMVC.Controllers
                 return View();
             }
         }
-    }
-
-    public class GamesFilter : NFLFilter
-    {
-        public bool PreSeasonOn { get; set; } = false;
-        public bool PostSeasonOn { get; set; } = true;
-        public bool RegSeasonOn { get; set; } = true;
-        public int Season { get; set; }
-        // When the nfl was founded. It would be cool to have all this data
-        public DateTime StartDate { get; set; } = new DateTime(1920, 8, 20);
-        // Some time far in the future
-        public DateTime EndDate { get; set; } = new DateTime(2100, 1, 1);
     }
 }
