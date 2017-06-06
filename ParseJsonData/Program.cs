@@ -25,7 +25,7 @@ namespace ParseJsonData
                 { "Content-Type", "application/json; charset=utf-8" }
             };
 
-            //foreach(var team in getTeams())
+            //foreach (var team in getTeams())
             //{
             //    RestRequest<Team> restRequest = new RestRequest<Team>();
             //    restRequest.MakeRequest("http://localhost:49786", "api/teams", team, Method.POST, headers);
@@ -37,11 +37,11 @@ namespace ParseJsonData
             //    restRequest.MakeRequest("http://localhost:49786", "api/players", player, Method.POST, headers);
             //}
 
-            //foreach (var game in parseGames())
-            //{
-            //    RestRequest<Game> restRequest = new RestRequest<Game>();
-            //    restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
-            //}
+            foreach (var game in parseGames())
+            {
+                RestRequest<Game> restRequest = new RestRequest<Game>();
+                restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
+            }
 
             foreach (var stat in parseStats())
             {
@@ -366,13 +366,15 @@ namespace ParseJsonData
                 var matches = regex.Matches(shit);
 
                 int hour = Convert.ToInt32(matches[0].ToString());
-                if ((g.Last.meridiem == null || g.Last.mergidiem == "PM") && hour < 12)
+                if ((g.Last.meridiem == null || g.Last.meridiem == "PM") && hour < 12)
                 {
                     hour += 12;
                 }
 
-                string datetime = g.Last.eid;
-                game.DateTime = DateTime.ParseExact(datetime, "yyyyMMddff", CultureInfo.InvariantCulture);
+                string date = g.Last.eid;
+                DateTime dateBuilder = DateTime.ParseExact(date, "yyyyMMddff", CultureInfo.InvariantCulture);
+                dateBuilder = dateBuilder.AddHours(hour);
+                game.DateTime = TimeZoneInfo.ConvertTimeToUtc(dateBuilder, TimeZoneInfo.FindSystemTimeZoneById("US Eastern Standard Time"));
                 game.SeasonType = g.Last.season_type;
                 game.Eid = g.Last.eid;
                 game.GameKey = g.Last.gamekey;

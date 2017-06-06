@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="NFLDBModelStoreContainer" CdmEntityContainer="NFLDBEntities">
-    <EntitySetMapping Name="C__RefactorLog">
-      <EntityTypeMapping TypeName="NFLDBModel.C__RefactorLog">
-        <MappingFragment StoreEntitySet="__RefactorLog">
-          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Conferences">
       <EntityTypeMapping TypeName="NFLDBModel.Conference">
         <MappingFragment StoreEntitySet="Conferences">
@@ -80,6 +73,7 @@
           <ScalarProperty Name="ATScoreOT" ColumnName="ATScoreOT" />
           <ScalarProperty Name="ATScoreFinal" ColumnName="ATScoreFinal" />
           <ScalarProperty Name="NeutralField" ColumnName="NeutralField" />
+          <ScalarProperty Name="Highlights" ColumnName="Highlights" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -251,6 +245,14 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Conference" ColumnName="Conference" />
           <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__RefactorLog">
+      <EntityTypeMapping TypeName="NFLDBModel.C__RefactorLog">
+        <MappingFragment StoreEntitySet="__RefactorLog">
+          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -269,6 +271,36 @@
     <FunctionImportMapping FunctionImportName="DELETEAll" FunctionName="NFLDBModel.Store.DELETEAll" />
     <FunctionImportMapping FunctionImportName="DELETEStats" FunctionName="NFLDBModel.Store.DELETEStats" />
     <FunctionImportMapping FunctionImportName="GET_GameIdByEid" FunctionName="NFLDBModel.Store.GET_GameIdByEid" />
+    <FunctionImportMapping FunctionImportName="GET_Games" FunctionName="NFLDBModel.Store.GET_Games">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NFLDBModel.GET_Games_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+          <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="SeasonType" ColumnName="SeasonType" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Eid" ColumnName="Eid" />
+          <ScalarProperty Name="GameKey" ColumnName="GameKey" />
+          <ScalarProperty Name="Week" ColumnName="Week" />
+          <ScalarProperty Name="HTScoreFirstQtr" ColumnName="HTScoreFirstQtr" />
+          <ScalarProperty Name="HTScoreSecondQtr" ColumnName="HTScoreSecondQtr" />
+          <ScalarProperty Name="HTScoreThirdQtr" ColumnName="HTScoreThirdQtr" />
+          <ScalarProperty Name="HTScoreFourthQtr" ColumnName="HTScoreFourthQtr" />
+          <ScalarProperty Name="HTScoreOT" ColumnName="HTScoreOT" />
+          <ScalarProperty Name="HTScoreFinal" ColumnName="HTScoreFinal" />
+          <ScalarProperty Name="ATScoreFirstQtr" ColumnName="ATScoreFirstQtr" />
+          <ScalarProperty Name="ATScoreSecondQtr" ColumnName="ATScoreSecondQtr" />
+          <ScalarProperty Name="ATScoreThirdQtr" ColumnName="ATScoreThirdQtr" />
+          <ScalarProperty Name="ATScoreFourthQtr" ColumnName="ATScoreFourthQtr" />
+          <ScalarProperty Name="ATScoreOT" ColumnName="ATScoreOT" />
+          <ScalarProperty Name="ATScoreFinal" ColumnName="ATScoreFinal" />
+          <ScalarProperty Name="NeutralField" ColumnName="NeutralField" />
+          <ScalarProperty Name="Highlights" ColumnName="Highlights" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GET_PlayerIdByGsisId" FunctionName="NFLDBModel.Store.GET_PlayerIdByGsisId" />
     <FunctionImportMapping FunctionImportName="UPDATE_Game" FunctionName="NFLDBModel.Store.UPDATE_Game" />
   </EntityContainerMapping>

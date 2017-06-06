@@ -194,15 +194,15 @@ namespace NFLBLL
             return 0;
         }
 
-        public double getOffensiveFantasyPointsForPlayerByDateRange(Guid playerId, DateTime startDate, DateTime endDate, bool PPR)
+        public double GetOffensiveFantasyPointsForPlayerByDateRange(Guid playerId, DateTime startDate, DateTime endDate, bool PPR)
         {
             string[] seasonTypes = { "REG", "POST" };
             var gameIds = entities.Games.Where(i => i.DateTime >= startDate && i.DateTime <= endDate && seasonTypes.Contains(i.SeasonType)).Select(j => j.GameId).ToList();
 
-            return getOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, gameIds, PPR);
+            return GetOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, gameIds, PPR);
         }
 
-        public double getOffensiveFantasyPointsByPlayerIdAndGameIds(Guid playerId, List<Guid> gameIds, bool PPR)
+        public double GetOffensiveFantasyPointsByPlayerIdAndGameIds(Guid playerId, List<Guid> gameIds, bool PPR)
         {
             double points = 0;
             
@@ -250,15 +250,15 @@ namespace NFLBLL
             return points;
         }
 
-        public int getDefensiveFantasyPointsByDateRange(string teamName, DateTime startDate, DateTime endDate)
+        public int GetDefensiveFantasyPointsByDateRange(string teamName, DateTime startDate, DateTime endDate)
         {
             string[] seasonTypes = { "REG", "POST" };
             var gameIds = entities.Games.Where(i => i.DateTime >= startDate && i.DateTime <= endDate && seasonTypes.Contains(i.SeasonType)).Select(j => j.GameId).ToList();
 
-            return getDefensiveFantasyPointsByTeamNameAndGameId(teamName, gameIds);
+            return GetDefensiveFantasyPointsByTeamNameAndGameId(teamName, gameIds);
         }
 
-        public int getDefensiveFantasyPointsByTeamNameAndGameId(string teamName, List<Guid> gameIds)
+        public int GetDefensiveFantasyPointsByTeamNameAndGameId(string teamName, List<Guid> gameIds)
         {
             int fantasyPoints = 0;
 
@@ -266,9 +266,9 @@ namespace NFLBLL
             {
                 Game game = entities.Games.Where(i => i.GameId == gameId).FirstOrDefault();
                 bool isHT = game.HomeTeam.Equals(teamName);
-                GameStats teamGameStats = getGameStatsByIdsAndTeamName(teamName, gameId);
+                GameStats teamGameStats = GetGameStatsByIdsAndTeamName(gameId, teamName);
                 string oppTeam = isHT ? game.AwayTeam : game.HomeTeam;
-                GameStats oppGameStats = getGameStatsByIdsAndTeamName(oppTeam, gameId);
+                GameStats oppGameStats = GetGameStatsByIdsAndTeamName(gameId, oppTeam);
 
                 // Sack points
                 fantasyPoints += teamGameStats.DefensiveStats.Sum(i => i.Sacks) * 1;
@@ -278,30 +278,75 @@ namespace NFLBLL
                 // D/STPoints = TotalPoints - (OffensivePoints + Kicking points)
                 // This includes safeties
                 fantasyPoints += isHT ? teamGameStats.Game.HTScoreFinal : teamGameStats.Game.ATScoreFinal;
-                fantasyPoints -= getOffensivePoints(teamGameStats);
-                fantasyPoints += getPointsAllowedFantasyPoints(isHT ? game.HTScoreFinal : game.ATScoreFinal);
+                fantasyPoints -= GetOffensivePoints(teamGameStats);
+                fantasyPoints += GetPointsAllowedFantasyPoints(isHT ? game.HTScoreFinal : game.ATScoreFinal);
             }
 
             return fantasyPoints;
         }
 
-        public GameStats getGameStatsByIdsAndTeamName(string teamName, Guid gameId)
+        public GameStats GetGameStatsByIdsAndTeamName(Guid gameId, string teamName = "", GameStatsFilter filter = null)
         {
+            if(filter == null)
+            {
+                filter = new GameStatsFilter();
+            }
+
             GameStats gameStats = new GameStats();
             gameStats.Game = entities.Games.Where(i => i.GameId.Equals(gameId)).FirstOrDefault();
-            gameStats.DefensiveStats = entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.Fumbles = entities.Fumbles.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.KickingStats = entities.KickingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.KickReturnStats = entities.KickReturnStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.PassingStats = entities.PassingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.PuntingStats = entities.PuntingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.PuntReturnStats = entities.PuntReturnStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.ReceivingStats = entities.ReceivingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
-            gameStats.RushingStats = entities.RushingStats.Where(i => i.GameId.Equals(gameId) && i.Player.Team.Equals(teamName)).ToList();
+
+            if (filter.defensiveStatsOn)
+            {
+                var defensiveStats = entities.DefensiveStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.DefensiveStats = string.IsNullOrEmpty(teamName) ? defensiveStats.ToList() : defensiveStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.fumblesOn)
+            {
+                var fumbles = entities.Fumbles.Where(i => i.GameId.Equals(gameId));
+                gameStats.Fumbles = string.IsNullOrEmpty(teamName) ? fumbles.ToList() : fumbles.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.kickingStatsOn)
+            {
+                var kickingStats = entities.KickingStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.KickingStats = string.IsNullOrEmpty(teamName) ? kickingStats.ToList() : kickingStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+
+                var puntingStats = entities.PuntingStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.PuntingStats = string.IsNullOrEmpty(teamName) ? puntingStats.ToList() : puntingStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.returnStatsOn)
+            {
+                var kickReturnStats = entities.KickReturnStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.KickReturnStats = string.IsNullOrEmpty(teamName) ? kickReturnStats.ToList() : kickReturnStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+
+                var puntReturnStats = entities.PuntReturnStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.PuntReturnStats = string.IsNullOrEmpty(teamName) ? puntReturnStats.ToList() : puntReturnStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.passingStatsOn)
+            {
+                var passingStats = entities.PassingStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.PassingStats = string.IsNullOrEmpty(teamName) ? passingStats.ToList() : passingStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.receivingStatsOn)
+            {
+                var receivingStats = entities.ReceivingStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.ReceivingStats = string.IsNullOrEmpty(teamName) ? receivingStats.ToList() : receivingStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
+            if (filter.rushingStatsOn)
+            {
+                var rushingStats = entities.RushingStats.Where(i => i.GameId.Equals(gameId));
+                gameStats.RushingStats = string.IsNullOrEmpty(teamName) ? rushingStats.ToList() : rushingStats.Where(i => i.Player.Team.Equals(teamName)).ToList();
+            }
+
             return gameStats;
         }
 
-        public int getOffensivePoints(GameStats gameStats)
+        public int GetOffensivePoints(GameStats gameStats)
         {
             return gameStats.ReceivingStats.Sum(i => i.Touchdowns) * 6
                  + gameStats.RushingStats.Sum(i => i.Touchdowns) * 6
@@ -310,7 +355,7 @@ namespace NFLBLL
         }
 
         // TODO: This should disregard defensive scores (and acquire currency), but we will need to get them first.
-        public int getPointsAllowedFantasyPoints(int pointsAllowed)
+        public int GetPointsAllowedFantasyPoints(int pointsAllowed)
         {
             int fantasyPointsAllowed = 10;
             int y = (pointsAllowed - ((pointsAllowed / 6) + 1)) / 6;
@@ -350,44 +395,46 @@ namespace NFLBLL
         // Weather
         // Other specific to position
 
-        public double getQBProjectedValue(Guid playerId)
+        public double GetQBProjectedValue(Guid playerId)
         {
             throw new NotImplementedException();
 
         }
 
-        public double getRBProjectedValue(Guid playerId)
+        public double GetRBProjectedValue(Guid playerId)
         {
             // Dunno about extenuating.
             throw new NotImplementedException();
 
         }
 
-        public double getWRProjectedValue(Guid playerId)
+        public double GetWRProjectedValue(Guid playerId)
         {
             // Dunno about extenuating. 
             throw new NotImplementedException();
 
         }
 
-        public double getDefenseProjectedValue(Guid playerId)
+        public double GetDefenseProjectedValue(Guid playerId)
         {
             // Dunno about extenuating. 
             throw new NotImplementedException();
 
         }
 
-        public double getQBValueForOneGame(Guid playerId, Guid gameId)
+        public double GetQBValueForOneGame(Guid playerId, Guid gameId)
         {
             // Passing Yards * .3 
             // Ints * .2 can't be throwing the ball to the other team
-            // TEAM TDs *.2 
+            // TEAM TDs *.1 // The amount that a team gets the ball in the end zone matters more than whether or not it's a passing TD.
             // TDs *.1
+            // The above ratio matters too. I want to take all 3 into account.
+            // Big plays matter too.
             // How close is the game per quarter *.1 Garbage time points count too. We'll need to find a garbage time sweet spot. <21 points?
             throw new NotImplementedException();
         }
 
-        public double getRBValueForOneGame(Guid playerId, Guid gameId)
+        public double GetRBValueForOneGame(Guid playerId, Guid gameId)
         {
             // Touches *.3
             // Yards * .3 
@@ -397,7 +444,7 @@ namespace NFLBLL
 
         }
 
-        public double getWRValueForOneGame(Guid playerId, Guid gameId)
+        public double GetWRValueForOneGame(Guid playerId, Guid gameId)
         {
             // Yards/Reception * .3 This matters the most. If Randy Moss only had 3 catches but they're all 80 yard TDs, I'll take that shit all day.
             // Closeness of game matters here too. You throw the ball more when you're down.
@@ -408,21 +455,19 @@ namespace NFLBLL
 
         }
 
-        public double getTEValueForOneGame(Guid playerId, Guid gameId)
+        public double GetTEValueForOneGame(Guid playerId, Guid gameId)
         {
             // Basically the same as WR. I need to determine if there's anything I need to change.
             throw new NotImplementedException();
-
         }
 
-        public double getDefenseValueForOneGame(Guid teamId, Guid gameId)
+        public double GetDefenseValueForOneGame(Guid teamId, Guid gameId)
         {
             // Turnovers
             // Points allowed
             // Time on the field
             // Big plays
             throw new NotImplementedException();
-
         }
 
         //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)
@@ -434,5 +479,16 @@ namespace NFLBLL
         //        dalCrud.Create(stat);
         //    }
         //}
+    }
+
+    public class GameStatsFilter
+    {
+        public bool passingStatsOn = true;
+        public bool rushingStatsOn = true;
+        public bool receivingStatsOn = true;
+        public bool returnStatsOn = false;
+        public bool kickingStatsOn = false;
+        public bool defensiveStatsOn = false;
+        public bool fumblesOn = false;
     }
 }

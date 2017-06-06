@@ -15,9 +15,9 @@ namespace NFLCommon
     public partial class ReceivingStat
     {
         public int Id { get; set; }
-        public System.Guid ReceivingStatsId { get; set; }
-        public System.Guid GameId { get; set; }
-        public System.Guid PlayerId { get; set; }
+        public Guid ReceivingStatsId { get; set; }
+        public Guid GameId { get; set; }
+        public Guid PlayerId { get; set; }
         public int Receptions { get; set; }
         public int Yards { get; set; }
         public int Touchdowns { get; set; }

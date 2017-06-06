@@ -9,9 +9,10 @@
 
 namespace NFLCommon
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Game
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,18 +22,19 @@ namespace NFLCommon
             this.Fumbles = new HashSet<Fumble>();
             this.KickingStats = new HashSet<KickingStat>();
             this.KickReturnStats = new HashSet<KickReturnStat>();
+            this.KickReturnStats1 = new HashSet<KickReturnStat>();
             this.PassingStats = new HashSet<PassingStat>();
             this.PuntingStats = new HashSet<PuntingStat>();
             this.PuntReturnStats = new HashSet<PuntReturnStat>();
             this.ReceivingStats = new HashSet<ReceivingStat>();
             this.RushingStats = new HashSet<RushingStat>();
         }
-
-        public int Id { get; set; } = -1;
-        public System.Guid GameId { get; set; } = Guid.Empty;
+    
+        public int Id { get; set; }
+        public Guid GameId { get; set; }
         public string HomeTeam { get; set; }
         public string AwayTeam { get; set; }
-        public System.DateTime DateTime { get; set; }
+        public DateTime DateTime { get; set; }
         public string SeasonType { get; set; }
         public int Season { get; set; }
         public long Eid { get; set; }
@@ -50,28 +52,42 @@ namespace NFLCommon
         public int ATScoreFourthQtr { get; set; }
         public int ATScoreOT { get; set; }
         public int ATScoreFinal { get; set; }
-        public bool NeutralField { get; set; } = false;
+        public bool NeutralField { get; set; }
+        public string Highlights { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<DefensiveStat> DefensiveStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Fumble> Fumbles { get; set; }
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
+        [JsonIgnore]
         public virtual SeasonType SeasonType1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<KickingStat> KickingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<KickReturnStat> KickReturnStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<KickReturnStat> KickReturnStats1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PassingStat> PassingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PuntingStat> PuntingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PuntReturnStat> PuntReturnStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<ReceivingStat> ReceivingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<RushingStat> RushingStats { get; set; }
     }
 }

@@ -26,6 +26,8 @@ namespace NFLCommon
         public string GsisId { get; set; }
     
         public virtual Game Game { get; set; }
+        public virtual Game Game1 { get; set; }
         public virtual Player Player { get; set; }
+        public virtual Player Player1 { get; set; }
     }
 }

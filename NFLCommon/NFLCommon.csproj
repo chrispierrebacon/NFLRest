@@ -74,6 +74,9 @@
     <Compile Include="Game.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
+    <Compile Include="GET_Games_Result.cs">
+      <DependentUpon>NFLEF.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDatabaseAccess.cs" />
     <Compile Include="DALInterfaces\IDefensiveStatDal.cs" />
     <Compile Include="DALInterfaces\IFumbleDal.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="DALInterfaces\IRushingStatDal.cs" />
     <Compile Include="DALInterfaces\ITeamDal.cs" />
     <Compile Include="GameStats.cs" />
+    <Compile Include="INFLObj.cs" />
     <Compile Include="KickingStat.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
@@ -109,7 +113,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NFLEF.edmx</DependentUpon>
     </Compile>
-    <Compile Include="INFLObj.cs" />
     <Compile Include="PassingStat.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>

@@ -72,6 +72,8 @@
     <Folder Include="RushingStats" />
     <Folder Include="Teams" />
     <Folder Include="OtherSPs" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Game\CREATE_Game.sql" />
@@ -108,6 +110,7 @@
     <Build Include="OtherSPs\DELETEStats.sql" />
     <Build Include="OtherSPs\DELETEAll.sql" />
     <Build Include="Game\GET_Games.sql" />
+    <Build Include="dbo\Tables\__RefactorLog.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />
@@ -116,5 +119,6 @@
     <None Include="Snapshots\AddingID.dacpac" />
     <None Include="Snapshots\shit.dacpac" />
     <None Include="Snapshots\WT.dacpac" />
+    <None Include="Snapshots\NFLDB_20170602_14-12-01.dacpac" />
   </ItemGroup>
 </Project>

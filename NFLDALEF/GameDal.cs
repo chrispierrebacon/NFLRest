@@ -6,6 +6,7 @@ using NFLCommon.DALInterfaces;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Text;
+using System.Data.Entity;
 
 namespace NFLDALEF
 {
@@ -30,13 +31,15 @@ namespace NFLDALEF
             using (var entities = new NFLDBEntities())
             {
                 entities.Configuration.ProxyCreationEnabled = false;
-                
-                IEnumerable<Game> games = entities.Games;
+                entities.Configuration.LazyLoadingEnabled = true;
+
+                IQueryable<Game> games = entities.Games;
 
                 if (string.IsNullOrEmpty(filterJson))
                 {
                     // PRESEASON can lick lick lick my balls! yeah say that all the time
-                    return games.Where(i => !i.SeasonType.Equals("PRE")).OrderByDescending(i => i.DateTime).ToList();
+                    var gamess = games.Where(i => !i.SeasonType.Equals("PRE")).OrderByDescending(i => i.DateTime).Include(t => t.Team).Include(t => t.Team1).ToList();
+                    return gamess;
                 }
 
                 GamesFilter filter = JsonConvert.DeserializeObject<GamesFilter>(filterJson);
@@ -47,20 +50,20 @@ namespace NFLDALEF
                 }
 
                 // TODO use enums to make this more elegant
-                StringBuilder seasonType = new StringBuilder();
+                StringBuilder seasonTypeBuilder = new StringBuilder();
                 if (filter.PreSeasonOn)
                 {
-                    seasonType.Append("PRE");
+                    seasonTypeBuilder.Append("PRE");
                 }
                 if (filter.RegSeasonOn)
                 {
-                    seasonType.Append("REG");
+                    seasonTypeBuilder.Append("REG");
                 }
                 if (filter.PostSeasonOn)
                 {
-                    seasonType.Append("POST");
+                    seasonTypeBuilder.Append("POST");
                 }
-
+                string seasonType = seasonTypeBuilder.ToString();
                 games = games.Where(i => seasonType.ToString().Contains(i.SeasonType));
 
                 if (filter.Season != 0)
@@ -76,7 +79,7 @@ namespace NFLDALEF
                 games = games.Where(i => i.DateTime >= filter.StartDate && i.DateTime <= filter.EndDate);
 
                 games = games.OrderByDescending(i => i.DateTime);
-                var gamesList = games.ToList();
+                var gamesList = games.Include(t => t.Team).Include(t => t.Team1).ToList();
                 return gamesList;
             }
         }

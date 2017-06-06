@@ -27,7 +27,6 @@ namespace NFLCommon
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<Conference> Conferences { get; set; }
         public virtual DbSet<DefensiveStat> DefensiveStats { get; set; }
         public virtual DbSet<Division> Divisions { get; set; }
@@ -44,6 +43,7 @@ namespace NFLCommon
         public virtual DbSet<RushingStat> RushingStats { get; set; }
         public virtual DbSet<SeasonType> SeasonTypes { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
     
         public virtual int CREATE_DefensiveStat(Nullable<System.Guid> gameId, Nullable<System.Guid> playerId, Nullable<int> tackles, Nullable<int> assists, Nullable<int> sacks, Nullable<int> interceptions, Nullable<int> forcedFumbles, string gsisId, ObjectParameter id, ObjectParameter errorMessage, ObjectParameter errorNumber)
         {
@@ -610,6 +610,15 @@ namespace NFLCommon
                 new ObjectParameter("Eid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.Guid>>("GET_GameIdByEid", eidParameter);
+        }
+    
+        public virtual ObjectResult<GET_Games_Result> GET_Games(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_Games_Result>("GET_Games", yearParameter);
         }
     
         public virtual ObjectResult<Nullable<System.Guid>> GET_PlayerIdByGsisId(string gsid)

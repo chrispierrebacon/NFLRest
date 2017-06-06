@@ -22,6 +22,7 @@
     [ATScoreOT]        INT              NOT NULL,
     [ATScoreFinal]     INT              NOT NULL,
     [NeutralField]     BIT              NOT NULL,
+    [Highlights] NVARCHAR(MAX) NULL, 
     PRIMARY KEY CLUSTERED ([GameId] ASC),
     FOREIGN KEY ([AwayTeam]) REFERENCES [dbo].[Teams] ([Prefix]),
     FOREIGN KEY ([HomeTeam]) REFERENCES [dbo].[Teams] ([Prefix]),

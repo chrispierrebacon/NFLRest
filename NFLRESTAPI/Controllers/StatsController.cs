@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using NFLCommon;
-
+using Newtonsoft.Json;
+using System.Text;
 
 namespace NFLRESTAPI.Controllers
 {
@@ -23,14 +24,18 @@ namespace NFLRESTAPI.Controllers
             base.Initialize(controllerContext);
         }
 
-        public IEnumerable<string> Get()
+        public string[] Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "TeamName", "GameId" };
         }
 
-        public string Get(int id)
+        public HttpResponseMessage Get([FromUri]string GameId, [FromUri]string TeamName = "")
         {
-            return "value";
+            string content = JsonConvert.SerializeObject(_statsBL.GetGameStatsByIdsAndTeamName(Guid.Parse(GameId), TeamName));
+            HttpResponseMessage response = new HttpResponseMessage();
+            response.StatusCode = HttpStatusCode.OK;
+            response.Content = new StringContent(content);
+            return response;
         }
 
         public HttpResponseMessage Post([FromBody]GameStats value)
@@ -42,12 +47,14 @@ namespace NFLRESTAPI.Controllers
             return response;
         }
 
-        public void Put(int id, [FromBody]GameStats value)
+        public HttpResponseMessage Put(int id, [FromBody]GameStats value)
         {
+            return null;
         }
 
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            return null;
         }
     }
 }

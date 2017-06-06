@@ -9,9 +9,10 @@
 
 namespace NFLCommon
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Player
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace NFLCommon
             this.Fumbles = new HashSet<Fumble>();
             this.KickingStats = new HashSet<KickingStat>();
             this.KickReturnStats = new HashSet<KickReturnStat>();
+            this.KickReturnStats1 = new HashSet<KickReturnStat>();
             this.PassingStats = new HashSet<PassingStat>();
             this.PuntingStats = new HashSet<PuntingStat>();
             this.PuntReturnStats = new HashSet<PuntReturnStat>();
@@ -29,12 +31,12 @@ namespace NFLCommon
         }
     
         public int Id { get; set; }
-        public System.Guid PlayerId { get; set; }
+        public Guid PlayerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Position { get; set; }
         public string Team { get; set; }
-        public System.DateTime Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
         public string College { get; set; }
         public string FullName { get; set; }
         public string GsisId { get; set; }
@@ -48,24 +50,38 @@ namespace NFLCommon
         public int YearsPro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<DefensiveStat> DefensiveStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Fumble> Fumbles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<KickingStat> KickingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<KickReturnStat> KickReturnStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<KickReturnStat> KickReturnStats1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PassingStat> PassingStats { get; set; }
+        [JsonIgnore]
         public virtual Position Position1 { get; set; }
+        [JsonIgnore]
         public virtual Team Team1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PuntingStat> PuntingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PuntReturnStat> PuntReturnStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<ReceivingStat> ReceivingStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<RushingStat> RushingStats { get; set; }
     }
 }
