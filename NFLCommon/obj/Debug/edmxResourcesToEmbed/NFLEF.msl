@@ -15,6 +15,7 @@
           <ScalarProperty Name="DefensiveStatsId" ColumnName="DefensiveStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Tackles" ColumnName="Tackles" />
           <ScalarProperty Name="Assists" ColumnName="Assists" />
           <ScalarProperty Name="Sacks" ColumnName="Sacks" />
@@ -38,6 +39,7 @@
           <ScalarProperty Name="FumblesId" ColumnName="FumblesId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Recovered" ColumnName="Recovered" />
           <ScalarProperty Name="TeamRecovered" ColumnName="TeamRecovered" />
@@ -56,6 +58,7 @@
           <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
           <ScalarProperty Name="DateTime" ColumnName="DateTime" />
           <ScalarProperty Name="SeasonType" ColumnName="SeasonType" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
           <ScalarProperty Name="Season" ColumnName="Season" />
           <ScalarProperty Name="Eid" ColumnName="Eid" />
           <ScalarProperty Name="GameKey" ColumnName="GameKey" />
@@ -77,6 +80,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GameTypes">
+      <EntityTypeMapping TypeName="NFLDBModel.GameType">
+        <MappingFragment StoreEntitySet="GameType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="KickingStats">
       <EntityTypeMapping TypeName="NFLDBModel.KickingStat">
         <MappingFragment StoreEntitySet="KickingStats">
@@ -84,6 +94,7 @@
           <ScalarProperty Name="KickingStatsId" ColumnName="KickingStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="FieldGoalsMade" ColumnName="FieldGoalsMade" />
           <ScalarProperty Name="FieldGoalsAttempted" ColumnName="FieldGoalsAttempted" />
           <ScalarProperty Name="Yards" ColumnName="Yards" />
@@ -104,6 +115,7 @@
           <ScalarProperty Name="KickReturnStatsId" ColumnName="KickReturnStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Returns" ColumnName="Returns" />
           <ScalarProperty Name="Average" ColumnName="Average" />
           <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
@@ -120,6 +132,7 @@
           <ScalarProperty Name="PassingStatsId" ColumnName="PassingStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Attempts" ColumnName="Attempts" />
           <ScalarProperty Name="Completions" ColumnName="Completions" />
           <ScalarProperty Name="Yards" ColumnName="Yards" />
@@ -155,6 +168,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PlayersTeamsGames">
+      <EntityTypeMapping TypeName="NFLDBModel.PlayersTeamsGame">
+        <MappingFragment StoreEntitySet="PlayersTeamsGames">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Positions">
       <EntityTypeMapping TypeName="NFLDBModel.Position">
         <MappingFragment StoreEntitySet="Positions">
@@ -169,6 +192,7 @@
           <ScalarProperty Name="PuntingStatsId" ColumnName="PuntingStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Punts" ColumnName="Punts" />
           <ScalarProperty Name="Yards" ColumnName="Yards" />
           <ScalarProperty Name="Average" ColumnName="Average" />
@@ -185,6 +209,7 @@
           <ScalarProperty Name="PuntReturnStatsId" ColumnName="PuntReturnStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Returns" ColumnName="Returns" />
           <ScalarProperty Name="Average" ColumnName="Average" />
           <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
@@ -201,6 +226,7 @@
           <ScalarProperty Name="ReceivingStatsId" ColumnName="ReceivingStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Receptions" ColumnName="Receptions" />
           <ScalarProperty Name="Yards" ColumnName="Yards" />
           <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
@@ -218,6 +244,7 @@
           <ScalarProperty Name="RushingStatsId" ColumnName="RushingStatsId" />
           <ScalarProperty Name="GameId" ColumnName="GameId" />
           <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
           <ScalarProperty Name="Attempts" ColumnName="Attempts" />
           <ScalarProperty Name="Yards" ColumnName="Yards" />
           <ScalarProperty Name="Touchdowns" ColumnName="Touchdowns" />
@@ -280,6 +307,7 @@
           <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
           <ScalarProperty Name="DateTime" ColumnName="DateTime" />
           <ScalarProperty Name="SeasonType" ColumnName="SeasonType" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
           <ScalarProperty Name="Season" ColumnName="Season" />
           <ScalarProperty Name="Eid" ColumnName="Eid" />
           <ScalarProperty Name="GameKey" ColumnName="GameKey" />

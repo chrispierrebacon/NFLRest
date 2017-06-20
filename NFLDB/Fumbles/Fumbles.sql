@@ -3,7 +3,8 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[FumblesId] UNIQUEIDENTIFIER NOT NULL, 
     [GameId] UNIQUEIDENTIFIER NOT NULL, 
-    [PlayerId] UNIQUEIDENTIFIER NOT NULL, 
+    [PlayerId] UNIQUEIDENTIFIER NOT NULL,
+	[Team] NVARCHAR(10) NOT NULL,
     [Total] INT NOT NULL, 
     [Recovered] INT NOT NULL, 
     [TeamRecovered] INT NOT NULL, 
@@ -11,5 +12,6 @@
     [Lost] INT NOT NULL,
 	[GsisId] nvarchar(50),
 	FOREIGN KEY (GameId) REFERENCES Games(GameId),
-	FOREIGN KEY (PlayerId) REFERENCES Players(PlayerId)
+	FOREIGN KEY (PlayerId) REFERENCES Players(PlayerId),
+	FOREIGN KEY (Team) REFERENCES Teams(Prefix)
 )

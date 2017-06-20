@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_Fumble]
     @GameId UNIQUEIDENTIFIER, 
     @PlayerId UNIQUEIDENTIFIER, 
+	@Team NVARCHAR(10),
     @Total INT = 0, 
     @Recovered INT = 0, 
     @TeamRecovered INT = 0, 
@@ -13,8 +14,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO Fumbles (FumblesId, GameId, PlayerId, Total, Recovered, TeamRecovered, Yards, Lost, GsisId)
-		VALUES (@Id, @GameId, @PlayerId, @Total, @Recovered, @TeamRecovered, @Yards, @Lost, @GsisId)
+		INSERT INTO Fumbles (FumblesId, GameId, PlayerId, Team, Total, Recovered, TeamRecovered, Yards, Lost, GsisId)
+		VALUES (@Id, @GameId, @PlayerId, @Team, @Total, @Recovered, @TeamRecovered, @Yards, @Lost, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

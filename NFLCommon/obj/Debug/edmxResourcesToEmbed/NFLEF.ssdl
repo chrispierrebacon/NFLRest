@@ -22,6 +22,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="DefensiveStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Tackles" Type="int" Nullable="false" />
     <Property Name="Assists" Type="int" Nullable="false" />
     <Property Name="Sacks" Type="int" Nullable="false" />
@@ -43,6 +44,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="FumblesId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Total" Type="int" Nullable="false" />
     <Property Name="Recovered" Type="int" Nullable="false" />
     <Property Name="TeamRecovered" Type="int" Nullable="false" />
@@ -60,6 +62,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="AwayTeam" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="DateTime" Type="datetime" Nullable="false" />
     <Property Name="SeasonType" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="GameType" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="Season" Type="int" Nullable="false" />
     <Property Name="Eid" Type="bigint" Nullable="false" />
     <Property Name="GameKey" Type="bigint" Nullable="false" />
@@ -79,6 +82,12 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="NeutralField" Type="bit" Nullable="false" />
     <Property Name="Highlights" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="GameType">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="4" Nullable="false" />
+  </EntityType>
   <EntityType Name="KickingStats">
     <Key>
       <PropertyRef Name="Id" />
@@ -87,6 +96,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="KickingStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="FieldGoalsMade" Type="int" Nullable="false" />
     <Property Name="FieldGoalsAttempted" Type="int" Nullable="false" />
     <Property Name="Yards" Type="int" Nullable="false" />
@@ -106,6 +116,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="KickReturnStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Returns" Type="int" Nullable="false" />
     <Property Name="Average" Type="int" Nullable="false" />
     <Property Name="Touchdowns" Type="int" Nullable="false" />
@@ -121,6 +132,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="PassingStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Attempts" Type="int" Nullable="false" />
     <Property Name="Completions" Type="int" Nullable="false" />
     <Property Name="Yards" Type="int" Nullable="false" />
@@ -153,6 +165,15 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="YearsPro" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="PlayersTeamsGames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <EntityType Name="Positions">
     <Key>
       <PropertyRef Name="Name" />
@@ -167,6 +188,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="PuntingStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Punts" Type="int" Nullable="false" />
     <Property Name="Yards" Type="int" Nullable="false" />
     <Property Name="Average" Type="int" Nullable="false" />
@@ -182,6 +204,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="PuntReturnStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Returns" Type="int" Nullable="false" />
     <Property Name="Average" Type="int" Nullable="false" />
     <Property Name="Touchdowns" Type="int" Nullable="false" />
@@ -197,6 +220,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="ReceivingStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Receptions" Type="int" Nullable="false" />
     <Property Name="Yards" Type="int" Nullable="false" />
     <Property Name="Touchdowns" Type="int" Nullable="false" />
@@ -213,6 +237,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="RushingStatsId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Team" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Attempts" Type="int" Nullable="false" />
     <Property Name="Yards" Type="int" Nullable="false" />
     <Property Name="Touchdowns" Type="int" Nullable="false" />
@@ -240,7 +265,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <Property Name="Division" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Logo" Type="varchar(max)" />
   </EntityType>
-  <Association Name="FK__Defensive__GameI__286302EC">
+  <Association Name="FK__Defensive__GameI__4B7734FF">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -252,7 +277,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Defensive__Playe__29572725">
+  <Association Name="FK__Defensive__Playe__4C6B5938">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -264,7 +289,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Fumbles__GameId__2C3393D0">
+  <Association Name="FK__DefensiveS__Team__4D5F7D71">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="DefensiveStats" Type="Self.DefensiveStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="DefensiveStats">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fumbles__GameId__4E53A1AA">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -276,7 +313,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Fumbles__PlayerI__2D27B809">
+  <Association Name="FK__Fumbles__PlayerI__4F47C5E3">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -288,7 +325,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Games__AwayTeam__239E4DCF">
+  <Association Name="FK__Fumbles__Team__503BEA1C">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Fumbles" Type="Self.Fumbles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="Fumbles">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__AwayTeam__07C12930">
     <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
     <End Role="Games" Type="Self.Games" Multiplicity="*" />
     <ReferentialConstraint>
@@ -300,7 +349,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Games__HomeTeam__24927208">
+  <Association Name="FK__Games__GameType__0A9D95DB">
+    <End Role="GameType" Type="Self.GameType" Multiplicity="1" />
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GameType">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="GameType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__HomeTeam__08B54D69">
     <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
     <End Role="Games" Type="Self.Games" Multiplicity="*" />
     <ReferentialConstraint>
@@ -312,7 +373,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Games__SeasonTyp__25869641">
+  <Association Name="FK__Games__SeasonTyp__09A971A2">
     <End Role="SeasonType" Type="Self.SeasonType" Multiplicity="1" />
     <End Role="Games" Type="Self.Games" Multiplicity="*" />
     <ReferentialConstraint>
@@ -324,7 +385,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KickingSt__GameI__300424B4">
+  <Association Name="FK__KickingSt__GameI__51300E55">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -336,7 +397,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KickingSt__Playe__30F848ED">
+  <Association Name="FK__KickingSt__Playe__5224328E">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -348,7 +409,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KickRetur__GameI__33D4B598">
+  <Association Name="FK__KickingSta__Team__531856C7">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="KickingStats" Type="Self.KickingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="KickingStats">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KickRetur__GameI__540C7B00">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -360,19 +433,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KickRetur__GameI__36B12243">
-    <End Role="Games" Type="Self.Games" Multiplicity="1" />
-    <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Games">
-        <PropertyRef Name="GameId" />
-      </Principal>
-      <Dependent Role="KickReturnStats">
-        <PropertyRef Name="GameId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__KickRetur__Playe__34C8D9D1">
+  <Association Name="FK__KickRetur__Playe__55009F39">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -384,19 +445,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KickRetur__Playe__37A5467C">
-    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+  <Association Name="FK__KickReturn__Team__55F4C372">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
     <End Role="KickReturnStats" Type="Self.KickReturnStats" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Players">
-        <PropertyRef Name="PlayerId" />
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
       </Principal>
       <Dependent Role="KickReturnStats">
-        <PropertyRef Name="PlayerId" />
+        <PropertyRef Name="Team" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PassingSt__GameI__3A81B327">
+  <Association Name="FK__PassingSt__GameI__56E8E7AB">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -408,7 +469,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PassingSt__Playe__3B75D760">
+  <Association Name="FK__PassingSt__Playe__57DD0BE4">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -417,6 +478,18 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Principal>
       <Dependent Role="PassingStats">
         <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PassingSta__Team__58D1301D">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="PassingStats" Type="Self.PassingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="PassingStats">
+        <PropertyRef Name="Team" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -444,7 +517,43 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PuntingSt__GameI__3E52440B">
+  <Association Name="FK__PlayersTe__GameI__2B0A656D">
+    <End Role="Games" Type="Self.Games" Multiplicity="1" />
+    <End Role="PlayersTeamsGames" Type="Self.PlayersTeamsGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="PlayersTeamsGames">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlayersTe__Playe__29221CFB">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="PlayersTeamsGames" Type="Self.PlayersTeamsGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PlayersTeamsGames">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlayersTe__Prefi__2A164134">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="PlayersTeamsGames" Type="Self.PlayersTeamsGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="PlayersTeamsGames">
+        <PropertyRef Name="Prefix" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntingSt__GameI__59C55456">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -456,7 +565,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PuntingSt__Playe__3F466844">
+  <Association Name="FK__PuntingSt__Playe__5AB9788F">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -468,7 +577,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PuntRetur__GameI__4222D4EF">
+  <Association Name="FK__PuntingSta__Team__5BAD9CC8">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="PuntingStats" Type="Self.PuntingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="PuntingStats">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PuntRetur__GameI__5CA1C101">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -480,7 +601,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PuntRetur__Playe__4316F928">
+  <Association Name="FK__PuntRetur__Playe__5D95E53A">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -492,7 +613,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Receiving__GameI__45F365D3">
+  <Association Name="FK__PuntReturn__Team__5E8A0973">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="PuntReturnStats" Type="Self.PuntReturnStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="PuntReturnStats">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receiving__GameI__5F7E2DAC">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -504,7 +637,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Receiving__Playe__46E78A0C">
+  <Association Name="FK__Receiving__Playe__607251E5">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -516,7 +649,19 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RushingSt__GameI__49C3F6B7">
+  <Association Name="FK__ReceivingS__Team__6166761E">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="ReceivingStats" Type="Self.ReceivingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="ReceivingStats">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RushingSt__GameI__625A9A57">
     <End Role="Games" Type="Self.Games" Multiplicity="1" />
     <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -528,7 +673,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RushingSt__Playe__4AB81AF0">
+  <Association Name="FK__RushingSt__Playe__634EBE90">
     <End Role="Players" Type="Self.Players" Multiplicity="1" />
     <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
     <ReferentialConstraint>
@@ -537,6 +682,18 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       </Principal>
       <Dependent Role="RushingStats">
         <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RushingSta__Team__6442E2C9">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="RushingStats" Type="Self.RushingStats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Prefix" />
+      </Principal>
+      <Dependent Role="RushingStats">
+        <PropertyRef Name="Team" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -567,6 +724,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_DefensiveStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Tackles" Type="int" Mode="In" />
     <Parameter Name="Assists" Type="int" Mode="In" />
     <Parameter Name="Sacks" Type="int" Mode="In" />
@@ -580,6 +738,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_Fumble" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Total" Type="int" Mode="In" />
     <Parameter Name="Recovered" Type="int" Mode="In" />
     <Parameter Name="TeamRecovered" Type="int" Mode="In" />
@@ -619,6 +778,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_KickingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="FieldGoalsMade" Type="int" Mode="In" />
     <Parameter Name="FieldGoalsAttempted" Type="int" Mode="In" />
     <Parameter Name="Yards" Type="int" Mode="In" />
@@ -636,6 +796,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_KickReturnStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Returns" Type="int" Mode="In" />
     <Parameter Name="Average" Type="int" Mode="In" />
     <Parameter Name="Touchdowns" Type="int" Mode="In" />
@@ -649,6 +810,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_PassingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Attempts" Type="int" Mode="In" />
     <Parameter Name="Completions" Type="int" Mode="In" />
     <Parameter Name="Yards" Type="int" Mode="In" />
@@ -685,6 +847,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_PuntingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Punts" Type="int" Mode="In" />
     <Parameter Name="Yards" Type="int" Mode="In" />
     <Parameter Name="Average" Type="int" Mode="In" />
@@ -698,6 +861,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_PuntReturnStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Returns" Type="int" Mode="In" />
     <Parameter Name="Average" Type="int" Mode="In" />
     <Parameter Name="Touchdowns" Type="int" Mode="In" />
@@ -711,6 +875,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_ReceivingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Receptions" Type="int" Mode="In" />
     <Parameter Name="Yards" Type="int" Mode="In" />
     <Parameter Name="Touchdowns" Type="int" Mode="In" />
@@ -725,6 +890,7 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
   <Function Name="CREATE_RushingStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="GameId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="PlayerId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Team" Type="nvarchar" Mode="In" />
     <Parameter Name="Attempts" Type="int" Mode="In" />
     <Parameter Name="Yards" Type="int" Mode="In" />
     <Parameter Name="Touchdowns" Type="int" Mode="In" />
@@ -787,10 +953,12 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     <EntitySet Name="Divisions" EntityType="Self.Divisions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fumbles" EntityType="Self.Fumbles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameType" EntityType="Self.GameType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KickingStats" EntityType="Self.KickingStats" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KickReturnStats" EntityType="Self.KickReturnStats" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PassingStats" EntityType="Self.PassingStats" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayersTeamsGames" EntityType="Self.PlayersTeamsGames" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PuntingStats" EntityType="Self.PuntingStats" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PuntReturnStats" EntityType="Self.PuntReturnStats" Schema="dbo" store:Type="Tables" />
@@ -803,64 +971,80 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
     [__RefactorLog].[OperationKey] AS [OperationKey]
     FROM [dbo].[__RefactorLog] AS [__RefactorLog]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__Defensive__GameI__286302EC" Association="Self.FK__Defensive__GameI__286302EC">
+    <AssociationSet Name="FK__Defensive__GameI__4B7734FF" Association="Self.FK__Defensive__GameI__4B7734FF">
       <End Role="Games" EntitySet="Games" />
       <End Role="DefensiveStats" EntitySet="DefensiveStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__Defensive__Playe__29572725" Association="Self.FK__Defensive__Playe__29572725">
+    <AssociationSet Name="FK__Defensive__Playe__4C6B5938" Association="Self.FK__Defensive__Playe__4C6B5938">
       <End Role="Players" EntitySet="Players" />
       <End Role="DefensiveStats" EntitySet="DefensiveStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__Fumbles__GameId__2C3393D0" Association="Self.FK__Fumbles__GameId__2C3393D0">
+    <AssociationSet Name="FK__DefensiveS__Team__4D5F7D71" Association="Self.FK__DefensiveS__Team__4D5F7D71">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="DefensiveStats" EntitySet="DefensiveStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fumbles__GameId__4E53A1AA" Association="Self.FK__Fumbles__GameId__4E53A1AA">
       <End Role="Games" EntitySet="Games" />
       <End Role="Fumbles" EntitySet="Fumbles" />
     </AssociationSet>
-    <AssociationSet Name="FK__Fumbles__PlayerI__2D27B809" Association="Self.FK__Fumbles__PlayerI__2D27B809">
+    <AssociationSet Name="FK__Fumbles__PlayerI__4F47C5E3" Association="Self.FK__Fumbles__PlayerI__4F47C5E3">
       <End Role="Players" EntitySet="Players" />
       <End Role="Fumbles" EntitySet="Fumbles" />
     </AssociationSet>
-    <AssociationSet Name="FK__Games__AwayTeam__239E4DCF" Association="Self.FK__Games__AwayTeam__239E4DCF">
+    <AssociationSet Name="FK__Fumbles__Team__503BEA1C" Association="Self.FK__Fumbles__Team__503BEA1C">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Fumbles" EntitySet="Fumbles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__AwayTeam__07C12930" Association="Self.FK__Games__AwayTeam__07C12930">
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
-    <AssociationSet Name="FK__Games__HomeTeam__24927208" Association="Self.FK__Games__HomeTeam__24927208">
+    <AssociationSet Name="FK__Games__GameType__0A9D95DB" Association="Self.FK__Games__GameType__0A9D95DB">
+      <End Role="GameType" EntitySet="GameType" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__HomeTeam__08B54D69" Association="Self.FK__Games__HomeTeam__08B54D69">
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
-    <AssociationSet Name="FK__Games__SeasonTyp__25869641" Association="Self.FK__Games__SeasonTyp__25869641">
+    <AssociationSet Name="FK__Games__SeasonTyp__09A971A2" Association="Self.FK__Games__SeasonTyp__09A971A2">
       <End Role="SeasonType" EntitySet="SeasonType" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
-    <AssociationSet Name="FK__KickingSt__GameI__300424B4" Association="Self.FK__KickingSt__GameI__300424B4">
+    <AssociationSet Name="FK__KickingSt__GameI__51300E55" Association="Self.FK__KickingSt__GameI__51300E55">
       <End Role="Games" EntitySet="Games" />
       <End Role="KickingStats" EntitySet="KickingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__KickingSt__Playe__30F848ED" Association="Self.FK__KickingSt__Playe__30F848ED">
+    <AssociationSet Name="FK__KickingSt__Playe__5224328E" Association="Self.FK__KickingSt__Playe__5224328E">
       <End Role="Players" EntitySet="Players" />
       <End Role="KickingStats" EntitySet="KickingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__KickRetur__GameI__33D4B598" Association="Self.FK__KickRetur__GameI__33D4B598">
+    <AssociationSet Name="FK__KickingSta__Team__531856C7" Association="Self.FK__KickingSta__Team__531856C7">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="KickingStats" EntitySet="KickingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KickRetur__GameI__540C7B00" Association="Self.FK__KickRetur__GameI__540C7B00">
       <End Role="Games" EntitySet="Games" />
       <End Role="KickReturnStats" EntitySet="KickReturnStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__KickRetur__GameI__36B12243" Association="Self.FK__KickRetur__GameI__36B12243">
-      <End Role="Games" EntitySet="Games" />
-      <End Role="KickReturnStats" EntitySet="KickReturnStats" />
-    </AssociationSet>
-    <AssociationSet Name="FK__KickRetur__Playe__34C8D9D1" Association="Self.FK__KickRetur__Playe__34C8D9D1">
+    <AssociationSet Name="FK__KickRetur__Playe__55009F39" Association="Self.FK__KickRetur__Playe__55009F39">
       <End Role="Players" EntitySet="Players" />
       <End Role="KickReturnStats" EntitySet="KickReturnStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__KickRetur__Playe__37A5467C" Association="Self.FK__KickRetur__Playe__37A5467C">
-      <End Role="Players" EntitySet="Players" />
+    <AssociationSet Name="FK__KickReturn__Team__55F4C372" Association="Self.FK__KickReturn__Team__55F4C372">
+      <End Role="Teams" EntitySet="Teams" />
       <End Role="KickReturnStats" EntitySet="KickReturnStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__PassingSt__GameI__3A81B327" Association="Self.FK__PassingSt__GameI__3A81B327">
+    <AssociationSet Name="FK__PassingSt__GameI__56E8E7AB" Association="Self.FK__PassingSt__GameI__56E8E7AB">
       <End Role="Games" EntitySet="Games" />
       <End Role="PassingStats" EntitySet="PassingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__PassingSt__Playe__3B75D760" Association="Self.FK__PassingSt__Playe__3B75D760">
+    <AssociationSet Name="FK__PassingSt__Playe__57DD0BE4" Association="Self.FK__PassingSt__Playe__57DD0BE4">
       <End Role="Players" EntitySet="Players" />
+      <End Role="PassingStats" EntitySet="PassingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PassingSta__Team__58D1301D" Association="Self.FK__PassingSta__Team__58D1301D">
+      <End Role="Teams" EntitySet="Teams" />
       <End Role="PassingStats" EntitySet="PassingStats" />
     </AssociationSet>
     <AssociationSet Name="FK__Players__Positio__1FCDBCEB" Association="Self.FK__Players__Positio__1FCDBCEB">
@@ -871,36 +1055,64 @@ warning 6002: The table/view 'NFLDB.dbo.__RefactorLog' does not have a primary k
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Players" EntitySet="Players" />
     </AssociationSet>
-    <AssociationSet Name="FK__PuntingSt__GameI__3E52440B" Association="Self.FK__PuntingSt__GameI__3E52440B">
+    <AssociationSet Name="FK__PlayersTe__GameI__2B0A656D" Association="Self.FK__PlayersTe__GameI__2B0A656D">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="PlayersTeamsGames" EntitySet="PlayersTeamsGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayersTe__Playe__29221CFB" Association="Self.FK__PlayersTe__Playe__29221CFB">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="PlayersTeamsGames" EntitySet="PlayersTeamsGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayersTe__Prefi__2A164134" Association="Self.FK__PlayersTe__Prefi__2A164134">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="PlayersTeamsGames" EntitySet="PlayersTeamsGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntingSt__GameI__59C55456" Association="Self.FK__PuntingSt__GameI__59C55456">
       <End Role="Games" EntitySet="Games" />
       <End Role="PuntingStats" EntitySet="PuntingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__PuntingSt__Playe__3F466844" Association="Self.FK__PuntingSt__Playe__3F466844">
+    <AssociationSet Name="FK__PuntingSt__Playe__5AB9788F" Association="Self.FK__PuntingSt__Playe__5AB9788F">
       <End Role="Players" EntitySet="Players" />
       <End Role="PuntingStats" EntitySet="PuntingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__PuntRetur__GameI__4222D4EF" Association="Self.FK__PuntRetur__GameI__4222D4EF">
+    <AssociationSet Name="FK__PuntingSta__Team__5BAD9CC8" Association="Self.FK__PuntingSta__Team__5BAD9CC8">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="PuntingStats" EntitySet="PuntingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PuntRetur__GameI__5CA1C101" Association="Self.FK__PuntRetur__GameI__5CA1C101">
       <End Role="Games" EntitySet="Games" />
       <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__PuntRetur__Playe__4316F928" Association="Self.FK__PuntRetur__Playe__4316F928">
+    <AssociationSet Name="FK__PuntRetur__Playe__5D95E53A" Association="Self.FK__PuntRetur__Playe__5D95E53A">
       <End Role="Players" EntitySet="Players" />
       <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__Receiving__GameI__45F365D3" Association="Self.FK__Receiving__GameI__45F365D3">
+    <AssociationSet Name="FK__PuntReturn__Team__5E8A0973" Association="Self.FK__PuntReturn__Team__5E8A0973">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="PuntReturnStats" EntitySet="PuntReturnStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receiving__GameI__5F7E2DAC" Association="Self.FK__Receiving__GameI__5F7E2DAC">
       <End Role="Games" EntitySet="Games" />
       <End Role="ReceivingStats" EntitySet="ReceivingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__Receiving__Playe__46E78A0C" Association="Self.FK__Receiving__Playe__46E78A0C">
+    <AssociationSet Name="FK__Receiving__Playe__607251E5" Association="Self.FK__Receiving__Playe__607251E5">
       <End Role="Players" EntitySet="Players" />
       <End Role="ReceivingStats" EntitySet="ReceivingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__RushingSt__GameI__49C3F6B7" Association="Self.FK__RushingSt__GameI__49C3F6B7">
+    <AssociationSet Name="FK__ReceivingS__Team__6166761E" Association="Self.FK__ReceivingS__Team__6166761E">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="ReceivingStats" EntitySet="ReceivingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RushingSt__GameI__625A9A57" Association="Self.FK__RushingSt__GameI__625A9A57">
       <End Role="Games" EntitySet="Games" />
       <End Role="RushingStats" EntitySet="RushingStats" />
     </AssociationSet>
-    <AssociationSet Name="FK__RushingSt__Playe__4AB81AF0" Association="Self.FK__RushingSt__Playe__4AB81AF0">
+    <AssociationSet Name="FK__RushingSt__Playe__634EBE90" Association="Self.FK__RushingSt__Playe__634EBE90">
       <End Role="Players" EntitySet="Players" />
+      <End Role="RushingStats" EntitySet="RushingStats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RushingSta__Team__6442E2C9" Association="Self.FK__RushingSta__Team__6442E2C9">
+      <End Role="Teams" EntitySet="Teams" />
       <End Role="RushingStats" EntitySet="RushingStats" />
     </AssociationSet>
     <AssociationSet Name="FK__Teams__Conferenc__1B0907CE" Association="Self.FK__Teams__Conferenc__1B0907CE">

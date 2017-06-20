@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_PuntingStat]
     @GameId UNIQUEIDENTIFIER, 
-    @PlayerId UNIQUEIDENTIFIER, 
+    @PlayerId UNIQUEIDENTIFIER,
+	@Team NVARCHAR(10),
     @Punts INT = 0, 
     @Yards INT = 0, 
     @Average INT = 0, 
@@ -13,8 +14,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO PuntingStats (PuntingStatsId, GameId, PlayerId, Punts, Yards, Average, InsideTwenty, Long, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Punts, @Yards, @Average, @InsideTwenty, @Long, @GsisId)
+		INSERT INTO PuntingStats (PuntingStatsId, GameId, PlayerId, Team, Punts, Yards, Average, InsideTwenty, Long, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Punts, @Yards, @Average, @InsideTwenty, @Long, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

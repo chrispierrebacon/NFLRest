@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_KickingStat]
     @GameId UNIQUEIDENTIFIER,
     @PlayerId UNIQUEIDENTIFIER,
+	@Team NVARCHAR(10),
     @FieldGoalsMade INT = 0,
     @FieldGoalsAttempted INT = 0,
     @Yards INT = 0,
@@ -17,9 +18,9 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO KickingStats (KickingStatsId, GameId, PlayerId, FieldGoalsMade, FieldGoalsAttempted, Yards, TotalPoints, ExtraPointsMade,
+		INSERT INTO KickingStats (KickingStatsId, GameId, PlayerId, Team, FieldGoalsMade, FieldGoalsAttempted, Yards, TotalPoints, ExtraPointsMade,
 								  ExtraPointsMissed, ExtraPointsAttempted, ExtraPointsBlocked, ExtraPointsTotal, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @FieldGoalsMade, @FieldGoalsAttempted, @Yards, @TotalPoints, @ExtraPointsMade, @ExtraPointsMissed,
+		VALUES(@Id, @GameId, @PlayerId, @Team, @FieldGoalsMade, @FieldGoalsAttempted, @Yards, @TotalPoints, @ExtraPointsMade, @ExtraPointsMissed,
 			   @ExtraPointsAttempted, @ExtraPointsBlocked, @ExtraPointsTotal, @GsisId)
 		RETURN 1
 	END TRY

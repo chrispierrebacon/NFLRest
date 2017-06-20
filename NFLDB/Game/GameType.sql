@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[GameType]
+(
+	[Name] NVARCHAR(4) NOT NULL PRIMARY KEY UNIQUE
+)

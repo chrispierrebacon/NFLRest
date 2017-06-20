@@ -46,236 +46,6 @@
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
 				<Entry>
-					<References Name="[dbo].[Teams].[Conference]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Teams]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Conferences].[Name]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Conferences]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Teams].[Division]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Teams]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Divisions].[Name]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Divisions]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[RushingStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[RushingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[RushingStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[RushingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[ReceivingStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ReceivingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[ReceivingStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ReceivingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PuntReturnStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PuntReturnStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PuntingStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PuntingStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
 					<References Name="[dbo].[Players].[Position]" />
 				</Entry>
 			</Relationship>
@@ -294,7 +64,7 @@
 					<References Name="[dbo].[Positions]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -317,237 +87,7 @@
 					<References Name="[dbo].[Teams]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PassingStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PassingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[PassingStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PassingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[KickReturnStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[KickReturnStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[KickingStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[KickingStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickingStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Fumbles].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Fumbles]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Fumbles].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Fumbles]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[DefensiveStats].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[DefensiveStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Games].[GameId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Games]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[DefensiveStats].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[DefensiveStats]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Players].[PlayerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Players]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -570,7 +110,7 @@
 					<References Name="[dbo].[Teams]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -593,7 +133,7 @@
 					<References Name="[dbo].[Teams]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -616,7 +156,766 @@
 					<References Name="[dbo].[SeasonType]" />
 				</Entry>
 			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameType]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[GameType].[Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[GameType]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Conference]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Conferences].[Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Conferences]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Division]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Divisions].[Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Divisions]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Fumbles].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Fumbles]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Fumbles].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Fumbles]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Fumbles].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Fumbles]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickingStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickingStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickingStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PassingStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PassingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PassingStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PassingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PassingStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PassingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntingStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntingStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntingStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[RushingStats].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[RushingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Games].[GameId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Games]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[RushingStats].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[RushingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Players].[PlayerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Players]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[RushingStats].[Team]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[RushingStats]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Teams].[Prefix]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -635,7 +934,7 @@
 					<References Name="[dbo].[Conferences]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -654,7 +953,7 @@
 					<References Name="[dbo].[Divisions]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -673,102 +972,7 @@
 					<References Name="[dbo].[Positions]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Teams].[Prefix]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Teams]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[RushingStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[RushingStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[ReceivingStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ReceivingStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[PuntReturnStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[PuntingStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[PuntingStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -787,7 +991,7 @@
 					<References Name="[dbo].[Players]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -795,7 +999,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[PassingStats].[Id]" />
+								<References Name="[dbo].[SeasonType].[Name]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -803,86 +1007,10 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[PassingStats]" />
+					<References Name="[dbo].[SeasonType]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[KickReturnStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickReturnStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[KickingStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[KickingStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Fumbles].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Fumbles]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[DefensiveStats].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[DefensiveStats]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -901,7 +1029,7 @@
 					<References Name="[dbo].[Games]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -909,7 +1037,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[SeasonType].[Name]" />
+								<References Name="[dbo].[GameType].[Name]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -917,10 +1045,219 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[SeasonType]" />
+					<References Name="[dbo].[GameType]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="47" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Teams].[Prefix]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Teams]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="48" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PlayersTeamsGames].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PlayersTeamsGames]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="49" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DefensiveStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DefensiveStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="50" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Fumbles].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Fumbles]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[KickingStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickingStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="52" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[KickReturnStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[KickReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PassingStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PassingStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="54" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PuntingStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntingStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="55" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PuntReturnStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PuntReturnStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="56" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ReceivingStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ReceivingStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="57" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[RushingStats].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[RushingStats]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="58" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -939,7 +1276,7 @@
 					<References Name="[dbo].[Positions]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="59" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -958,7 +1295,7 @@
 					<References Name="[dbo].[Players]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="60" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -977,7 +1314,26 @@
 					<References Name="[dbo].[SeasonType]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="61" />
+		</Element>
+		<Element Type="SqlUniqueConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[GameType].[Name]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[GameType]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="62" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[__RefactorLog]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1023,7 +1379,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="28" />
+						<AttachedAnnotation Disambiguator="41" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -1038,8 +1394,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO DefensiveStats (DefensiveStatsId, GameId, PlayerId, Tackles, Assists, Sacks, Interceptions, ForcedFumbles, GsisId)
-		VALUES (@Id, @GameId, @PlayerId, @Tackles, @Assists, @Sacks, @Interceptions, @ForcedFumbles, @GsisId)
+		INSERT INTO DefensiveStats (DefensiveStatsId, GameId, PlayerId, Team, Tackles, Assists, Sacks, Interceptions, ForcedFumbles, GsisId)
+		VALUES (@Id, @GameId, @PlayerId, @Team, @Tackles, @Assists, @Sacks, @Interceptions, @ForcedFumbles, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -1066,6 +1422,9 @@
 					<References Name="[dbo].[DefensiveStats].[PlayerId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[DefensiveStats].[Team]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[DefensiveStats].[Tackles]" />
 				</Entry>
 				<Entry>
@@ -1088,6 +1447,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_DefensiveStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_DefensiveStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_DefensiveStat].[@Tackles]" />
@@ -1138,6 +1500,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_DefensiveStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -1307,10 +1685,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="760" />
+				<Property Name="Length" Value="795" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_DefensiveStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @Tackles INT = 0,&#xD;&#xA;    @Assists INT = 0,&#xD;&#xA;    @Sacks INT = 0,&#xD;&#xA;    @Interceptions INT = 0,&#xD;&#xA;    @ForcedFumbles INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_DefensiveStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @Tackles INT = 0,&#xD;&#xA;    @Assists INT = 0,&#xD;&#xA;    @Sacks INT = 0,&#xD;&#xA;    @Interceptions INT = 0,&#xD;&#xA;    @ForcedFumbles INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Fumble]">
@@ -1318,8 +1696,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO Fumbles (FumblesId, GameId, PlayerId, Total, Recovered, TeamRecovered, Yards, Lost, GsisId)
-		VALUES (@Id, @GameId, @PlayerId, @Total, @Recovered, @TeamRecovered, @Yards, @Lost, @GsisId)
+		INSERT INTO Fumbles (FumblesId, GameId, PlayerId, Team, Total, Recovered, TeamRecovered, Yards, Lost, GsisId)
+		VALUES (@Id, @GameId, @PlayerId, @Team, @Total, @Recovered, @TeamRecovered, @Yards, @Lost, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -1346,6 +1724,9 @@
 					<References Name="[dbo].[Fumbles].[PlayerId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Fumbles].[Team]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Fumbles].[Total]" />
 				</Entry>
 				<Entry>
@@ -1368,6 +1749,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_Fumble].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_Fumble].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_Fumble].[@Total]" />
@@ -1418,6 +1802,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_Fumble].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -1587,10 +1987,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="717" />
+				<Property Name="Length" Value="752" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Fumble]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Total INT = 0, &#xD;&#xA;    @Recovered INT = 0, &#xD;&#xA;    @TeamRecovered INT = 0, &#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @Lost INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_Fumble]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @Total INT = 0, &#xD;&#xA;    @Recovered INT = 0, &#xD;&#xA;    @TeamRecovered INT = 0, &#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @Lost INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Game]">
@@ -2179,9 +2579,9 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO KickingStats (KickingStatsId, GameId, PlayerId, FieldGoalsMade, FieldGoalsAttempted, Yards, TotalPoints, ExtraPointsMade,
+		INSERT INTO KickingStats (KickingStatsId, GameId, PlayerId, Team, FieldGoalsMade, FieldGoalsAttempted, Yards, TotalPoints, ExtraPointsMade,
 								  ExtraPointsMissed, ExtraPointsAttempted, ExtraPointsBlocked, ExtraPointsTotal, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @FieldGoalsMade, @FieldGoalsAttempted, @Yards, @TotalPoints, @ExtraPointsMade, @ExtraPointsMissed,
+		VALUES(@Id, @GameId, @PlayerId, @Team, @FieldGoalsMade, @FieldGoalsAttempted, @Yards, @TotalPoints, @ExtraPointsMade, @ExtraPointsMissed,
 			   @ExtraPointsAttempted, @ExtraPointsBlocked, @ExtraPointsTotal, @GsisId)
 		RETURN 1
 	END TRY
@@ -2207,6 +2607,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[KickingStats].[PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[KickingStats].[Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[KickingStats].[FieldGoalsMade]" />
@@ -2243,6 +2646,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickingStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickingStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickingStat].[@FieldGoalsMade]" />
@@ -2305,6 +2711,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickingStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2546,10 +2968,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1119" />
+				<Property Name="Length" Value="1154" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;    @FieldGoalsMade INT = 0,&#xD;&#xA;    @FieldGoalsAttempted INT = 0,&#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @TotalPoints INT = 0, &#xD;&#xA;    @ExtraPointsMade INT = 0, &#xD;&#xA;&#x9;@ExtraPointsMissed INT = 0,&#xD;&#xA;    @ExtraPointsAttempted INT = 0,&#xD;&#xA;&#x9;@ExtraPointsBlocked INT = 0,&#xD;&#xA;&#x9;@ExtraPointsTotal INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#x9;&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER,&#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @FieldGoalsMade INT = 0,&#xD;&#xA;    @FieldGoalsAttempted INT = 0,&#xD;&#xA;    @Yards INT = 0,&#xD;&#xA;    @TotalPoints INT = 0, &#xD;&#xA;    @ExtraPointsMade INT = 0, &#xD;&#xA;&#x9;@ExtraPointsMissed INT = 0,&#xD;&#xA;    @ExtraPointsAttempted INT = 0,&#xD;&#xA;&#x9;@ExtraPointsBlocked INT = 0,&#xD;&#xA;&#x9;@ExtraPointsTotal INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#x9;&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_KickReturnStat]">
@@ -2557,8 +2979,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO KickReturnStats (KickReturnStatsId, GameId, PlayerId, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
+		INSERT INTO KickReturnStats (KickReturnStatsId, GameId, PlayerId, Team, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
 			RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -2585,6 +3007,9 @@
 					<References Name="[dbo].[KickReturnStats].[PlayerId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[KickReturnStats].[Team]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[KickReturnStats].[Returns]" />
 				</Entry>
 				<Entry>
@@ -2607,6 +3032,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickReturnStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_KickReturnStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_KickReturnStat].[@Returns]" />
@@ -2657,6 +3085,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_KickReturnStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2826,10 +3270,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="753" />
+				<Property Name="Length" Value="787" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickReturnStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_KickReturnStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_PassingStat]">
@@ -2838,9 +3282,9 @@
 
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO PassingStats (PassingStatsId, GameId, PlayerId, Attempts, Completions, Yards, Touchdowns, Interceptions, TwoPointAttempts,
+		INSERT INTO PassingStats (PassingStatsId, GameId, PlayerId, Team, Attempts, Completions, Yards, Touchdowns, Interceptions, TwoPointAttempts,
 								  TwoPointMakes, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Attempts, @Completions, @Yards, @Touchdowns, @Interceptions, @TwoPointAttempts, @TwoPointMakes, @GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Attempts, @Completions, @Yards, @Touchdowns, @Interceptions, @TwoPointAttempts, @TwoPointMakes, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -2865,6 +3309,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[PassingStats].[PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PassingStats].[Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[PassingStats].[Attempts]" />
@@ -2895,6 +3342,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PassingStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PassingStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PassingStat].[@Attempts]" />
@@ -2951,6 +3401,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PassingStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -3156,10 +3622,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="911" />
+				<Property Name="Length" Value="947" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PassingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Completions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Interceptions INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointMakes INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PassingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Team NVARCHAR(10), &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Completions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Interceptions INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointMakes INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Player]">
@@ -3658,8 +4124,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO PuntingStats (PuntingStatsId, GameId, PlayerId, Punts, Yards, Average, InsideTwenty, Long, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Punts, @Yards, @Average, @InsideTwenty, @Long, @GsisId)
+		INSERT INTO PuntingStats (PuntingStatsId, GameId, PlayerId, Team, Punts, Yards, Average, InsideTwenty, Long, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Punts, @Yards, @Average, @InsideTwenty, @Long, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -3686,6 +4152,9 @@
 					<References Name="[dbo].[PuntingStats].[PlayerId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[PuntingStats].[Team]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[PuntingStats].[Punts]" />
 				</Entry>
 				<Entry>
@@ -3708,6 +4177,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntingStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntingStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntingStat].[@Punts]" />
@@ -3758,6 +4230,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntingStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -3927,10 +4415,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="723" />
+				<Property Name="Length" Value="757" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Punts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @InsideTwenty INT = 0, &#xD;&#xA;    @Long INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER,&#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @Punts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @InsideTwenty INT = 0, &#xD;&#xA;    @Long INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_PuntReturnStat]">
@@ -3938,8 +4426,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO PuntReturnStats (PuntReturnStatsId, GameId, PlayerId, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
+		INSERT INTO PuntReturnStats (PuntReturnStatsId, GameId, PlayerId, Team, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -3966,6 +4454,9 @@
 					<References Name="[dbo].[PuntReturnStats].[PlayerId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[PuntReturnStats].[Team]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[PuntReturnStats].[Returns]" />
 				</Entry>
 				<Entry>
@@ -3988,6 +4479,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntReturnStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_PuntReturnStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_PuntReturnStat].[@Returns]" />
@@ -4038,6 +4532,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_PuntReturnStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -4207,10 +4717,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="749" />
+				<Property Name="Length" Value="784" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntReturnStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_PuntReturnStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;&#x9;@Returns INT = 0,&#xD;&#xA;    @Average INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @LongTouchdown INT = 0,&#xD;&#xA;&#x9;@GsisId NVARCHAR(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_ReceivingStat]">
@@ -4218,8 +4728,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO ReceivingStats (ReceivingStatsId, GameId, PlayerId, Receptions, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Receptions, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
+		INSERT INTO ReceivingStats (ReceivingStatsId, GameId, PlayerId, Team, Receptions, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Receptions, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -4244,6 +4754,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[ReceivingStats].[PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ReceivingStats].[Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[ReceivingStats].[Receptions]" />
@@ -4271,6 +4784,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_ReceivingStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_ReceivingStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_ReceivingStat].[@Receptions]" />
@@ -4324,6 +4840,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_ReceivingStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -4511,10 +5043,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="826" />
+				<Property Name="Length" Value="861" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_ReceivingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Receptions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_ReceivingStat]&#xD;&#xA;    @GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @Receptions INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_RushingStat]">
@@ -4522,8 +5054,8 @@
 				<Value><![CDATA[
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO RushingStats(RushingStatsId, GameId, PlayerId, Attempts, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Attempts, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
+		INSERT INTO RushingStats(RushingStatsId, GameId, PlayerId, Team, Attempts, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Attempts, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH
@@ -4548,6 +5080,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[RushingStats].[PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[RushingStats].[Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[RushingStats].[Attempts]" />
@@ -4575,6 +5110,9 @@
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_RushingStat].[@PlayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CREATE_RushingStat].[@Team]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CREATE_RushingStat].[@Attempts]" />
@@ -4628,6 +5166,22 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CREATE_RushingStat].[@Team]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -4815,10 +5369,10 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="810" />
+				<Property Name="Length" Value="845" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_RushingStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CREATE_RushingStat]&#xD;&#xA;&#x9;@GameId UNIQUEIDENTIFIER, &#xD;&#xA;    @PlayerId UNIQUEIDENTIFIER, &#xD;&#xA;&#x9;@Team NVARCHAR(10),&#xD;&#xA;    @Attempts INT = 0, &#xD;&#xA;    @Yards INT = 0, &#xD;&#xA;    @Touchdowns INT = 0, &#xD;&#xA;    @Long INT = 0, &#xD;&#xA;    @TwoPointAttempts INT = 0, &#xD;&#xA;    @TwoPointsMade INT = 0,&#xD;&#xA;&#x9;@GsisId nvarchar(50),&#xD;&#xA;&#x9;@Id UNIQUEIDENTIFIER OUTPUT,&#xD;&#xA;&#x9;@ErrorMessage NVARCHAR(256) OUTPUT,&#xD;&#xA;&#x9;@ErrorNumber INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CREATE_Team]">
@@ -5010,7 +5564,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="41" />
+						<AttachedAnnotation Disambiguator="50" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -5054,6 +5608,23 @@
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DefensiveStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -5163,8 +5734,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="23" />
-			<AttachedAnnotation Disambiguator="24" />
+			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="15" />
+			<AttachedAnnotation Disambiguator="16" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[DELETEAll]">
 			<Property Name="BodyScript">
@@ -5272,7 +5844,7 @@ RETURN 0]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="29" />
+						<AttachedAnnotation Disambiguator="42" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -5300,7 +5872,7 @@ RETURN 0]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="40" />
+						<AttachedAnnotation Disambiguator="51" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -5344,6 +5916,23 @@ RETURN 0]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Fumbles].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -5453,8 +6042,9 @@ RETURN 0]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="21" />
-			<AttachedAnnotation Disambiguator="22" />
+			<AttachedAnnotation Disambiguator="17" />
+			<AttachedAnnotation Disambiguator="18" />
+			<AttachedAnnotation Disambiguator="19" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Games]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -5544,6 +6134,23 @@ RETURN 0]]></Value>
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[Games].[SeasonType]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Games].[GameType]">
 						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -5853,10 +6460,40 @@ RETURN 0]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="42" />
-			<AttachedAnnotation Disambiguator="25" />
-			<AttachedAnnotation Disambiguator="26" />
-			<AttachedAnnotation Disambiguator="27" />
+			<AttachedAnnotation Disambiguator="46" />
+			<AttachedAnnotation Disambiguator="5" />
+			<AttachedAnnotation Disambiguator="6" />
+			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="8" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[GameType]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[GameType].[Name]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="47" />
+						<AttachedAnnotation Disambiguator="62" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[GET_GameIdByEid]">
 			<Property Name="BodyScript">
@@ -6030,7 +6667,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="39" />
+						<AttachedAnnotation Disambiguator="52" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6074,6 +6711,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[KickingStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6247,8 +6901,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="19" />
 			<AttachedAnnotation Disambiguator="20" />
+			<AttachedAnnotation Disambiguator="21" />
+			<AttachedAnnotation Disambiguator="22" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[KickReturnStats]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6268,7 +6923,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="38" />
+						<AttachedAnnotation Disambiguator="53" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6312,6 +6967,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[KickReturnStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6421,8 +7093,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="17" />
-			<AttachedAnnotation Disambiguator="18" />
+			<AttachedAnnotation Disambiguator="23" />
+			<AttachedAnnotation Disambiguator="24" />
+			<AttachedAnnotation Disambiguator="25" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[PassingStats]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6442,7 +7115,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="37" />
+						<AttachedAnnotation Disambiguator="54" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6486,6 +7159,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PassingStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6627,8 +7317,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="15" />
-			<AttachedAnnotation Disambiguator="16" />
+			<AttachedAnnotation Disambiguator="26" />
+			<AttachedAnnotation Disambiguator="27" />
+			<AttachedAnnotation Disambiguator="28" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Players]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6664,7 +7355,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="36" />
+						<AttachedAnnotation Disambiguator="44" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6800,7 +7491,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="45" />
+						<AttachedAnnotation Disambiguator="60" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6940,8 +7631,88 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
+			<AttachedAnnotation Disambiguator="3" />
+			<AttachedAnnotation Disambiguator="4" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[PlayersTeamsGames]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PlayersTeamsGames].[Id]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="49" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PlayersTeamsGames].[PlayerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PlayersTeamsGames].[Prefix]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PlayersTeamsGames].[GameId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="12" />
 			<AttachedAnnotation Disambiguator="13" />
-			<AttachedAnnotation Disambiguator="14" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Positions]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6961,8 +7732,8 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="30" />
-						<AttachedAnnotation Disambiguator="44" />
+						<AttachedAnnotation Disambiguator="43" />
+						<AttachedAnnotation Disambiguator="59" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -6990,7 +7761,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="35" />
+						<AttachedAnnotation Disambiguator="55" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -7034,6 +7805,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PuntingStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7143,8 +7931,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="11" />
-			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="29" />
+			<AttachedAnnotation Disambiguator="30" />
+			<AttachedAnnotation Disambiguator="31" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[PuntReturnStats]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -7164,7 +7953,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="34" />
+						<AttachedAnnotation Disambiguator="56" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -7208,6 +7997,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PuntReturnStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7317,8 +8123,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="32" />
+			<AttachedAnnotation Disambiguator="33" />
+			<AttachedAnnotation Disambiguator="34" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[ReceivingStats]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -7338,7 +8145,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="33" />
+						<AttachedAnnotation Disambiguator="57" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -7382,6 +8189,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ReceivingStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7507,8 +8331,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="7" />
-			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="35" />
+			<AttachedAnnotation Disambiguator="36" />
+			<AttachedAnnotation Disambiguator="37" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[RushingStats]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -7528,7 +8353,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="32" />
+						<AttachedAnnotation Disambiguator="58" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -7572,6 +8397,23 @@ END]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[RushingStats].[Team]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -7697,8 +8539,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="5" />
-			<AttachedAnnotation Disambiguator="6" />
+			<AttachedAnnotation Disambiguator="38" />
+			<AttachedAnnotation Disambiguator="39" />
+			<AttachedAnnotation Disambiguator="40" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[SeasonType]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -7718,8 +8561,8 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="43" />
-						<AttachedAnnotation Disambiguator="46" />
+						<AttachedAnnotation Disambiguator="45" />
+						<AttachedAnnotation Disambiguator="61" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -7872,9 +8715,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="31" />
-			<AttachedAnnotation Disambiguator="3" />
-			<AttachedAnnotation Disambiguator="4" />
+			<AttachedAnnotation Disambiguator="48" />
+			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="10" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[UPDATE_Game]">
 			<Property Name="BodyScript">
@@ -8263,6 +9106,15 @@ END]]></Value>
 									<Relationship Name="ExpressionDependencies">
 										<Entry>
 											<References Name="[dbo].[Games].[SeasonType]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[UPDATE_Game].[#tGame].[GameType]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[Games].[GameType]" />
 										</Entry>
 									</Relationship>
 								</Element>

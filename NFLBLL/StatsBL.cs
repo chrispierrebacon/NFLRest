@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NFLCommon.DALInterfaces;
+using System.Data.Entity;
+using System.Collections.Concurrent;
+using NFLBLL;
 
 namespace NFLBLL
 {
@@ -42,7 +45,7 @@ namespace NFLBLL
         public int Create(GameStats request)
         {
             // Fetch GameId
-            Guid gameId = _gameDal.GetGameIdByEid(request.Game.Eid);
+            Guid gameId = _gameDal.GetGameByEid(request.Game.Eid);
             if (gameId.Equals(Guid.Empty))
             {
                 return 0;
@@ -346,6 +349,144 @@ namespace NFLBLL
             return gameStats;
         }
 
+        public GameStats GetGamePriorityStats(Guid gameId)
+        {
+            GameStats gameStats = new GameStats();
+            gameStats.Game = entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
+
+            // How bout all QBs that threw more than 50 yards
+            gameStats.PassingStats.AddRange(entities.PassingStats.Where(i => i.GameId.Equals(gameId) && i.Yards > 50).OrderByDescending(i => i.Yards));
+            // Get QB rushing stats too, just in case.
+            var stuff = gameStats.PassingStats.Select(i => i.PlayerId);
+            gameStats.RushingStats.AddRange(entities.RushingStats.Where(i => i.GameId.Equals(gameId) && stuff.Contains(i.PlayerId)));
+            gameStats.ReceivingStats.AddRange(entities.ReceivingStats.Where(i => i.GameId.Equals(gameId) && stuff.Contains(i.PlayerId)));
+
+            // Get players that scored over 8 fantasy points
+            List<Guid> playersIds = new List<Guid>();
+            playersIds.AddRange(entities.RushingStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            playersIds.AddRange(entities.ReceivingStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            playersIds = playersIds.Union(entities.ReceivingStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId)).ToList();
+
+            foreach(var playerId in playersIds)
+            {
+                var rushingStats = entities.RushingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var receivingStats = entities.ReceivingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var kickReturnStats = entities.KickReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var puntReturnStats = entities.PuntReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var fumbles = entities.Fumbles.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+
+                double fantasyPoints = (rushingStats?.Yards ?? 0) * .1 + (rushingStats?.Touchdowns ?? 0) * 6 + (rushingStats?.TwoPointsMade ?? 0) * 2
+                                + (receivingStats?.Yards ?? 0) * .1 + (receivingStats?.Receptions ?? 0) + (receivingStats?.Touchdowns ?? 0) * 6 + (rushingStats?.TwoPointsMade ?? 0) * 2
+                                + (kickReturnStats?.Touchdowns ?? 0) * 6 + (puntReturnStats?.Touchdowns ?? 0) * 6 + (fumbles?.Lost ?? 0) * -2;
+
+                if(fantasyPoints > 12)
+                {
+                    if(rushingStats != null)
+                    {
+                        gameStats.RushingStats.Add(rushingStats);
+                    }
+                    if(receivingStats != null)
+                    {
+                        gameStats.ReceivingStats.Add(receivingStats);
+                    }                    
+                }
+            }
+            gameStats.RushingStats = gameStats.RushingStats.Distinct().ToList();
+            gameStats.ReceivingStats = gameStats.ReceivingStats.Distinct().ToList();
+
+            // If there's a return TD, return that
+            // Maybe return a big return?
+            gameStats.KickReturnStats.AddRange(entities.KickReturnStats.Where(i => i.GameId.Equals(gameId) && (i.Touchdowns > 0 || i.Long > 50)));
+            gameStats.PuntReturnStats.AddRange(entities.PuntReturnStats.Where(i => i.GameId.Equals(gameId) && (i.Touchdowns > 0 || i.Long > 50)));
+
+
+            var statzz = entities.Fumbles.Where(i => i.GameId.Equals(gameId)).ToList();
+            // Return all lost fumbles. Lost fumbles are ALWAYS important. Fumbles recovered by your own team are ALWAYS irrelevant. Fucking Giants had 3 fumbles in SBILII and recovered them all...
+            gameStats.Fumbles.AddRange(entities.Fumbles.Where(i => i.GameId.Equals(gameId) && (i.Lost > 0 || (i.TeamRecovered > i.Recovered))));
+
+            // Find defensive players with forced fumbles or interceptions
+            gameStats.DefensiveStats.AddRange(entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && (i.ForcedFumbles + i.Interceptions > 0)));
+            // Find defensive players with a significant amount of tackles (>5)
+            gameStats.DefensiveStats.AddRange(entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && i.Tackles >= 8));
+            // Find defensive players with a significant amount of sacks (>=2)
+            gameStats.DefensiveStats.AddRange(entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && i.Sacks >= 2));
+
+            gameStats.DefensiveStats = gameStats.DefensiveStats.Distinct().ToList();
+
+            return gameStats;
+        }
+
+        public CondensedGameStats GetCondensedGameStats(Guid gameId)
+        {
+
+            CondensedGameStats gameStats = new CondensedGameStats();
+            gameStats.Game = entities.Games.FirstOrDefault(i => i.GameId.Equals(gameId));
+
+            // Get all relevant offensive players
+            List<Guid> relevantPlayerIds = new List<Guid>();
+
+            // Get relevant QBs. I want the INTs because I want to see that stat where Fitzpatrick came in for 1 play and threw a pick. That is still so fucking funny.
+            relevantPlayerIds.AddRange(entities.PassingStats.Where(i => i.GameId.Equals(gameId) && (i.Yards > 50 || i.Touchdowns > 0 || i.Interceptions > 0)).Select(j => j.PlayerId));
+
+            // Get players who had big games
+            List<Guid> possiblePlayerIds = new List<Guid>();
+            possiblePlayerIds.AddRange(entities.RushingStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            possiblePlayerIds.AddRange(entities.ReceivingStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            possiblePlayerIds.AddRange(entities.KickReturnStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            possiblePlayerIds.AddRange(entities.PuntReturnStats.Where(i => i.GameId.Equals(gameId)).Select(i => i.PlayerId));
+            possiblePlayerIds = possiblePlayerIds.Distinct().ToList();
+
+            foreach(var playerId in possiblePlayerIds)
+            {
+                var rushingStats = entities.RushingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var receivingStats = entities.ReceivingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var kickReturnStats = entities.KickReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var puntReturnStats = entities.PuntReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                var fumbles = entities.Fumbles.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+
+                double fantasyPoints = (rushingStats?.Yards ?? 0) * .1 + (rushingStats?.Touchdowns ?? 0) * 6 + (rushingStats?.TwoPointsMade ?? 0) * 2
+                                + (receivingStats?.Yards ?? 0) * .1 + (receivingStats?.Receptions ?? 0) + (receivingStats?.Touchdowns ?? 0) * 6 + (rushingStats?.TwoPointsMade ?? 0) * 2
+                                + (kickReturnStats?.Touchdowns ?? 0) * 6 + (puntReturnStats?.Touchdowns ?? 0) * 6 + (fumbles?.Lost ?? 0) * -2;
+
+                if (fantasyPoints > 10)
+                {
+                    relevantPlayerIds.Add(playerId);
+                }
+            }
+            
+            relevantPlayerIds = relevantPlayerIds.Distinct().Reverse().ToList();
+
+            // Get all the offensive stats for these players
+            foreach(var playerId in relevantPlayerIds)
+            {
+                OffensiveStat oStat = new OffensiveStat();
+                oStat.Player = entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
+                oStat.PassingStat = entities.PassingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                oStat.RushingStat = entities.RushingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                oStat.ReceivingStat = entities.ReceivingStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                oStat.KickReturnStat = entities.KickReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId) && i.Touchdowns > 0);
+                oStat.PuntReturnStat = entities.PuntReturnStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId) && i.Touchdowns > 0);
+                oStat.Fumble = entities.Fumbles.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId) && (i.Lost > 0 || i.TeamRecovered > 0));
+                gameStats.OffensiveStats.Add(oStat);
+            }
+
+            // Get all relevant defensive players.
+            relevantPlayerIds.Clear();
+            relevantPlayerIds.AddRange(entities.DefensiveStats.Where(i => i.GameId.Equals(gameId) && (i.ForcedFumbles > 0 || i.Interceptions > 0 || i.Tackles > 7 || i.Sacks > 1)).Select(i => i.PlayerId));
+
+            // Get all the defensive stats and the fumble stats
+            foreach(var playerId in relevantPlayerIds)
+            {
+                DefStatWithFumble dStat = new DefStatWithFumble();
+                dStat.Player = entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
+                dStat.DefensiveStat = entities.DefensiveStats.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId));
+                dStat.Fumble = entities.Fumbles.FirstOrDefault(i => i.GameId.Equals(gameId) && i.PlayerId.Equals(playerId) && (i.Lost > 0 || i.TeamRecovered > 0));
+                gameStats.DefStatsWithFumbles.Add(dStat);
+            }
+
+            return gameStats;
+        }
+
         public int GetOffensivePoints(GameStats gameStats)
         {
             return gameStats.ReceivingStats.Sum(i => i.Touchdowns) * 6
@@ -395,27 +536,30 @@ namespace NFLBLL
         // Weather
         // Other specific to position
 
-        public double GetQBProjectedValue(Guid playerId)
+        #region TODO
+        public double GetQBProjectedValue(Guid playerId, string oppTeam)
         {
-            throw new NotImplementedException();
+            var passingStats = entities.PassingStats.Where(i => i.PlayerId.Equals(playerId));
+            var lastFour = passingStats.OrderByDescending(i => i.Game.DateTime).Take(4);
+            var lastSixteen = passingStats.OrderByDescending(i => i.Game.DateTime).Take(16);
+            return 0;
 
         }
 
-        public double GetRBProjectedValue(Guid playerId)
+        public double GetRBProjectedValue(Guid playerId, string oppTeam)
         {
             // Dunno about extenuating.
             throw new NotImplementedException();
-
         }
 
-        public double GetWRProjectedValue(Guid playerId)
+        public double GetWRProjectedValue(Guid playerId, string oppTeam)
         {
             // Dunno about extenuating. 
             throw new NotImplementedException();
 
         }
 
-        public double GetDefenseProjectedValue(Guid playerId)
+        public double GetDefenseProjectedValue(Guid playerId, string oppTeam)
         {
             // Dunno about extenuating. 
             throw new NotImplementedException();
@@ -441,7 +585,6 @@ namespace NFLBLL
             // Fumbles *.2 can't be putting the ball on the ground
             // Being up needs to be given a priority. Run the ball to kill the clock
             throw new NotImplementedException();
-
         }
 
         public double GetWRValueForOneGame(Guid playerId, Guid gameId)
@@ -450,9 +593,8 @@ namespace NFLBLL
             // Closeness of game matters here too. You throw the ball more when you're down.
             // Targets matter.
             // So do drops.
-            // So does QB. Brady is gonna be more effective with Randy Moss than fucking Andrew Walter or Aaron Brooks. Holy shit the Raiders were terrible in 06.
+            // So does QB. Brady is gonna be more effective with Randy Moss than fucking Andrew Walter or Aaron Brooks. Holy shit the Raiders were terrible in '06.
             throw new NotImplementedException();
-
         }
 
         public double GetTEValueForOneGame(Guid playerId, Guid gameId)
@@ -470,6 +612,8 @@ namespace NFLBLL
             throw new NotImplementedException();
         }
 
+        #endregion
+
         //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)
         //{
         //    foreach (var stat in stats)
@@ -479,6 +623,24 @@ namespace NFLBLL
         //        dalCrud.Create(stat);
         //    }
         //}
+
+    }
+
+    public static class ConcurrentBagExtension
+    {
+        public static void AddRange<T>(this ConcurrentBag<T> @this, IEnumerable<T> toAdd)
+        {
+            toAdd.AsParallel().ForAll(t => @this.Add(t));
+        }
+
+        public static void Clear<T>(this ConcurrentBag<T> @this)
+        {
+            T someItem;
+            while (!@this.IsEmpty)
+            {
+                @this.TryTake(out someItem);
+            }
+        }
     }
 
     public class GameStatsFilter

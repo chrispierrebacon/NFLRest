@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_RushingStat]
 	@GameId UNIQUEIDENTIFIER, 
     @PlayerId UNIQUEIDENTIFIER, 
+	@Team NVARCHAR(10),
     @Attempts INT = 0, 
     @Yards INT = 0, 
     @Touchdowns INT = 0, 
@@ -14,8 +15,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO RushingStats(RushingStatsId, GameId, PlayerId, Attempts, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Attempts, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
+		INSERT INTO RushingStats(RushingStatsId, GameId, PlayerId, Team, Attempts, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Attempts, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

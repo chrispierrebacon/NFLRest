@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_KickReturnStat]
     @GameId UNIQUEIDENTIFIER, 
-    @PlayerId UNIQUEIDENTIFIER, 
+    @PlayerId UNIQUEIDENTIFIER,
+	@Team NVARCHAR(10),
 	@Returns INT = 0,
     @Average INT = 0, 
     @Touchdowns INT = 0, 
@@ -13,8 +14,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO KickReturnStats (KickReturnStatsId, GameId, PlayerId, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
+		INSERT INTO KickReturnStats (KickReturnStatsId, GameId, PlayerId, Team, Returns, Average, Touchdowns, Long, LongTouchdown, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Returns, @Average, @Touchdowns, @Long, @LongTouchdown, @GsisId)
 			RETURN 1
 	END TRY
 	BEGIN CATCH

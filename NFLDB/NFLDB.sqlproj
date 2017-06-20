@@ -74,6 +74,7 @@
     <Folder Include="OtherSPs" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="ReferenceTables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Game\CREATE_Game.sql" />
@@ -111,6 +112,8 @@
     <Build Include="OtherSPs\DELETEAll.sql" />
     <Build Include="Game\GET_Games.sql" />
     <Build Include="dbo\Tables\__RefactorLog.sql" />
+    <Build Include="ReferenceTables\PlayersTeamsGames.sql" />
+    <Build Include="Game\GameType.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />
@@ -120,5 +123,6 @@
     <None Include="Snapshots\shit.dacpac" />
     <None Include="Snapshots\WT.dacpac" />
     <None Include="Snapshots\NFLDB_20170602_14-12-01.dacpac" />
+    <None Include="Snapshots\NFLDB_20170620_10-26-42.dacpac" />
   </ItemGroup>
 </Project>

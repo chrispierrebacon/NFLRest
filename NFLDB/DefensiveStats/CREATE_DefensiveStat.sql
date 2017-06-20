@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_DefensiveStat]
     @GameId UNIQUEIDENTIFIER,
     @PlayerId UNIQUEIDENTIFIER,
+	@Team NVARCHAR(10),
     @Tackles INT = 0,
     @Assists INT = 0,
     @Sacks INT = 0,
@@ -13,8 +14,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO DefensiveStats (DefensiveStatsId, GameId, PlayerId, Tackles, Assists, Sacks, Interceptions, ForcedFumbles, GsisId)
-		VALUES (@Id, @GameId, @PlayerId, @Tackles, @Assists, @Sacks, @Interceptions, @ForcedFumbles, @GsisId)
+		INSERT INTO DefensiveStats (DefensiveStatsId, GameId, PlayerId, Team, Tackles, Assists, Sacks, Interceptions, ForcedFumbles, GsisId)
+		VALUES (@Id, @GameId, @PlayerId, @Team, @Tackles, @Assists, @Sacks, @Interceptions, @ForcedFumbles, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

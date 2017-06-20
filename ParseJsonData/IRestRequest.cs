@@ -11,6 +11,6 @@ namespace ParseJsonData
 {
     public interface IRestRequest<T>
     {
-        HttpResponseMessage MakeRequest(string client, string path, T body, Method method, Dictionary<string, string> headers);
+        IRestResponse MakeRequest(string client, string path, T body, Method method, Dictionary<string, string> headers);
     }
 }

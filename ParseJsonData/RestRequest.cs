@@ -11,7 +11,7 @@ namespace ParseJsonData
 {
     public class RestRequest<T> : IRestRequest<T>
     {
-        public HttpResponseMessage MakeRequest(string endpoint, string path, T body, Method method, Dictionary<string, string> headers)
+        public IRestResponse MakeRequest(string endpoint, string path, T body, Method method, Dictionary<string, string> headers)
         {
             var client = new RestClient(endpoint);
             var request = new RestRequest(path, method);
@@ -29,7 +29,7 @@ namespace ParseJsonData
 
             IRestResponse response = client.Execute(request);
 
-            return new HttpResponseMessage();
+            return response;
         }
     }
 }

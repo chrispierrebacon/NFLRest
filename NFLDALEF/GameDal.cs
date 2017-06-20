@@ -84,7 +84,7 @@ namespace NFLDALEF
             }
         }
 
-        public Guid GetGameIdByEid(long Eid)
+        public Guid GetGameByEid(long Eid)
         {
             using (var entities = new NFLDBEntities())
             {
@@ -127,7 +127,6 @@ namespace NFLDALEF
                 using (var entities = new NFLDBEntities())
                 {
 
-                    // TODO: For now just update the scores, but later we'll want to update evrything
                     Game gameToUpdate = entities.Games.FirstOrDefault(i => i.GameId == game.GameId);
                     gameToUpdate.ATScoreFinal = game.ATScoreFinal;
                     gameToUpdate.ATScoreFirstQtr = game.ATScoreFirstQtr;

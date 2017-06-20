@@ -19,8 +19,6 @@ namespace NFLDAL
 
         public Guid Create(Game game)
         {
-            int[] array = new int[7];
-
 
             var parameters = new Dictionary<string, object>
             {
@@ -102,7 +100,7 @@ namespace NFLDAL
             return games;
         }
 
-        public Guid GetGameIdByEid(long Eid)
+        public Guid GetGameByEid(long Eid)
         {
             var parameters = new Dictionary<string, object>
             {

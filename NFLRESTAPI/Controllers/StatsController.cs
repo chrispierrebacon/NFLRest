@@ -29,9 +29,9 @@ namespace NFLRESTAPI.Controllers
             return new string[] { "TeamName", "GameId" };
         }
 
-        public HttpResponseMessage Get([FromUri]string GameId, [FromUri]string TeamName = "")
+        public HttpResponseMessage Get([FromUri]string GameId)
         {
-            string content = JsonConvert.SerializeObject(_statsBL.GetGameStatsByIdsAndTeamName(Guid.Parse(GameId), TeamName));
+            string content = JsonConvert.SerializeObject(_statsBL.GetCondensedGameStats(Guid.Parse(GameId)));
             HttpResponseMessage response = new HttpResponseMessage();
             response.StatusCode = HttpStatusCode.OK;
             response.Content = new StringContent(content);

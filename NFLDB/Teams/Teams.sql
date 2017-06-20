@@ -7,7 +7,7 @@
     [Conference] VARCHAR (3)      NOT NULL,
     [Division]   VARCHAR (10)     NOT NULL,
     [Logo]       VARCHAR (MAX)    NULL,
-    PRIMARY KEY CLUSTERED ([Prefix] ASC),
+    PRIMARY KEY CLUSTERED ([Prefix]),
     FOREIGN KEY ([Conference]) REFERENCES [dbo].[Conferences] ([Name]),
     FOREIGN KEY ([Division]) REFERENCES [dbo].[Divisions] ([Name])
 );

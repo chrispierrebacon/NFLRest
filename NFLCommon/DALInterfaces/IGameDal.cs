@@ -4,7 +4,7 @@ namespace NFLCommon.DALInterfaces
 {
     public interface IGameDal : IDalCrud<Game>
     {
-        Guid GetGameIdByEid(long Eid);
+        Guid GetGameByEid(long Eid);
         int UpdateScore(Game game);
     }
 }

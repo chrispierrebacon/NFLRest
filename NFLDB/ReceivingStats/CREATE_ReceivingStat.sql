@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_ReceivingStat]
     @GameId UNIQUEIDENTIFIER, 
     @PlayerId UNIQUEIDENTIFIER, 
+	@Team NVARCHAR(10),
     @Receptions INT = 0, 
     @Yards INT = 0, 
     @Touchdowns INT = 0, 
@@ -14,8 +15,8 @@
 AS
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO ReceivingStats (ReceivingStatsId, GameId, PlayerId, Receptions, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Receptions, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
+		INSERT INTO ReceivingStats (ReceivingStatsId, GameId, PlayerId, Team, Receptions, Yards, Touchdowns, Long, TwoPointAttempts, TwoPointsMade, GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Receptions, @Yards, @Touchdowns, @Long, @TwoPointAttempts, @TwoPointsMade, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

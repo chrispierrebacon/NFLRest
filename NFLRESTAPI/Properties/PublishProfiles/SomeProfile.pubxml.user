@@ -139,28 +139,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2017 13:24:23</publishTime>
     </File>
     <File Include="bin/NFLBLL.dll">
-      <publishTime>06/01/2017 15:21:57</publishTime>
+      <publishTime>06/09/2017 14:58:00</publishTime>
     </File>
     <File Include="bin/NFLBLL.pdb">
-      <publishTime>06/01/2017 15:21:57</publishTime>
+      <publishTime>06/09/2017 14:58:00</publishTime>
     </File>
     <File Include="bin/NFLCommon.dll">
-      <publishTime>06/01/2017 15:21:56</publishTime>
+      <publishTime>06/09/2017 14:33:43</publishTime>
     </File>
     <File Include="bin/NFLCommon.pdb">
-      <publishTime>06/01/2017 15:21:56</publishTime>
+      <publishTime>06/09/2017 14:33:43</publishTime>
     </File>
     <File Include="bin/NFLDALEF.dll">
-      <publishTime>06/01/2017 15:21:56</publishTime>
+      <publishTime>06/09/2017 14:33:43</publishTime>
     </File>
     <File Include="bin/NFLDALEF.pdb">
-      <publishTime>06/01/2017 15:21:56</publishTime>
+      <publishTime>06/09/2017 14:33:43</publishTime>
     </File>
     <File Include="bin/NFLRESTAPI.dll">
-      <publishTime>06/01/2017 15:21:59</publishTime>
+      <publishTime>06/09/2017 14:58:02</publishTime>
     </File>
     <File Include="bin/NFLRESTAPI.pdb">
-      <publishTime>06/01/2017 15:21:59</publishTime>
+      <publishTime>06/09/2017 14:58:02</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>02/10/2016 19:59:47</publishTime>
@@ -400,7 +400,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2016 19:59:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/01/2017 15:22:11</publishTime>
+      <publishTime>06/12/2017 09:38:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@ namespace NFLCommon
         public string AwayTeam { get; set; }
         public System.DateTime DateTime { get; set; }
         public string SeasonType { get; set; }
+        public string GameType { get; set; }
         public int Season { get; set; }
         public long Eid { get; set; }
         public long GameKey { get; set; }

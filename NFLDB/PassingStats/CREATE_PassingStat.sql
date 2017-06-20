@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CREATE_PassingStat]
     @GameId UNIQUEIDENTIFIER, 
     @PlayerId UNIQUEIDENTIFIER, 
+	@Team NVARCHAR(10), 
     @Attempts INT = 0, 
     @Completions INT = 0, 
     @Yards INT = 0, 
@@ -16,9 +17,9 @@ AS
 
 	SET @Id = NEWID()
 	BEGIN TRY
-		INSERT INTO PassingStats (PassingStatsId, GameId, PlayerId, Attempts, Completions, Yards, Touchdowns, Interceptions, TwoPointAttempts,
+		INSERT INTO PassingStats (PassingStatsId, GameId, PlayerId, Team, Attempts, Completions, Yards, Touchdowns, Interceptions, TwoPointAttempts,
 								  TwoPointMakes, GsisId)
-		VALUES(@Id, @GameId, @PlayerId, @Attempts, @Completions, @Yards, @Touchdowns, @Interceptions, @TwoPointAttempts, @TwoPointMakes, @GsisId)
+		VALUES(@Id, @GameId, @PlayerId, @Team, @Attempts, @Completions, @Yards, @Touchdowns, @Interceptions, @TwoPointAttempts, @TwoPointMakes, @GsisId)
 		RETURN 1
 	END TRY
 	BEGIN CATCH

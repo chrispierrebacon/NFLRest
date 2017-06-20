@@ -66,6 +66,7 @@
     <Compile Include="KickReturnStatDal.cs" />
     <Compile Include="PassingStatDal.cs" />
     <Compile Include="PlayerDal.cs" />
+    <Compile Include="PlayersTeamsGamesDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuntingStatDal.cs" />
     <Compile Include="PuntReturnStatDal.cs" />

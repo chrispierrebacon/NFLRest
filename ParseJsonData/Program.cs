@@ -11,6 +11,8 @@ using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Collections.Concurrent;
 using NFLCommon;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace ParseJsonData
 {
@@ -18,18 +20,38 @@ namespace ParseJsonData
     {
         public static void Main(string[] args)
         {
-            string naggers = string.Empty;
-
             Dictionary<string, string> headers = new Dictionary<string, string>
             {
-                { "Content-Type", "application/json; charset=utf-8" }
+                { "Content-Type", "application/json; charset=utf-8" },
             };
+
+            //var stuff = getWhatWeNeed();
+
+            List<Task> tasks = new List<Task>();
+
+            //var something = fetchGamesFromNFL();
+
+            //foreach (var game in stuff)
+            //{
+            //    Task t = Task.Run(() =>
+            //    {
+            //        RestRequest<Game> restRequest = new RestRequest<Game>();
+            //        restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
+            //    });
+            //    tasks.Add(t);
+            //}
+            //Task.WaitAll(tasks.ToArray());
 
             //foreach (var team in getTeams())
             //{
-            //    RestRequest<Team> restRequest = new RestRequest<Team>();
-            //    restRequest.MakeRequest("http://localhost:49786", "api/teams", team, Method.POST, headers);
+            //    Task t = Task.Run(() =>
+            //    {
+            //        RestRequest<Team> restRequest = new RestRequest<Team>();
+            //        restRequest.MakeRequest("http://localhost:49786", "api/teams", team, Method.POST, headers);
+            //    });
+            //    tasks.Add(t);
             //}
+            //Task.WaitAll(tasks.ToArray());
 
             //foreach (var player in parsePlayers())
             //{
@@ -37,17 +59,184 @@ namespace ParseJsonData
             //    restRequest.MakeRequest("http://localhost:49786", "api/players", player, Method.POST, headers);
             //}
 
-            foreach (var game in parseGames())
-            {
-                RestRequest<Game> restRequest = new RestRequest<Game>();
-                restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
-            }
+            //foreach (var game in fetchGamesFromNFL())
+            //{
+            //    Task t = Task.Run(() =>
+            //    {
+            //        RestRequest<Game> restRequest = new RestRequest<Game>();
+            //        restRequest.MakeRequest("http://localhost:49786", "api/games", game, Method.POST, headers);
+            //    });
+            //    tasks.Add(t);
+            //}
+            //Task.WaitAll(tasks.ToArray());
 
             foreach (var stat in parseStats())
             {
-                RestRequest<GameStats> restRequest = new RestRequest<GameStats>();
-                restRequest.MakeRequest("http://localhost:49786", "api/stats", stat, Method.POST, headers);
+                Task t = Task.Run(() =>
+                {
+                    RestRequest<GameStats> restRequest = new RestRequest<GameStats>();
+                    restRequest.MakeRequest("http://localhost:49786", "api/stats", stat, Method.POST, headers);
+                });
+                tasks.Add(t);
             }
+            Task.WaitAll(tasks.ToArray());
+        }
+
+        private static ConcurrentBag<Game> fetchGamesFromNFL()
+        {
+            List<Task> tasks = new List<Task>();
+
+            ConcurrentBag<Game> games = new ConcurrentBag<Game>();
+
+            for (int j = 1967; j < 2017; j++)
+            {
+                int sbWeek = 0;
+                int postSeasonStarts = 0;
+                // 14 game season
+                if (j < 1978)
+                {
+                    sbWeek = 17;
+                    postSeasonStarts = 15;
+                }
+                // 16 game season. They added a WC week too.
+                else if (j < 1990)
+                {
+                    sbWeek = 20;
+                    postSeasonStarts = 17;
+                }
+                // Bye week
+                else if (j < 2009)
+                {
+                    sbWeek = 21;
+                    postSeasonStarts = 18;
+                }
+                // I have an idea. Let's put the probowl the week before the super bowl. I bet everyone will watch now. (My ass)
+                else
+                {
+                    sbWeek = 22;
+                    postSeasonStarts = 18;
+                }
+
+                string seasonType = "REG";
+                for (int i = 1; i < 23; i++)
+                {
+                    if (i == postSeasonStarts)
+                    {
+                        seasonType = "POST";
+                    }
+
+                    tasks.Add(fillTheBucket(i, j, seasonType, games));
+
+                    if (i == sbWeek)
+                    {
+                        i = 23;
+                        continue;
+                    }
+                }
+            }
+            Task.WaitAll(tasks.ToArray());
+            return games;
+
+        }
+
+        private static ConcurrentBag<Game> getWhatWeNeed()
+        {
+            ConcurrentBag<Game> games = new ConcurrentBag<Game>();
+            List<Task> tasks = new List<Task>();
+            int[] arr = { 19, 20, 22 };
+            for(int i = 0; i<3; i++)
+            {
+                tasks.Add(fillTheBucket(arr[i], 2016, "POST", games));
+            }
+            Task.WaitAll(tasks.ToArray());
+            return games;
+        }
+
+        private static Task fillTheOtherBucket(int i, int j, string seasonType, ConcurrentBag<string> games)
+        {
+            Task t = Task.Run(() =>
+            {
+                try
+                {
+                    Dictionary<string, string> headers = new Dictionary<string, string>
+                    {
+                        { "Content-Type", "application/json; charset=utf-8" }
+                    };
+
+                    string url = "http://www.nfl.com/ajax/scorestrip?";
+
+                    string endpoint = string.Format(url + "season={0}&seasonType={1}&week={2}", j, seasonType, i);
+                    RestRequest<dynamic> request = new RestRequest<dynamic>();
+                    var response = request.MakeRequest(endpoint, "", null, Method.GET, headers);
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load(new StringReader(response.Content));
+                    var xmlGames = xml.GetElementsByTagName("g");
+                    foreach (XmlNode g in xmlGames)
+                    {
+                        games.Add(g.Attributes["v"].Value);
+                        games.Add(g.Attributes["h"].Value);
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            });
+            return t;
+        }
+
+        private static Task fillTheBucket(int i, int j, string seasonType, ConcurrentBag<Game> games)
+        {
+            Task t = Task.Run(() =>
+            {
+                try
+                {
+                    Dictionary<string, string> headers = new Dictionary<string, string>
+                    {
+                        { "Content-Type", "application/json; charset=utf-8" }
+                    };
+
+                    string url = "http://www.nfl.com/ajax/scorestrip?";
+
+                    string endpoint = string.Format(url + "season={0}&seasonType={1}&week={2}", j, seasonType, i);
+                    RestRequest<dynamic> request = new RestRequest<dynamic>();
+                    var response = request.MakeRequest(endpoint, "", null, Method.GET, headers);
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load(new StringReader(response.Content));
+                    var xmlGames = xml.GetElementsByTagName("g");
+                    foreach (XmlNode g in xmlGames)
+                    {
+                        Game game = new Game();
+                        game.AwayTeam = g.Attributes["v"].Value.Equals("JAX") ? "JAC" : g.Attributes["v"].Value;
+                        game.HomeTeam = g.Attributes["h"].Value.Equals("JAX") ? "JAC" : g.Attributes["h"].Value;
+
+                        string time = g.Attributes["t"].Value;
+                        Regex regex = new Regex(@"[0-9]+");
+                        var matches = regex.Matches(time);
+                        int hour = Convert.ToInt32(matches[0].Value) + 12;
+                        int minutes = Convert.ToInt32(matches[1].Value);
+
+                        string date = g.Attributes["eid"].Value;
+                        DateTime dateBuilder = DateTime.ParseExact(date, "yyyyMMddff", CultureInfo.InvariantCulture);
+                        dateBuilder = dateBuilder.AddHours(hour);
+                        dateBuilder = dateBuilder.AddMinutes(minutes);
+                        game.DateTime = TimeZoneInfo.ConvertTimeToUtc(dateBuilder, TimeZoneInfo.FindSystemTimeZoneById("US Eastern Standard Time"));
+                        game.SeasonType = seasonType;
+                        game.GameType = g.Attributes["gt"].Value;
+                        game.Eid = Convert.ToInt64(g.Attributes["eid"].Value);
+                        game.GameKey = Convert.ToInt64(g.Attributes["gsis"].Value);
+                        game.Week = i;
+                        game.Season = j;
+                        game.HTScoreFinal = Convert.ToInt32(g.Attributes["hs"].Value);
+                        game.ATScoreFinal = Convert.ToInt32(g.Attributes["vs"].Value);
+                        games.Add(game);
+                    }
+                }
+                catch (Exception ex) 
+                {
+
+                }
+            });
+            return t;
         }
 
         private static List<Team> getTeams()
@@ -434,8 +623,8 @@ namespace ParseJsonData
                     string jsonString = File.ReadAllText(file);
 
                     var statsRequest = new GameStats();
-                    dynamic bitches = JsonConvert.DeserializeObject(jsonString);
-                    JEnumerable<JToken> children = bitches.Children();
+                    dynamic games = JsonConvert.DeserializeObject(jsonString);
+                    JEnumerable<JToken> children = games.Children();
                     dynamic game = children.First().First();
 
                     buildGame(game, statsRequest);
@@ -443,8 +632,8 @@ namespace ParseJsonData
                     statsRequest.Game.DateTime = DateTime.ParseExact(cunts.Name, "yyyyMMddff", CultureInfo.InvariantCulture);
                     statsRequest.Game.Eid = Convert.ToInt32(cunts.Name);
 
-                    buildStatsRequest(game.home.stats, statsRequest);
-                    buildStatsRequest(game.away.stats, statsRequest);
+                    buildStatsRequest(game.home, statsRequest);
+                    buildStatsRequest(game.away, statsRequest);
 
                     requests.Add(statsRequest);
                 });
@@ -494,11 +683,13 @@ namespace ParseJsonData
 
         private static List<PassingStat> buildPassingStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+            
             var passingStats = new List<PassingStat>();
 
-            if (teamStats.passing != null)
+            if (teamStats.stats.passing != null)
             {
-                foreach (var p in teamStats.passing)
+                foreach (var p in teamStats.stats.passing)
                 {
                     var passingStat = new PassingStat();
                     passingStat.GsisId = p.Name;
@@ -511,6 +702,7 @@ namespace ParseJsonData
                     passingStat.Interceptions = stats.ints;
                     passingStat.TwoPointAttempts = stats.twopta;
                     passingStat.TwoPointMakes = stats.twoptm;
+                    passingStat.Team = abbr;
                     passingStats.Add(passingStat);
                 }
             }
@@ -520,11 +712,13 @@ namespace ParseJsonData
                        
         private static List<RushingStat> buildRushingStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var rushingStats = new List<RushingStat>();
 
-            if (teamStats.rushing != null)
+            if (teamStats.stats.rushing != null)
             {
-                foreach (var r in teamStats.rushing)
+                foreach (var r in teamStats.stats.rushing)
                 {
                     var rushingStat = new RushingStat();
                     rushingStat.GsisId = r.Name;
@@ -536,6 +730,7 @@ namespace ParseJsonData
                     rushingStat.Long = stats.lng;
                     rushingStat.TwoPointAttempts = stats.twopta;
                     rushingStat.TwoPointsMade = stats.twoptm;
+                    rushingStat.Team = abbr;
                     rushingStats.Add(rushingStat);
                 }
             }
@@ -545,11 +740,13 @@ namespace ParseJsonData
                        
         private static List<ReceivingStat> buildReceivingStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var receivingStats = new List<ReceivingStat>();
 
-            if (teamStats.receiving != null)
+            if (teamStats.stats.receiving != null)
             {
-                foreach (var r in teamStats.receiving)
+                foreach (var r in teamStats.stats.receiving)
                 {
                     var receivingStat = new ReceivingStat();
                     receivingStat.GsisId = r.Name;
@@ -561,6 +758,7 @@ namespace ParseJsonData
                     receivingStat.Long = stats.lng;
                     receivingStat.TwoPointAttempts = stats.twopta;
                     receivingStat.TwoPointsMade = stats.twoptm;
+                    receivingStat.Team = abbr;
                     receivingStats.Add(receivingStat);
                 }
             }
@@ -570,11 +768,13 @@ namespace ParseJsonData
                        
         private static List<Fumble> buildFumbleStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var fumbles = new List<Fumble>();
 
-            if (teamStats.fumbles != null)
+            if (teamStats.stats.fumbles != null)
             {
-                foreach (var f in teamStats.fumbles)
+                foreach (var f in teamStats.stats.fumbles)
                 {
                     var fumble = new Fumble();
                     fumble.GsisId = f.Name;
@@ -585,6 +785,7 @@ namespace ParseJsonData
                     fumble.TeamRecovered = stats.trcv;
                     fumble.Yards = stats.yds;
                     fumble.Lost = stats.lost;
+                    fumble.Team = abbr;
                     fumbles.Add(fumble);
                 }
             }
@@ -593,11 +794,13 @@ namespace ParseJsonData
                        
         private static List<KickingStat> buildKickingStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var kickingStats = new List<KickingStat>();
 
-            if (teamStats.kicking != null)
+            if (teamStats.stats.kicking != null)
             {
-                foreach (var k in teamStats.kicking)
+                foreach (var k in teamStats.stats.kicking)
                 {
                     var kickingStat = new KickingStat();
                     kickingStat.GsisId = k.Name;
@@ -612,6 +815,7 @@ namespace ParseJsonData
                     kickingStat.ExtraPointsAttempted = stats.xpa;
                     kickingStat.ExtraPointsBlocked = stats.xpb;
                     kickingStat.ExtraPointsTotal = stats.xptot;
+                    kickingStat.Team = abbr;
                     kickingStats.Add(kickingStat);
                 }
             }
@@ -620,11 +824,13 @@ namespace ParseJsonData
                        
         private static List<PuntingStat> buildPuntingStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var puntingStats = new List<PuntingStat>();
 
-            if (teamStats.punting != null)
+            if (teamStats.stats.punting != null)
             {
-                foreach (var p in teamStats.punting)
+                foreach (var p in teamStats.stats.punting)
                 {
                     var puntingStat = new PuntingStat();
                     puntingStat.GsisId = p.Name;
@@ -635,6 +841,7 @@ namespace ParseJsonData
                     puntingStat.Average = stats.avg;
                     puntingStat.InsideTwenty = stats["i20"];
                     puntingStat.Long = stats.lng;
+                    puntingStat.Team = abbr;
                     puntingStats.Add(puntingStat);
                 }
             }
@@ -643,11 +850,13 @@ namespace ParseJsonData
                        
         private static List<KickReturnStat> buildKickReturnStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var kickReturnStats = new List<KickReturnStat>();
 
-            if (teamStats.kickret != null)
+            if (teamStats.stats.kickret != null)
             {
-                foreach (var k in teamStats.kickret)
+                foreach (var k in teamStats.stats.kickret)
                 {
                     var kickReturnStat = new KickReturnStat();
                     kickReturnStat.GsisId = k.Name;
@@ -658,6 +867,7 @@ namespace ParseJsonData
                     kickReturnStat.Touchdowns = stats.tds;
                     kickReturnStat.Long = stats.lng;
                     kickReturnStat.LongTouchdown = stats.lngtd != null ? stats.lngtd : 0;
+                    kickReturnStat.Team = abbr;
                     kickReturnStats.Add(kickReturnStat);
                 }
             }
@@ -666,11 +876,13 @@ namespace ParseJsonData
                        
         private static List<PuntReturnStat> buildPuntReturnStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var puntReturnStats = new List<PuntReturnStat>();
 
-            if (teamStats.puntret != null)
+            if (teamStats.stats.puntret != null)
             {
-                foreach (var p in teamStats.puntret)
+                foreach (var p in teamStats.stats.puntret)
                 {
                     var puntReturnStat = new PuntReturnStat();
                     puntReturnStat.GsisId = p.Name;
@@ -681,6 +893,7 @@ namespace ParseJsonData
                     puntReturnStat.Touchdowns = stats.tds;
                     puntReturnStat.Long = stats.lng;
                     puntReturnStat.LongTouchdown = stats.lngtd != null ? stats.lngtd : 0;
+                    puntReturnStat.Team = abbr;
                     puntReturnStats.Add(puntReturnStat);
                 }
             }
@@ -689,11 +902,13 @@ namespace ParseJsonData
                        
         private static List<DefensiveStat> buildDefensiveStats(dynamic teamStats)
         {
+            var abbr = teamStats.abbr;
+
             var defensiveStats = new List<DefensiveStat>();
 
-            if (teamStats.defense != null)
+            if (teamStats.stats.defense != null)
             {
-                foreach (var d in teamStats.defense)
+                foreach (var d in teamStats.stats.defense)
                 {
                     var defensiveStat = new DefensiveStat();
                     defensiveStat.GsisId = d.Name;
@@ -704,11 +919,11 @@ namespace ParseJsonData
                     defensiveStat.Sacks = stats.sk;
                     defensiveStat.Interceptions = stats["int"];
                     defensiveStat.ForcedFumbles = stats.ffum;
+                    defensiveStat.Team = abbr;
                     defensiveStats.Add(defensiveStat);
                 }
             }
             return defensiveStats;
         }
-
     }
 }

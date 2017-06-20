@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[PlayersTeamsGames]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [PlayerId] UNIQUEIDENTIFIER NOT NULL, 
+    [Prefix] NVARCHAR(10) NOT NULL, 
+    [GameId] UNIQUEIDENTIFIER NOT NULL, 
+	FOREIGN KEY (PlayerId) REFERENCES Players(PlayerId),
+	FOREIGN KEY (Prefix) REFERENCES Teams(Prefix),
+	FOREIGN KEY (GameId) REFERENCES Games(GameId)
+)
