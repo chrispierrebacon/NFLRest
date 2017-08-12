@@ -9,81 +9,34 @@
 
 namespace NFLCommon
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Team
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Team()
         {
-            this.DefensiveStats = new HashSet<DefensiveStat>();
-            this.Fumbles = new HashSet<Fumble>();
             this.Games = new HashSet<Game>();
             this.Games1 = new HashSet<Game>();
-            this.KickingStats = new HashSet<KickingStat>();
-            this.KickReturnStats = new HashSet<KickReturnStat>();
-            this.PassingStats = new HashSet<PassingStat>();
             this.Players = new HashSet<Player>();
-            this.PlayersTeamsGames = new HashSet<PlayersTeamsGame>();
-            this.PuntingStats = new HashSet<PuntingStat>();
-            this.PuntReturnStats = new HashSet<PuntReturnStat>();
-            this.ReceivingStats = new HashSet<ReceivingStat>();
-            this.RushingStats = new HashSet<RushingStat>();
         }
     
         public int Id { get; set; }
         public string Prefix { get; set; }
-        public Guid TeamId { get; set; }
+        public System.Guid TeamId { get; set; }
         public string NickName { get; set; }
         public string City { get; set; }
         public string Conference { get; set; }
         public string Division { get; set; }
-        public string Logo { get; set; }
-
-        [JsonIgnore]    
+    
         public virtual Conference Conference1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<DefensiveStat> DefensiveStats { get; set; }
-        [JsonIgnore]
         public virtual Division Division1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<Fumble> Fumbles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
         public virtual ICollection<Game> Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
         public virtual ICollection<Game> Games1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<KickingStat> KickingStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<KickReturnStat> KickReturnStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<PassingStat> PassingStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
         public virtual ICollection<Player> Players { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<PlayersTeamsGame> PlayersTeamsGames { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<PuntingStat> PuntingStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<PuntReturnStat> PuntReturnStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<ReceivingStat> ReceivingStats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<RushingStat> RushingStats { get; set; }
     }
 }

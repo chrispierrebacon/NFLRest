@@ -9,17 +9,15 @@
 
 namespace NFLCommon
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-
+    
     public partial class PassingStat
     {
         public int Id { get; set; }
-        public Guid PassingStatsId { get; set; }
-        public Guid GameId { get; set; }
-        public Guid PlayerId { get; set; }
-        public string Team { get; set; }
+        public System.Guid PassingStatsId { get; set; }
+        public System.Guid GameId { get; set; }
+        public System.Guid PlayerId { get; set; }
         public int Attempts { get; set; }
         public int Completions { get; set; }
         public int Yards { get; set; }
@@ -28,9 +26,8 @@ namespace NFLCommon
         public int TwoPointAttempts { get; set; }
         public int TwoPointMakes { get; set; }
         public string GsisId { get; set; }
-        [JsonIgnore]
+    
         public virtual Game Game { get; set; }
         public virtual Player Player { get; set; }
-        public virtual Team Team1 { get; set; }
     }
 }

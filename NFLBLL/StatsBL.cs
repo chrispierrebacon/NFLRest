@@ -24,10 +24,11 @@ namespace NFLBLL
         private readonly IRushingStatDal _rushingStatDal;
         private readonly IDefensiveStatDal _defensiveStatDal;
         private readonly IPlayerDal _playerDal;
+        private readonly IPlayersTeamsGamesDal _ptgDal;
 
         public StatsBL(IGameDal gameDal, IFumbleDal fumbleDal, IKickingStatDal kickingStatDal, IKickReturnStatDal kickReturnStatDal, IPassingStatDal passingStatDal,
                        IPuntingStatDal puntingStatDal, IPuntReturnStatDal puntReturnStatDal, IReceivingStatDal receivingStatDal, IRushingStatDal rushingStatDal,
-                       IDefensiveStatDal defensiveStatDal, IPlayerDal playerDal)
+                       IDefensiveStatDal defensiveStatDal, IPlayerDal playerDal, IPlayersTeamsGamesDal ptgDal)
         {
             _gameDal = gameDal;
             _fumbleDal = fumbleDal;
@@ -40,6 +41,7 @@ namespace NFLBLL
             _rushingStatDal = rushingStatDal;
             _defensiveStatDal = defensiveStatDal;
             _playerDal = playerDal;
+            _ptgDal = ptgDal;
         }
 
         public int Create(GameStats request)
@@ -67,6 +69,13 @@ namespace NFLBLL
                         fumble.PlayerId = playerId;
                         fumble.GameId = gameId;
                         Guid fumbleResp = _fumbleDal.Create(fumble);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = fumble.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }                    
                 });
                 tasks.Add(t);
@@ -81,7 +90,14 @@ namespace NFLBLL
                     {
                         kickingStat.PlayerId = playerId;
                         kickingStat.GameId = gameId;
-                        Guid kickingStatResp = _kickingStatDal.Create(kickingStat); 
+                        Guid kickingStatResp = _kickingStatDal.Create(kickingStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = kickingStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -96,7 +112,14 @@ namespace NFLBLL
                     {
                         kickReturnStat.PlayerId = playerId;
                         kickReturnStat.GameId = gameId;
-                        Guid kickingStatResp = _kickReturnStatDal.Create(kickReturnStat); 
+                        Guid kickReturnStatResp = _kickReturnStatDal.Create(kickReturnStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = kickReturnStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -111,7 +134,14 @@ namespace NFLBLL
                     {
                         passingStat.PlayerId = playerId;
                         passingStat.GameId = gameId;
-                        Guid kickingStatResp = _passingStatDal.Create(passingStat); 
+                        Guid passingStatResp = _passingStatDal.Create(passingStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = passingStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -126,7 +156,14 @@ namespace NFLBLL
                     {
                         puntingStat.PlayerId = playerId;
                         puntingStat.GameId = gameId;
-                        Guid kickingStatResp = _puntingStatDal.Create(puntingStat); 
+                        Guid puntingStatResp = _puntingStatDal.Create(puntingStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = puntingStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -141,7 +178,14 @@ namespace NFLBLL
                     {
                         puntReturnStat.PlayerId = playerId;
                         puntReturnStat.GameId = gameId;
-                        Guid kickingStatResp = _puntReturnStatDal.Create(puntReturnStat); 
+                        Guid puntReturnResp = _puntReturnStatDal.Create(puntReturnStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = puntReturnStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -156,7 +200,14 @@ namespace NFLBLL
                     {
                         receivingStat.PlayerId = playerId;
                         receivingStat.GameId = gameId;
-                        Guid kickingStatResp = _receivingStatDal.Create(receivingStat); 
+                        Guid receivingStatResp = _receivingStatDal.Create(receivingStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = receivingStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -171,7 +222,14 @@ namespace NFLBLL
                     {
                         rushingStat.PlayerId = playerId;
                         rushingStat.GameId = gameId;
-                        Guid kickingStatResp = _rushingStatDal.Create(rushingStat); 
+                        Guid rushingStatResp = _rushingStatDal.Create(rushingStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = rushingStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -186,7 +244,14 @@ namespace NFLBLL
                     {
                         defensiveStat.PlayerId = playerId;
                         defensiveStat.GameId = gameId;
-                        Guid kickingStatResp = _defensiveStatDal.Create(defensiveStat); 
+                        Guid defensiveStatResp = _defensiveStatDal.Create(defensiveStat);
+                        PlayersTeamsGame ptg = new PlayersTeamsGame
+                        {
+                            GameId = gameId,
+                            PlayerId = playerId,
+                            Prefix = defensiveStat.Team
+                        };
+                        _ptgDal.Create(ptg);
                     }
                 });
                 tasks.Add(t);
@@ -529,34 +594,65 @@ namespace NFLBLL
             return fantasyPointsAllowed;
         }
 
-        // Last 4 games * .3
-        // Last 16 games * .2
-        // Last performance against upcoming team *.5
-        // Injuries
-        // Weather
-        // Other specific to position
+
 
         #region TODO
-        public double GetQBProjectedValue(Guid playerId, string oppTeam)
+
+        // Last 4 games * .3
+        // Last 16 games * .2
+        // Average points against current opp over the last 3 years
+        // Injury modifier: injury prone players lose points. Fucking Gronk, you're KILLING ME SMALLS
+        // Weather ???
+        // Other specific to position
+        public double GetOffensiveProjectedValue(Guid playerId, string oppTeam)
         {
-            var passingStats = entities.PassingStats.Where(i => i.PlayerId.Equals(playerId));
-            var lastFour = passingStats.OrderByDescending(i => i.Game.DateTime).Take(4);
-            var lastSixteen = passingStats.OrderByDescending(i => i.Game.DateTime).Take(16);
-            return 0;
+            Player player = entities.Players.FirstOrDefault(i => i.PlayerId.Equals(playerId));
 
-        }
+            List<Guid> lastThreeYearsGames = new List<Guid>();
+            List<Guid> lastGamesAgainstOpp = new List<Guid>();
 
-        public double GetRBProjectedValue(Guid playerId, string oppTeam)
-        {
-            // Dunno about extenuating.
-            throw new NotImplementedException();
-        }
+            DateTime threeYears = DateTime.Now.AddYears(-3);
+            switch(player.Position)
+            {
+                case "QB":
+                    lastThreeYearsGames = entities.PassingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears).OrderByDescending(i => i.Game.DateTime).Select(i => i.GameId).ToList();
+                    lastGamesAgainstOpp.Add(entities.PassingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears)
+                        .OrderByDescending(i => i.Game.DateTime).FirstOrDefault(i => !i.Team.Equals(oppTeam) && (i.Game.AwayTeam.Equals(oppTeam) || i.Game.HomeTeam.Equals(oppTeam))).GameId);
+                    break;
+                case "WR":
+                case "TE":
+                    lastThreeYearsGames = entities.ReceivingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears).OrderByDescending(i => i.Game.DateTime).Select(i => i.GameId).ToList();
+                    lastGamesAgainstOpp.Add(entities.ReceivingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears)
+                        .OrderByDescending(i => i.Game.DateTime).FirstOrDefault(i => !i.Team.Equals(oppTeam) && (i.Game.AwayTeam.Equals(oppTeam) || i.Game.HomeTeam.Equals(oppTeam))).GameId);
+                    break;
+                case "RB":
+                case "FB":
+                    lastThreeYearsGames = entities.RushingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears).OrderByDescending(i => i.Game.DateTime).Select(i => i.GameId).ToList();
+                    lastGamesAgainstOpp.Add(entities.RushingStats.Where(i => i.PlayerId.Equals(playerId) && i.Game.DateTime > threeYears)
+                        .OrderByDescending(i => i.Game.DateTime).FirstOrDefault(i => !i.Team.Equals(oppTeam) && (i.Game.AwayTeam.Equals(oppTeam) || i.Game.HomeTeam.Equals(oppTeam))).GameId);
+                    break;
+            }
 
-        public double GetWRProjectedValue(Guid playerId, string oppTeam)
-        {
-            // Dunno about extenuating. 
-            throw new NotImplementedException();
+            double total = (GetOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, lastThreeYearsGames.Take(16).ToList(), true) / lastThreeYearsGames.Take(16).Count()) * .3
+                      + (GetOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, lastThreeYearsGames.Take(4).ToList(), true) / lastThreeYearsGames.Take(4).Count()) * .2;
 
+            if(lastGamesAgainstOpp != null)
+            {
+                total += (GetOffensiveFantasyPointsByPlayerIdAndGameIds(playerId, lastGamesAgainstOpp, true) / lastGamesAgainstOpp.Count() * .5);
+            }
+            else
+            {
+                total *= 2;
+            }
+
+            // Injuries last 3 years is what matters.
+            // I'm gonna cap it at 15 games. Possibly sitting at the end of the season. There was one year when Peyton sat for 2 games then lost in the first round of the playoffs (lol).
+            // Suspension counts the same. Even if it is a FUCKING BULLSHIT WITCHHUNT. Only Brady could make this not matter at all.
+            int yearsPro = player.YearsPro > 3 ? 3 : player.YearsPro;
+            double injuryModifier = (lastThreeYearsGames.Count / 15) / yearsPro;
+            injuryModifier = injuryModifier > 1 ? 1 : injuryModifier;
+            total *= injuryModifier;
+            return total;
         }
 
         public double GetDefenseProjectedValue(Guid playerId, string oppTeam)
@@ -566,7 +662,7 @@ namespace NFLBLL
 
         }
 
-        public double GetQBValueForOneGame(Guid playerId, Guid gameId)
+        public double GetOffensiveForOneGame(Guid playerId, Guid gameId)
         {
             // Passing Yards * .3 
             // Ints * .2 can't be throwing the ball to the other team
@@ -575,31 +671,6 @@ namespace NFLBLL
             // The above ratio matters too. I want to take all 3 into account.
             // Big plays matter too.
             // How close is the game per quarter *.1 Garbage time points count too. We'll need to find a garbage time sweet spot. <21 points?
-            throw new NotImplementedException();
-        }
-
-        public double GetRBValueForOneGame(Guid playerId, Guid gameId)
-        {
-            // Touches *.3
-            // Yards * .3 
-            // Fumbles *.2 can't be putting the ball on the ground
-            // Being up needs to be given a priority. Run the ball to kill the clock
-            throw new NotImplementedException();
-        }
-
-        public double GetWRValueForOneGame(Guid playerId, Guid gameId)
-        {
-            // Yards/Reception * .3 This matters the most. If Randy Moss only had 3 catches but they're all 80 yard TDs, I'll take that shit all day.
-            // Closeness of game matters here too. You throw the ball more when you're down.
-            // Targets matter.
-            // So do drops.
-            // So does QB. Brady is gonna be more effective with Randy Moss than fucking Andrew Walter or Aaron Brooks. Holy shit the Raiders were terrible in '06.
-            throw new NotImplementedException();
-        }
-
-        public double GetTEValueForOneGame(Guid playerId, Guid gameId)
-        {
-            // Basically the same as WR. I need to determine if there's anything I need to change.
             throw new NotImplementedException();
         }
 
@@ -613,17 +684,6 @@ namespace NFLBLL
         }
 
         #endregion
-
-        //private void InsertStats(List<Stat> stats, IDalCrud<object> dalCrud, Guid gameId, Stat stat)
-        //{
-        //    foreach (var stat in stats)
-        //    {
-        //        stat.PlayerId = _playerDal.GetPlayerIdByGsisId(stat.GsisId);
-        //        stat.GameId = gameId;
-        //        dalCrud.Create(stat);
-        //    }
-        //}
-
     }
 
     public static class ConcurrentBagExtension

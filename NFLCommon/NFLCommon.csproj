@@ -63,7 +63,7 @@
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
     <Compile Include="DALInterfaces\IDalCrud.cs" />
-    <Compile Include="DALInterfaces\IPlayersTeamsGames.cs" />
+    <Compile Include="DALInterfaces\IPlayersTeamsGamesDal.cs" />
     <Compile Include="DefensiveStat.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
@@ -75,12 +75,6 @@
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
     <Compile Include="Game.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GameType.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_Games_Result.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
     <Compile Include="IDatabaseAccess.cs" />
@@ -124,9 +118,6 @@
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
     <Compile Include="Player.cs">
-      <DependentUpon>NFLEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlayersTeamsGame.cs">
       <DependentUpon>NFLEF.tt</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">

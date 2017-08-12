@@ -71,9 +71,18 @@ namespace NFLDALEF
                     games = games.Where(i => i.Season == filter.Season);
                 }
 
-                if (!string.IsNullOrEmpty(filter.Team))
+                if (filter.Teams != null && filter.Teams.Count() > 0)
                 {
-                    games = games.Where(i => i.HomeTeam.Equals(filter.Team) || i.AwayTeam.Equals(filter.Team));
+                    if (filter.vsTeams)
+                    {
+                        string team1 = filter.Teams[0];
+                        string team2 = filter.Teams[1];
+                        games = games.Where(i => (i.HomeTeam.Equals(team1) && i.AwayTeam.Equals(team2)) || (i.HomeTeam.Equals(team2) && i.AwayTeam.Equals(team1)));
+                    }
+                    else
+                    {
+                        games = games.Where(i => filter.Teams.Contains(i.HomeTeam) || filter.Teams.Contains(i.AwayTeam));
+                    }
                 }
 
                 games = games.Where(i => i.DateTime >= filter.StartDate && i.DateTime <= filter.EndDate);
@@ -182,6 +191,7 @@ namespace NFLDALEF
         // Some time far in the future
         public DateTime EndDate { get; set; } = new DateTime(2100, 1, 1);
 
-        public string Team { get; set; } = string.Empty;
+        public List<string> Teams { get; set; }
+        public bool vsTeams = false;
     }
 }

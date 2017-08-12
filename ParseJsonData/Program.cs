@@ -29,6 +29,29 @@ namespace ParseJsonData
 
             List<Task> tasks = new List<Task>();
 
+            int Completions = 43;
+            int Attempts = 62;
+            int Yards = 466;
+            int Touchdowns = 2;
+            int Interceptions = 1;
+            double comps = Completions;
+            double atts = Attempts;
+            double yds = Yards;
+            double tds = Touchdowns;
+            double ints = Interceptions;
+
+            double a = ((comps / atts) - .3) * 5;
+            a = setBounds(a);
+            double b = ((yds / atts) - 3) * .25;
+            b = setBounds(b);
+            double c = (tds / atts) * 20;
+            c = setBounds(c);
+            double d = 2.375 - ((ints / atts) * 25);
+            d = setBounds(d);
+            double stuff = ((a + b + c + d) / 6) * 100;
+
+            bool dummy = true;
+
             //var something = fetchGamesFromNFL();
 
             //foreach (var game in stuff)
@@ -70,16 +93,23 @@ namespace ParseJsonData
             //}
             //Task.WaitAll(tasks.ToArray());
 
-            foreach (var stat in parseStats())
-            {
-                Task t = Task.Run(() =>
-                {
-                    RestRequest<GameStats> restRequest = new RestRequest<GameStats>();
-                    restRequest.MakeRequest("http://localhost:49786", "api/stats", stat, Method.POST, headers);
-                });
-                tasks.Add(t);
-            }
-            Task.WaitAll(tasks.ToArray());
+            //foreach (var stat in parseStats())
+            //{
+            //    Task t = Task.Run(() =>
+            //    {
+            //        RestRequest<GameStats> restRequest = new RestRequest<GameStats>();
+            //        restRequest.MakeRequest("http://localhost:49786", "api/stats", stat, Method.POST, headers);
+            //    });
+            //    tasks.Add(t);
+            //}
+            //Task.WaitAll(tasks.ToArray());
+        }
+
+        private static double setBounds(double dub)
+        {
+            dub = dub > 0 ? dub : 0;
+            dub = dub < 2.375 ? dub : 2.375;
+            return dub;
         }
 
         private static ConcurrentBag<Game> fetchGamesFromNFL()

@@ -58,7 +58,10 @@ namespace NFLRESTAPI
             DefensiveStatDal defensiveStatDal = new DefensiveStatDal();
             var defensiveStatBL = new SingleStatBL<DefensiveStat>(defensiveStatDal);
 
-            StatsBL statsBL = new StatsBL(gameDal, fumbleDal, kickingStatDal, kickReturnStatDal, passingStatDal, puntingStatDal, puntReturnStatDal, receivingStatDal, rushingStatDal, defensiveStatDal, playerDal);
+            PlayersTeamsGamesDal ptgDal = new PlayersTeamsGamesDal();
+            var ptgBL = new SingleStatBL<PlayersTeamsGame>(ptgDal);
+
+            StatsBL statsBL = new StatsBL(gameDal, fumbleDal, kickingStatDal, kickReturnStatDal, passingStatDal, puntingStatDal, puntReturnStatDal, receivingStatDal, rushingStatDal, defensiveStatDal, playerDal, ptgDal);
 
             builder.RegisterInstance(gameBL).As<SingleStatBL<Game>>();
             builder.RegisterInstance(playerBL).As<SingleStatBL<Player>>();

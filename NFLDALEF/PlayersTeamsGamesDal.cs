@@ -8,7 +8,7 @@ using NFLCommon.DALInterfaces;
 
 namespace NFLDALEF
 {
-    public class PlayersTeamsGamesDal : IPlayersTeamsGames
+    public class PlayersTeamsGamesDal : IPlayersTeamsGamesDal
     {
         public Guid Create(PlayersTeamsGame obj)
         {

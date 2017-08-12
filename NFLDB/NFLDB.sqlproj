@@ -114,6 +114,7 @@
     <Build Include="dbo\Tables\__RefactorLog.sql" />
     <Build Include="ReferenceTables\PlayersTeamsGames.sql" />
     <Build Include="Game\GameType.sql" />
+    <Build Include="Game\Score.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NFLDB.refactorlog" />
